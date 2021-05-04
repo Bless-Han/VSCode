@@ -1,0 +1,39 @@
+实验5-1 使用函数计算两个复数之积 (10分)
+
+若两个复数分别为：c​1​​=x​1​​+y​1​​i和c​2​​=x​2​​+y​2​​i，则它们的乘积为 c​1​​×c​2​​=(x​1​​x​2​​−y​1​​y​2​​)+(x​1​​y​2​​+x​2​​y​1​​)i。
+
+本题要求实现一个函数计算两个复数之积。
+函数接口定义：
+
+double result_real, result_imag;
+void complex_prod( double x1, double y1, double x2, double y2 );
+
+其中用户传入的参数为两个复数x1+y1i和x2+y2i；函数complex_prod应将计算结果的实部存放在全局变量result_real中、虚部存放在全局变量result_imag中。
+裁判测试程序样例：
+
+#include<stdio.h> 
+
+double result_real, result_imag;
+void complex_prod( double x1, double y1, double x2, double y2 );
+
+int main(void) 
+{ 
+    double imag1, imag2, real1, real2;	
+
+    scanf("%lf %lf", &real1, &imag1); 			
+    scanf("%lf %lf", &real2, &imag2); 			
+    complex_prod(real1, imag1, real2, imag2); 	
+    printf("product of complex is (%f)+(%f)i\n", result_real, result_imag);
+	
+    return 0;
+}
+
+/* 你的代码将被嵌在这里 */
+
+输入样例：
+
+1 2
+-2 -3
+
+输出样例：
+

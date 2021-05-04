@@ -1,0 +1,9 @@
+-rw-r--r-- 1 icpc icpc 395 Oct 16 21:13 7-10.c
+-rw-r--r-- 1 icpc icpc 256 Oct 16 21:19 7-11.c
+-rw-r--r-- 1 icpc icpc 136 Oct 16 21:21 7-1.c
+-rw-r--r-- 1 icpc icpc 304 Oct 16 18:56 7-2.c
+-rw-r--r-- 1 icpc icpc 297 Oct 16 19:06 7-3.c
+-rw-r--r-- 1 icpc icpc 884 Oct 16 19:35 7-4.c
+-rw-r--r-- 1 icpc icpc 284 Oct 16 19:48 7-7.c
+-rw-r--r-- 1 icpc icpc 376 Oct 16 20:44 7-8.c
+-rw-r--r-- 1 icpc icpc 545 Oct 16 20:58 7-9.c

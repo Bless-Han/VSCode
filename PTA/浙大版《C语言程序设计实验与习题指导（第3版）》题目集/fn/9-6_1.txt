@@ -1,0 +1,11 @@
+10
+31001 annie 85
+31002 bonny 75
+31003 carol 70
+31004 dan 84
+31005 susan 90
+31006 paul 69
+31007 pam 60
+31008 apple 50
+31009 nancy 100
+31010 bob 78

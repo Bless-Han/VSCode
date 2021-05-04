@@ -1,0 +1,43 @@
+实验5-6 使用函数判断完全平方数 (10分)
+
+本题要求实现一个判断整数是否为完全平方数的简单函数。
+函数接口定义：
+
+int IsSquare( int n );
+
+其中n是用户传入的参数，在长整型范围内。如果n是完全平方数，则函数IsSquare必须返回1，否则返回0。
+裁判测试程序样例：
+
+#include <stdio.h>
+#include <math.h>
+
+int IsSquare( int n );
+
+int main()
+{
+    int n;
+
+    scanf("%d", &n);
+    if ( IsSquare(n) ) printf("YES\n");
+    else printf("NO\n");
+
+    return 0;
+}
+
+/* 你的代码将被嵌在这里 */
+
+输入样例1：
+
+10
+
+输出样例1：
+
+NO
+
+输入样例2：
+
+100
+
+输出样例2：
+
+YES

@@ -1,0 +1,35 @@
+1. 第二种更有效率
+2. 将以整数类型输出
+3. ?
+{{{
+H$i$!$
+$Send $10 or $20 now!
+S$e$n$d$ $ct1 = 9, ct2 = 9
+}}}
+4. ?
+  1. weight >= 115 && weight < 125
+  2. ch == 'q' || ch =='Q'
+  3. x % 2 == 0 && x != 26
+  4. x % 2 == 0 && x % 26 != 0
+  5. donation >= 1000 && donation <= 2000 || guest == 1
+  6. ch >= 'a' && ch <='z' || ch >= 'A' && ch <= 'Z'
+5. 不同，这种转换只适用于布尔类型或者值为0 或1 的整数
+6. x >= 0 ? x : -x
+7. ?
+{{{cpp
+  switch (ch)
+  {
+    case 'A': a_greade++; break;
+    case 'B': b_greade++; break;
+    case 'C': c_greade++; break;
+    case 'D': d_greade++; break;
+    default: f_grade++; break;
+  }
+}}}
+8. 使用字符更便于理解和记忆
+9. ?
+{{{cpp
+  while (cin.get(ch) && ch != 'Q')
+  if (ch == '\n')
+    line++;
+}}}

@@ -1,0 +1,11 @@
+1. 程序的模块叫什么？ 程序块。
+2. #include <iostream> 是做什么用的？ 这是一个声明语句，声明之后可以使用其中的库文件。
+3. using namespace std 是做什么用的？ 是使用某个名称空间，方便程序调用该名称空间中的对象。
+4. 什么语句可以打印？ cout << "Hello, world\n";
+5. 什么语句可以创建？ int cheeses;
+6. xxxx? cheese = 32;
+7. xxxx? cin >> cheese;
+8. xxxx? cout >> "We have " >> cheese >> " varieties of cheese,\n";
+9. xxxx? 函数头， 传入参数的类型， 返回的类型
+10. xxxx? 无返回类型时不用使用return.
+11. xxxx? using namespace std; using std::cout; std::cout << "Please enter your PIN: ";

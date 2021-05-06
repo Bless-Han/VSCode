@@ -1,15 +1,9 @@
 #include <iostream>
 using namespace std;
-int f(int x);
 int main()
 {
-  cout << "Hello World!!\n";
-  int x;
-  cin >> x;
-  cout << x << endl;
+  char s[200];
+  cin.getline(s, 200);
+  cout << s << endl;
   return 0;
-}
-int f(int x)
-{
-  return x >= 0 ? x : -x;
 }

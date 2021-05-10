@@ -1,28 +1,35 @@
 #include <iostream>
 using namespace std;
-long double probability(unsigned numbers, unsigned picks);
+struct applicant {
+  char name[30];
+  int credit_ratings[3];
+};
+void f1(applicant * a);
+const char * f2(const applicant * al, const applicant * a2);
+typedef void (*pf1)(applicant *a);
+typedef const char * (*pf2)(const applicant * a1, const applicant * a2);
 int main()
 {
-  double total, choices;
-  cout << "Enter the total nubmer of choices on the game card and\n"
-    "the number of picks allowed:\n";
-  while ((cin >> total >> choices) && choices <= total)
-  {
-    cout << "You have one chance in ";
-    cout << probability(total, choices);
-    cout << " of winning.\n";
-    cout << "Next two numbers (q to quit): ";
-  }
-  cout << "bye\n";
+  applicant app = {"Smith", {2, 4, 8}};
+  pf1 p1 = f1;
+  p1(&app);
+  pf2 p2 = f2;
+  p2(&app, &app);
+  pf1 ap[5] = {f1, f1, f1, f1, f1};
+  for (int i = 0; i < 5; i++)
+    ap[i](&app);
+  pf2 pa[10] = {p2,p2,p2,p2,p2,p2,p2,p2,p2,p2};
+  for (int i = 0; i < 10; i++)
+    pa[i](&app,&app);
+
   return 0;
 }
-long double probability(unsigned numbers, unsigned picks){
-  long double result = 1.0;
-  long double n;
-  unsigned p;
-
-  
-  for (n = numbers, p = picks; p > 0; n--, p--)
-    result = result * n / p;
-  return result;
+void f1(applicant * a)
+{
+    cout << "This is f1.\n";
+}
+const char * f2(const applicant *a1, const applicant *a2)
+{
+    cout << "This is f2.\n";
+    return "jj";
 }

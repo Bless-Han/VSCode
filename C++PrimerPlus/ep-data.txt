@@ -1,0 +1,7 @@
+Focal length of objective: 30 mm
+f.1. eyepiece  magnification
+         3.0             10
+         3.0             10
+         3.0             10
+         3.0             10
+         3.0             10

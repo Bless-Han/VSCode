@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-double calculate(double a, double b, double (*f[])(double a, double b));
+inline double calculate(double a, double b, double (*f[])(double a, double b));
 double f1(double a, double b);
 double f2(double a, double b);
 int main()
@@ -16,7 +16,7 @@ int main()
     }
     return 0;
 }
-double calculate(double a, double b, double (*f[])(double a, double b))
+inline double calculate(double a, double b, double (*f[])(double a, double b))
 {
     return f[0](a, b) + f[1](a, b);
 }

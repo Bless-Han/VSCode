@@ -24,6 +24,7 @@ StringBad::StringBad()
         << "\" default object created\n";
 }
 
+
 StringBad::StringBad(const StringBad &)
 {
     num_strings++;

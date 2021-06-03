@@ -1,37 +1,35 @@
 #include <iostream>
 using std::cout;
 #include "stonewt.h"
-void display(const Stonewt & st, int n);
 int main()
 {
-    Stonewt incognito = 275;
-    Stonewt wolfe(285.7);
-    Stonewt taft(21, 8);
-
-    cout << "The celebrity weighed ";
-    incognito.show_stn();
-    cout << "The detective weighed ";
-    wolfe.show_stn();
-    cout << "The President weighed ";
-    taft.show_lbs();
-    incognito = 276.8;
-    taft = 325;
-    cout << "After dinner, the celebrity weighed ";
-    incognito.show_stn();
-    cout << "After dinner, the President weighed ";
-    taft.show_lbs();
-    display(taft, 2);
-    cout << "The wrestler weighed even more.\n";
-    display(422, 2);
-    cout << "No stone left unearned\n";
-    return 0;
-}
-
-void display(const Stonewt & st, int n)
-{
-    for (int i = 0; i < n; i++)
+    Stonewt temp(11, 0.0);
+    int i;
+    Stonewt sts[6] = 
     {
-        cout << "Wow! ";
-        st.show_stn();
+        Stonewt(10, 5.0),
+        Stonewt(20, 3.9),
+        Stonewt(9, 2.0)
+    };
+    int tmp_stone;
+    double tmp_pounds;
+    for (i = 3; i < 6; i++)
+    {
+        cout << i + 1 << ":\nEnter the stone: ";
+        std::cin >> tmp_stone;
+        cout << "Enter the pounds: ";
+        std::cin >> tmp_pounds;
+        sts[i] = Stonewt(tmp_stone, tmp_pounds);
     }
+    Stonewt max, min(9999, 1.0);
+    cout << ">= 11 Stone:\n";
+    for (i = 0; i < 6; i++)
+    {
+        if (sts[i] >= temp)
+            cout << sts[i];
+        max = sts[i] > max ? sts[i] : max;
+        min = sts[i] < min ? sts[i] : min;
+    }
+    cout << "min = " << min << std::endl;
+    cout << "max = " << max << std::endl;
 }

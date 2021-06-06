@@ -25,9 +25,14 @@ StringBad::StringBad()
 }
 
 
-StringBad::StringBad(const StringBad &)
+StringBad::StringBad(const StringBad & st)
 {
     num_strings++;
+    len = st.len;
+    str = new char [len + 1];
+    std::strcpy(str, st.str);
+    cout << num_strings << ": \"" << str
+        << "\" object created\n";
 }
 
 StringBad::~StringBad()
@@ -41,4 +46,15 @@ std::ostream & operator<<(std::ostream & os, const StringBad & st)
 {
     os << st.str;
     return os;
+}
+
+StringBad & StringBad::operator=(const StringBad & st)
+{
+    if (this == &st)
+        return *this;
+    delete [] str;
+    len = st.len;
+    str = new char [len + 1];
+    std::strcpy(str, st.str);
+    return *this;
 }

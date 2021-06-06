@@ -8,6 +8,10 @@ void callme2(StringBad);
 int main()
 {
     using std::endl;
+    char * s = nullptr;
+    delete [] s;
+    delete [] s;
+    delete [] s;
     {
         cout << "Starting an inner block.\n";
         StringBad headline1("Celery Stalks at Midnight");
@@ -39,6 +43,7 @@ void callme1(StringBad & rsb)
     cout << "String passed by reference:\n";
     cout << "    \"" << rsb << "\"\n";
 }
+
 void callme2(StringBad sb)
 {
     cout << "String passed by value:\n";

@@ -6,11 +6,12 @@ using std::istream;
 
 class String
 {
+    public:
+        static const int CINLIM = 80;
     private:
         char *str;
         int len;
         static int num_strings;
-        static const int CINLIM = 80;
     public:
         String(const char * s);
         String();
@@ -25,7 +26,7 @@ class String
         friend bool operator>(const String &st, const String &st2);
         friend bool operator==(const String &st, const String &st2);
         friend ostream & operator<<(ostream & os, const String & st);
-        friend istream & operator>>(istream & os, const String & st);
+        friend istream & operator>>(istream & os, String & st);
         static int HowMany();
 };
 #endif

@@ -10,9 +10,14 @@ item;
 item items[5];
 int main()
 {
-    items[].name = "good";
-    for (int i = 0; i < 5; i++)
+    int i;
+    for (i = 0; i < 5; i++)
     {
-        printf("%s, bool is %i\n", items[i].name, items[i].name == NULL);
+        if (i == 4)
+        {
+            goto kk;
+        }
     }
+    kk:
+    printf("%i i\n", i);
 }

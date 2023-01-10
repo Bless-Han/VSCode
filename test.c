@@ -4,21 +4,15 @@
 
 typedef struct
 {
-    string name;
+    int i;
 }
 item;
 
 item items[5];
 int main()
 {
-    int i;
-    for (i = 0; i < 5; i++)
-    {
-        if (i == 4)
-        {
-            goto kk;
-        }
-    }
-    kk:
-    printf("%i i\n", i);
+    int i = 9;
+    item test;
+    test.i = 100;
+    printf("%i i, %i test.i\n", i, test.i);
 }

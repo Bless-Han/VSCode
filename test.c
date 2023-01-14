@@ -1,11 +1,18 @@
 #include <stdio.h>
 #include <cs50.h>
 
-
+typedef int integer;
 
 int main()
 {
-    char *s = "HI!";
-    char *p = s;
-    printf("%s\n", p);
+    string s = "Hi!";
+    string t = "Hi!";
+    if (s == t)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
 }

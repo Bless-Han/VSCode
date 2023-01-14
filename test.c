@@ -8,16 +8,11 @@ typedef int integer;
 
 int main()
 {
-    char *s = get_string("s: ");
-    char *t = malloc(strlen(s) + 1);
-    
-    for (int i = 0; i < strlen(s) + 1; i++)
-    {
-        t[i] = s[i];
-    }
-    
-    printf("%p\n", s);
-    printf("%p\n", t);
-    printf("%s\n", s);
-    printf("%s\n", t);
+    int *m = malloc(3 * sizeof(int));
+    m[0] = 9;
+    m[1] = 20;
+    m[4] = 22;
+    printf("%i\n", m[4]);
+    free(m);
+    return 0;
 }

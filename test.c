@@ -1,18 +1,23 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 typedef int integer;
 
 int main()
 {
-    string s = "Hi!";
-    string t = "Hi!";
-    if (s == t)
+    char *s = get_string("s: ");
+    char *t = malloc(strlen(s) + 1);
+    
+    for (int i = 0; i < strlen(s) + 1; i++)
     {
-        printf("Same\n");
+        t[i] = s[i];
     }
-    else
-    {
-        printf("Different\n");
-    }
+    
+    printf("%p\n", s);
+    printf("%p\n", t);
+    printf("%s\n", s);
+    printf("%s\n", t);
 }

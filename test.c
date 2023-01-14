@@ -8,11 +8,12 @@ typedef int integer;
 
 int main()
 {
-    int *m = malloc(3 * sizeof(int));
-    m[0] = 9;
-    m[1] = 20;
-    m[4] = 22;
-    printf("%i\n", m[4]);
-    free(m);
-    return 0;
+    int *y;
+    if (y == NULL)
+    {
+        printf("NULL\n");
+    }
+    {
+        printf("OK\n");
+    }
 }

@@ -8,12 +8,16 @@ typedef int integer;
 
 int main()
 {
+    int *x;
     int *y;
-    if (y == NULL)
-    {
-        printf("NULL\n");
-    }
-    {
-        printf("OK\n");
-    }
+    x = malloc(sizeof(int));
+    
+
+    *x = 42;
+    printf("%i x\n", *x);
+
+    y = x;
+    *y = 13;
+    printf("%i x\n", *x);
+    free(x);
 }

@@ -6,9 +6,6 @@
 
 int main()
 {
-    // char *s = malloc(20 * sizeof(char));
-    char s[4];
-    printf("s: ");
-    scanf("%s", s);
-    printf("s: %s\n", s);
+    int i = 0 / 0;
+    printf("i: %i\n", i);
 }

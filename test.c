@@ -1,11 +1,27 @@
 #include <stdio.h>
-#include <cs50.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
 
 int main()
 {
-    int i = 0 / 0;
-    printf("i: %i\n", i);
+    FILE *input = fopen("input.txt", "r");;
+    if (input == NULL)
+    {
+        printf("Could not open input.txt\n");
+    }
+    FILE *output = fopen("output.txt", "w");;
+    if (output == NULL)
+    {
+        printf("Could not open output.txt\n");
+    }
+    int8_t buffer;
+    fread(&buffer, sizeof(buffer), 1, input);
+    fwrite(&buffer, sizeof(buffer), 1, output);
+    printf("buffer: %c\n", buffer);
+    fread(&buffer, sizeof(buffer), 1, input);
+    fwrite(&buffer, sizeof(buffer), 1, output);
+    printf("buffer: %c\n", buffer);
+    fread(&buffer, sizeof(buffer), 1, input);
+    fwrite(&buffer, sizeof(buffer), 1, output);
+    printf("buffer: %c\n", buffer);
+
+
 }

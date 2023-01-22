@@ -8,11 +8,8 @@ typedef struct
 
 int main()
 {
-    two_number m;
-    m.a = 20;
-    m.b = 90;
-    printf("m.a: %i, m.b: %i\n", m.a, m.b);
-    two_number n = m;
-    printf("n.a: %i, n.b: %i\n", n.a, n.b);
-    printf("M address: %p, N address: %p, m, n");
+    two_number m[2];
+    m[0].a = 20;
+    m[1] = m[0];
+    printf("m: %i %p \nm: %i %p\n", m[0].a, &m[0], m[1].a, &m[1]);
 }

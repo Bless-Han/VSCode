@@ -8,8 +8,12 @@ typedef struct
 
 int main()
 {
-    int a = -2;
-    for ( ; a < 0; a++);
-    printf("a: %i\n", a);
-    
+    char s[20];
+    for (int i = 0; i < 20; i++)
+    {
+        /* code */
+        sprintf(s, "%03i", i);
+        s[2] = '\0';
+        printf("s: %s\n", s);
+    }
 }

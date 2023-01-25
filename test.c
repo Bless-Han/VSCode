@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdbool.h>
+#include "tools.h"
 
 int main(int argc, char *argv[])
 {
-    int *a = malloc(sizeof(int));
+    printf("%i\n", L);
+
 }

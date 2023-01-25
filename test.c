@@ -5,11 +5,5 @@
 
 int main(int argc, char *argv[])
 {
-    srand(time(0));
-    printf("%lu\n", random() % 3);
-    printf("%lu\n", random() % 3);
-    printf("%lu\n", random() % 3);
-    printf("%lu\n", random() % 3);
-    printf("%lu\n", random() % 3);
-    printf("%lu\n", random() % 3);
+    int *a = malloc(sizeof(int));
 }

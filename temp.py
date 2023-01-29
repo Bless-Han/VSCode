@@ -1,9 +1,8 @@
-from cs50 import get_int
+import sys
 
-while True:
-    n = get_int("Height: ")
-    if n > 0:
-        break
+if len(sys.argv) != 2:
+    print("Missing command-line argument")
+    sys.exit(1);
     
-for i in range(n):
-    print("#")
+print(f"hello {sys.argv[1]}")
+sys.exit(0)

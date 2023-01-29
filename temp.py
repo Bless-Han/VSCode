@@ -3,6 +3,6 @@ import qrcode
 
 img = qrcode.make("https://www.bing.com")
 
-img.sae("qr.png", "PNG")
+img.save("qr.png", "PNG")
 
 os.system("open qr.png")

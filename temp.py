@@ -1,9 +1,9 @@
-x = int(input("x: "))
-y = int(input("y: "))
+from cs50 import get_int
 
-if x < y:
-    print("x is less than y")
-elif x > y:
-    print("x is greater than y")
-else:
-    print("x is equal to y")
+while True:
+    n = get_int("Height: ")
+    if n > 0:
+        break
+    
+for i in range(n):
+    print("#")

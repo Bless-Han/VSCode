@@ -1,4 +1,4 @@
-teams = {"name": "China", "value": 20}
+teams = {"name": "China", "value": "200"}
+# teams["value"] = int(teams["value"])
 
-
-print(teams["value"])
+print(type(teams["value"]))

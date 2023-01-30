@@ -1,5 +1,4 @@
-d = {
-    "a": 20, "b": 90,
-    "a": 30, "b": 5
-}
-print(d["b"])
+teams = {"name": "China", "value": 20}
+
+
+print(teams["value"])

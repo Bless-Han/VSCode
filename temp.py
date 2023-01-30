@@ -1,4 +1,2 @@
-s = "   hello   "
-print(f"s: {s}.")
-s = s.strip()
-print(f"s: {s}.")
+s = 3.31415
+print(f"s: {s:0.2f}")

@@ -9,11 +9,7 @@ dic = {
     "k": "c",
 }
 
-def main():
-    s = input()
-    print(dic)
-    init(s)
-    print_count()
+print(__name__)
     
 def init(s):
     for c in s:
@@ -23,5 +19,3 @@ def init(s):
             
 def print_count():
     i = 0
-
-main()

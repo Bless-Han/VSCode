@@ -11,6 +11,24 @@
 
 # @pintia code=start
 
+# TODO The function use to get Pa and Pb
+def change(x, dx):
+    ...
+   
+
+      
+
+a, da, b, db = input().split()
+
+# Get Pa and Pb
+pa = change(a, da)
+pb = change(b, db)
+
+print(pa + pb)
 
 
 # @pintia code=end
+
+""" @pintia test=start
+3862767 1 13530293 8
+@pintia test=end """

@@ -10,15 +10,24 @@
 '''
 
 # @pintia code=start
+# init
+"""
+dkslfsldkjfls jsfj lsdf 
+sdlfsd jklf
+"""
 s = input().split()
 n = int(s[0])
 c = s[1]
 
 space = " "
+# print the top line
 print(c *  n)
-for row in range(0, int(round((n + 0.1) / 2) - 2)):
+
+# print the middle of the figure
+for row in range(0, int(round((n + 0.000001) / 2) - 2)):
    print(f"{c}{space * (n - 2)}{c}")
 
+# print the bottom line
 print(c *  n)
 
 

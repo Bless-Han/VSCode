@@ -16,7 +16,7 @@ c = s[1]
 
 space = " "
 print(c *  n)
-for row in range(0, int(round(n / 2) - 2)):
+for row in range(0, int(round((n + 0.1) / 2) - 2)):
    print(f"{c}{space * (n - 2)}{c}")
 
 print(c *  n)

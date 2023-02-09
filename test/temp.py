@@ -1,8 +1,10 @@
-def fun(a, b):
-    print("a > b") if a > b else print("a <= b")
-a = 1.4
-b = 749
+from decimal import Decimal
+from decimal import ROUND_HALF_UP
 
-fun(a, b)
+l = [1.4, 0.5, 2.5,]
 
-
+def hello(to="world"):
+    print(f"hello {to}")
+    
+hello()
+hello("Neo")

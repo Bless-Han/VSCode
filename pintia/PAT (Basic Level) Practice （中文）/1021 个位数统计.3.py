@@ -16,8 +16,15 @@ n = input()
 result = {}
 
 # TODO add key and value to result
+for i in range(10):
+    number = n.count(str(i))
+    if number > 0:
+        result[i] = number
+
 
 # TODO print result
+for key in result:
+    print(key, result[key], sep=":")
 
 
 # @pintia code=end

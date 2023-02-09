@@ -12,17 +12,16 @@
 # @pintia code=start
 
 # TODO The function use to get Pa and Pb
-def change(x, dx):
+def get_p(x, dx):
     ...
-   
 
       
 
 a, da, b, db = input().split()
 
 # Get Pa and Pb
-pa = change(a, da)
-pb = change(b, db)
+pa = get_p(a, da)
+pb = get_p(b, db)
 
 print(pa + pb)
 

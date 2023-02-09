@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "tools.h": "c"
-    }
+    },
+    "editor.detectIndentation": false,
 }

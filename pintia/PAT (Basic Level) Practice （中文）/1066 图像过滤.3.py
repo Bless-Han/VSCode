@@ -11,20 +11,29 @@
 
 # @pintia code=start
 def main():
-    m, n, a, b, target = input().split()
-    a = int(a)
-    b = int(b)
+    s = input().split()
+    m, n, a, b, target = map(int, s)
 
+    rows = []
+    # get rows
     for i in range(m):
-        row = input().split()
-        for pixel in row:
-            pixel = int(pixel)
-            if pixel >= a and pixel <= b:
-                print(0, end="", sep=" ")
-        print()
+        row =input().split()
+        rows.append(row)
         
+    # change rows
+    for row in rows:
+        for i in range(len(row)):
+            row[i] = int(row[i])
+            if row[i] >= a and row[i] <= b:
+                row[i] = target
       
-
+    # print rows
+    for row in rows:
+        for i in range(len(row)):
+            if i != 0:
+                print(" ", end="")
+            print(f"{row[i]:03}", end="")
+        print()
 
 main()
 

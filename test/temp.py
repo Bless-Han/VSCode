@@ -1,6 +1,9 @@
-def function(*numbers, name="world"):
-    for i in numbers:
-        print(i)
-    print(f"hello, {name}")
+def function():
+    a = "hello"
+    b = "Neo"
+    return f"{a}:{b}"
+
+a = "      neo hAN   "
+a = a.strip().capitalize()
         
-function("1kdfj", "sldf", name="Neo")
+print(a)

@@ -14,26 +14,17 @@ def main():
     s = input().split()
     m, n, a, b, target = map(int, s)
 
-    rows = []
-    # get rows
     for i in range(m):
-        row =input().split()
-        rows.append(row)
-        
-    # change rows
-    for row in rows:
-        for i in range(len(row)):
-            row[i] = int(row[i])
-            if row[i] >= a and row[i] <= b:
-                row[i] = target
-      
-    # print rows
-    for row in rows:
-        for i in range(len(row)):
+        row = input().split()
+        row = list(map(int, row))
+        for i, v in enumerate(row):
             if i != 0:
                 print(" ", end="")
-            print(f"{row[i]:03}", end="")
+            if v >= a and v <= b:
+                v = target 
+            print(f"{v:03}", end="")
         print()
+            
 
 main()
 

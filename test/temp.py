@@ -1,7 +1,18 @@
-from decimal import Decimal
-from decimal import ROUND_HALF_UP
+x = 200
+def main():
+    global x
+    x = int(input())
+    my_fun2()
+    my_fun()
 
-a = []
-def hello(good="world"):
-    a
+
+def my_fun():
+    print(x)
+    
+
+def my_fun2():
+    global x
+    x = 2
+
+main()
 

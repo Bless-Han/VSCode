@@ -10,10 +10,32 @@
 '''
 
 # @pintia code=start
+x = 0
 def main():
+    global x
     s = input().split()
-    t, k = map(int, s)
-    print(type(t), type(k))
+    x, k = map(int, s)
+    
+    for i in range(k):
+        if x <= 0:
+            print("Game Over.")
+            break
+        s = input().split()
+        n1, b, t, n2 = map(int, s)
+        if x < t:
+            print(f"Not enough tokens.  Total = {x}.")
+            continue
+
+        # judge = 0 if n2 < n1, else judge = 1
+        judge = 0 if n2 < n1 else 1
+        
+        if judge == b:
+            x += t
+            print(f"Win {t}!  Total = {x}.")
+        else:
+            x -= t 
+            print(f"Lose {t}.  Total = {x}.")
+
 
 
 main()

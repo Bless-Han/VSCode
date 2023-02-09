@@ -1,9 +1,11 @@
-def function():
+from decimal import Decimal
+from decimal import ROUND_HALF_UP
+
+def function(good):
     a = "hello"
     b = "Neo"
     return f"{a}:{b}"
 
-a = "      neo hAN   "
-a = a.strip().capitalize()
-        
-print(a)
+
+print(function(100))
+

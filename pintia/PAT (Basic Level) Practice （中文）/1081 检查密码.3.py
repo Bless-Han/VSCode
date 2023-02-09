@@ -24,14 +24,34 @@ def main():
     n = int(input())
     for i in range(n):
         s = input()
-        print(dic(judge(s)))
+        print(dic[judge(s)])
 
 
 # judge a str and return a number
 def judge(s):        
-    if len(s) <= 6:
+    if len(s) < 6:
         return 1
-    
+
+    is_other = False
+    is_num = False
+    is_al = False
+    for c in s:
+        if c.isdigit() == True:
+            is_num = True
+        if c.isalpha() == True:
+            is_al = True
+        if c.isalnum() == False and c != ".":
+            is_other = True
+
+    if is_other == True:
+        return 2
+
+    if is_num == False:
+        return 3
+    elif is_al == False:
+        return 4
+            
+
     return 0
 
 

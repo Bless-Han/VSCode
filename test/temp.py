@@ -1,18 +1,8 @@
-x = 200
-def main():
-    global x
-    x = int(input())
-    my_fun2()
-    my_fun()
+def fun(a, b):
+    print("a > b") if a > b else print("a <= b")
+a = 1.4
+b = 749
 
+fun(a, b)
 
-def my_fun():
-    print(x)
-    
-
-def my_fun2():
-    global x
-    x = 2
-
-main()
 

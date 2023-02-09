@@ -26,13 +26,11 @@ def get_result():
     jia_he = 0
     yi_he = 0
 
-    
-
     for han_hua in han_huas:
-        qiuhe = str(int(han_hua["jia_hua"]) + int(han_hua["yi_hua"]))
-        if han_hua["jia_han"] == qiuhe and han_hua["yi_han"] != qiuhe:
+        qiuhe = str(int(han_hua["jia_han"]) + int(han_hua["yi_han"]))
+        if han_hua["jia_hua"] == qiuhe and han_hua["yi_hua"] != qiuhe:
             yi_he += 1
-        elif han_hua["jia_han"] != qiuhe and han_hua["yi_han"] == qiuhe:
+        elif han_hua["jia_hua"] != qiuhe and han_hua["yi_hua"] == qiuhe:
             jia_he += 1
 
     print(jia_he, yi_he)

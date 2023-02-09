@@ -1,11 +1,9 @@
 from decimal import Decimal
 from decimal import ROUND_HALF_UP
 
-def function(good):
-    a = "hello"
-    b = "Neo"
-    return f"{a}:{b}"
+def hello(good="world"):
+    print(f"hello, {good}")
 
 
-print(function(100))
+hello(200)
 

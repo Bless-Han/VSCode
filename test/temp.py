@@ -1,4 +1,7 @@
-times = lambda a, b: a * b
+times = int(input())
 
+money = 50.00
 
-print(times(2, 9))
+for i in range(times):
+	money = money * 0.9
+print(money)

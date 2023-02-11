@@ -23,7 +23,26 @@ def main():
 
 
 def judge(number):
-    ...
+    yinshu = []
+    for i in range(1, number ** 2 + 1):
+        if number % i == 0:
+            yinshu.append(i)
+            if number ** 2 != i:
+                yinshu.append(number / i)
+
+    l = len(yinshu)
+    if l < 4:
+        return False
+    for i1 in range(l):
+        for i2 in range(i1 + 1, l):
+            for i3 in range(i2 + 1, l):
+                for i4 in range(i3 + 1, l):
+                    if (yinshu[i1] + yinshu[i2] + yinshu[i3] + yinshu[i4]) % number == 0:
+                        return True
+
+
+    return False
+        
 
 
 

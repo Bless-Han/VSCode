@@ -14,9 +14,9 @@
 def main():
     s = input().split()
     a, b = map(int, s)
-    result_num = a * b
-    result_str = str(result_num)
-    print(result_str[::-1])
+    result = a * b
+    result = int(str(result)[::-1])
+    print(result)
 
 main()
 # @pintia code=end

@@ -21,28 +21,34 @@ def main():
         else:
             print("No")
 
-        
+
 def judge(number):
-    sums = get_sums(number)
-
-    for sm in sums:
-        if number % sm == 0:
-            return True
-    
-    return False
-
-
-def get_sums(number):
     yinzi = []
     
-    for i in range(number / 2 + 1):
+    for i in range(1, int(number) + 1):
         if number % i == 0:
             yinzi.append(i)
+    # print(yinzi)
+    
+    if len(yinzi) < 4:
+        return False
 
     sums = []
-    for x in yinzi:
+    for i1, v1 in enumerate(yinzi):
+        for i2, v2 in enumerate(yinzi[i1+1:]):
+            for i3, v3 in enumerate(yinzi[i2+1:]):
+                for i4, v4 in enumerate(yinzi[i3+1:]):
+                    if number == v1 + v2 + v3 + v4:
+                        # print(v1, v2, v3, v4, v1 + v2 + v3 + v4)
+                        return True
+                    # sums.append(v1 + v2 + v3 + v4)
+    
+    # print(sums)
+    # for sm in sums:
+    #     if number % sm == 0:
+            # return True
 
-        
+    return False
     # TODO 去重
     # TODO 排序
 
@@ -50,3 +56,7 @@ def get_sums(number):
 
 main()
 # @pintia code=end
+""" @pintia test=start
+1
+36
+@pintia test=end """

@@ -10,6 +10,7 @@
 '''
 
 # @pintia code=start
+yinshu = [20]
 def main():
     k = input()
     numbers = list(map(int, input().split()))
@@ -18,10 +19,13 @@ def main():
     
 
 def is_dameishu(number):
-    yinshu = []
-    for i in range(1, number + 1):
+    # TODO 为什么把yinshu放在全局变量里就出现异常了？
+    # yinshu = [20]
+    for i in range(1, int(number ** 0.5) + 1):
         if number % i == 0:
             yinshu.append(i)
+            if i ** 2 != number:
+                yinshu.append(number / i)
 
     l = len(yinshu)
     for i1 in range(l):

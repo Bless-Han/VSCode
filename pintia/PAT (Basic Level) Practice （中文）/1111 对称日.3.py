@@ -21,7 +21,9 @@ def main():
         s = input().split()
         day = s[1].replace(",", "")
         day = f"{int(day):02}"
-        month = months[s[0]]
+        month = months[int(s[0])]
+        year = s[2]
+
 
 
 

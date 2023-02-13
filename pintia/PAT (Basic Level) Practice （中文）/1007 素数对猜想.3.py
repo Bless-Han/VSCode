@@ -10,35 +10,28 @@
 '''
 
 # @pintia code=start
+import math
 def main():
     n = int(input())
-    sushu = get_sushu(n)
-    # 打印出差为2的素数
-    print(count_dn2(sushu))
+    pre = 2
+    count = 0
+    for i in range(3, n + 1, 2):
+        if is_prime(i) == 1:
+            if i - pre == 2:
+                count += 1
+            pre = i
+        
+    print(count)
 
 
-def get_sushu(n):
-    ret = []
-    for i in range(2, n):
-        if is_sushu(i):
-            ret.append(i)
-    return ret
-
-
-def is_sushu(x):
-    for i in range(2, int(x ** 0.5) + 1):
+def is_prime(x):
+    if x < 2:
+        return False
+    sqr = int(math.sqrt(x))
+    for i in range(2, sqr + 1):
         if x % i == 0:
             return False
     return True
-
-
-def count_dn2(sushu):
-    ret = 0
-    for i in range(len(sushu) - 1):
-        if sushu[i+1] - sushu[i] == 2:
-            ret += 1
-    return ret
-
 
 
 main()

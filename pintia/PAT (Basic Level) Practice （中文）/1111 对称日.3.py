@@ -21,9 +21,19 @@ def main():
         s = input().split()
         day = s[1].replace(",", "")
         day = f"{int(day):02}"
-        month = months[int(s[0])]
-        year = s[2]
+        month = months[s[0]]
+        year = f"{int(s[2]):04}"
+        date = year + month + day
+        print(f"Y {date}") if is_duichen(date) else print(f"N {date}")
+        
 
+
+def is_duichen(date):
+    l = len(date)
+    for i in range(int(l / 2)):
+        if date[i] != date[l - i - 1]:
+            return False
+    return True
 
 
 

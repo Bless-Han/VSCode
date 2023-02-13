@@ -18,12 +18,19 @@ def main():
 
     
 def is_pat(s):
-    # indexes = [x1, x2], x1 和 x2 分别为始坐标和未坐标+1
+    # indexes = [x1, x2], x1 和 x2 分别为始坐标和未坐标
     # "pat" == s[x1:x2]
     indexes = get_pat(s)
-    left = 
     if indexes[0] == -1 or indexes[1] == -1:
         return False
+
+    left = s[:indexes[0]]
+    right = s[indexes[1] + 1:]
+    # 判断是否由A组成
+    if judge_a(left + right) == False:
+        return False
+    middle_len = len(s[indexes[0]: indexes[1] + 1]) - 2
+    return (left * middle_len) == right
     
 
 def get_pat(s):
@@ -41,16 +48,19 @@ def get_pat(s):
             if s[i] == "A":
                 found_a = True
                 continue
-            elif found_a == True and s[i] == "P":
-                ret[1] = i + 1
+            elif found_a == True and s[i] == "T":
+                ret[1] = i
                 break
-            elif:
-                
-
-
+            elif found_a == False:
+                break
     return ret
 
 
+def judge_a(s):
+    for c in s:
+        if c != "A":
+            return False
+    return True
 
 main()
 # @pintia code=end

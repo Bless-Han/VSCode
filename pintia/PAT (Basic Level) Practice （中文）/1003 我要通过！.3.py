@@ -13,27 +13,42 @@
 def main():
     n = int(input())
     for i in range(n):
-        print("YES") if is_pat() else print("NO")
+        s = input().strip()
+        print("YES") if is_pat(s) else print("NO")
 
     
-def is_pat():
-    s = input().strip()
-    index = s.find("PAT")
-    # number is use to add to index
-    number = 3
-    if index == -1:
-        index = s.find("PAAT")
-        number = 4
-    if index == -1:
+def is_pat(s):
+    # indexes = [x1, x2], x1 和 x2 分别为始坐标和未坐标+1
+    # "pat" == s[x1:x2]
+    indexes = get_pat(s)
+    left = 
+    if indexes[0] == -1 or indexes[1] == -1:
         return False
-    before = s[:index] 
-    after = s[index+number: ]
-    if before == after:
-        s = before + after
-        new_s = s.replace(" ", "").replace("A", "")
-        return len(new_s) == 0
-    else:
-        return False
+    
+
+def get_pat(s):
+    ret = [-1, -1]
+    index = 0
+    # find "P"
+    l = len(s)
+    for i in range(l):
+        if s[i] == "P":
+            ret[0] = i
+            break
+    found_a = False
+    if ret[0] != -1:
+        for i in range(ret[0] + 1, l):
+            if s[i] == "A":
+                found_a = True
+                continue
+            elif found_a == True and s[i] == "P":
+                ret[1] = i + 1
+                break
+            elif:
+                
+
+
+    return ret
 
 
 

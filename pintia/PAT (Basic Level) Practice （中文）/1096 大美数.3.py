@@ -12,45 +12,28 @@
 # @pintia code=start
 def main():
     k = input()
-    numbers = input().split()
-    numbers = map(int, numbers)
-
+    numbers = list(map(int, input().split()))
     for number in numbers:
-        if judge(number) == True:
-            print("Yes")
-        else:
-            print("No")
+        print("Yes") if is_dameishu(number) else print("No")
+    
 
-
-def judge(number):
+def is_dameishu(number):
     yinshu = []
-    for i in range(1, int(number ** 0.5) + 1):
+    for i in range(1, number + 1):
         if number % i == 0:
             yinshu.append(i)
-            if i ** 2 != number:
-                yinshu.append(number / i)
-            
+
     l = len(yinshu)
-    if l < 4:
-        return False
-    
     for i1 in range(l):
         for i2 in range(i1 + 1, l):
             for i3 in range(i2 + 1, l):
                 for i4 in range(i3 + 1, l):
                     if (yinshu[i1] + yinshu[i2] + yinshu[i3] + yinshu[i4]) % number == 0:
                         return True
-    
-    
     return False
-    
 
 
 
 
 main()
 # @pintia code=end
-""" @pintia test=start
-1
-900
-@pintia test=end """

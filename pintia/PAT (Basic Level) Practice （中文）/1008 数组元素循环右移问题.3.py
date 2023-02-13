@@ -13,7 +13,7 @@
 n, m = map(int, input().split())
 numbers = list(map(int, input().split()))
 m = m % n
-print(numbers[-m:] + numbers[:-m])
+print(*(numbers[-m:] + numbers[:-m]))
 
 
 

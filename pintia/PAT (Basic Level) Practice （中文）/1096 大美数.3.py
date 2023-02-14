@@ -19,8 +19,8 @@ def main():
     
 
 def is_dameishu(number):
-    # TODO 为什么把yinshu放在全局变量里就出现异常了？
-    # yinshu = [20]
+    global yinshu
+    yinshu = []
     for i in range(1, int(number ** 0.5) + 1):
         if number % i == 0:
             yinshu.append(i)

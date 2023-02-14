@@ -11,16 +11,15 @@
 
 # @pintia code=start
 n = input()
-
-# creat a dictionary
 result = {}
 
-# TODO add key and value to result
-
-
-
-# TODO print result
-
+for i in range(len(n)):
+    number = int(n[i])
+    result[number] = 1 if number not in result else: result[number] += 1
+        
+for key in sorted(result):
+    print(key, result[key], sep=":")
+        
 
 
 # @pintia code=end

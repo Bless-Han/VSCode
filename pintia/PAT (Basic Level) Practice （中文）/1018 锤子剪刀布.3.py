@@ -10,18 +10,27 @@
 '''
 
 # @pintia code=start
-# 根据对方的手势判断什么一直出什么手势将会赢
+# 根据 x 的手势判断什么一直出什么手势将会赢过 x
 def will_win(x):
-    min_shoushi = "B"
-    min_count = x["B"]
-    s = "C"
+    max_shengsuan = {"J": "B", "B": "C", "C": "J"}
+    # 胜率
+    shenglv = {"B": 0, "C": 0, "J": 0}
+    ret = "B"
+    for key in shenglv:
+        
+
+    return ret
    
     
 
 # return 1 a win, return -1 b win, return 0 no one win
 def judge(a, b):
-    max_shengsuan = {"J": "B", "B": "C", "C": "J"}
-    ...
+    if a == b:
+        return 0
+    elif (a == "J" and b == "B") or (a == "B" and b == "C") or (a == "C" and b == "J"):
+        return 1
+    else:
+        return -1
 
 
 
@@ -44,12 +53,8 @@ for i in range(n):
             yi["fu"] += 1
             jia["sheng"] += 1
 
-    
-jia["will_win"] = will_win(yi)
-yi["will_win"] = will_win(jia)
-
 print(jia["sheng"], jia["ping"], jia["fu"])
 print(yi["sheng"], yi["ping"], yi["fu"])
-print(jia["will_win"], yi["will_win"])
+print(will_win(yi), will_win(jia))
 
 # @pintia code=end

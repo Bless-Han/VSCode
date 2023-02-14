@@ -12,9 +12,17 @@
 # @pintia code=start
 def main():
     m, n = map(int, input().split())
-    primes = 2;
-    for i in range()
-
+    number = 2;
+    primes = []
+    for count in range(1, n + 1):
+        while is_prime(number) == False:
+            number += 1
+        if m <= count <= n:
+            primes.append(number)
+        number += 1
+            
+    for i in range(0, len(primes), 10):
+        print(*primes[i: i + 10])
 
 def is_prime(number):
     for i in range(2, int(number ** 0.5) + 1):

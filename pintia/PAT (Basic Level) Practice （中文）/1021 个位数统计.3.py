@@ -15,11 +15,13 @@ result = {}
 
 for i in range(len(n)):
     number = int(n[i])
-    result[number] = 1 if number not in result else: result[number] += 1
-        
+    result[number] = 1 if number not in result else result[number] + 1
+    
 for key in sorted(result):
     print(key, result[key], sep=":")
         
 
+def fun(x):
+    return True if x % 2 == 0 else False
 
 # @pintia code=end

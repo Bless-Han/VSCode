@@ -10,51 +10,69 @@
 '''
 
 # @pintia code=start
-# 根据 x 的手势判断什么一直出什么手势将会赢过 x
-def will_win(x):
-    max_shengsuan = {"J": "B", "B": "C", "C": "J"}
-    # 胜率
-    shenglv = {"B": 0, "C": 0, "J": 0}
+# 返回赢次数最多的那一个手势
+def win_max(x):
     ret = "B"
-    for key in shenglv:
-        
+    for c in "CJ":
+        if x[c] > x[ret]:
+            ret = c
 
     return ret
-   
     
 
 # return 1 a win, return -1 b win, return 0 no one win
 def judge(a, b):
-    if a == b:
-        return 0
-    elif (a == "J" and b == "B") or (a == "B" and b == "C") or (a == "C" and b == "J"):
-        return 1
-    else:
-        return -1
+     = {"B": 0, "J": 1, "C": 2}
 
 
 
-# will_win 是最有可能胜的手势
-jia = {"sheng": 0, "ping": 0, "fu": 0, "B": 0, "C": 0, "J": 0, "will_win": "B"}
-yi = {"sheng": 0, "ping": 0, "fu": 0, "B": 0, "C": 0, "J": 0, "will_win": "B"}
+# B C J 为各个手势赢的次数
+jia = {"sheng": 0, "ping": 0, "fu": 0, "B": 0, "C": 0, "J": 0}
+yi = {"sheng": 0, "ping": 0, "fu": 0, "B": 0, "C": 0, "J": 0}
 n = int(input())
 for i in range(n):
     a, b = input().split()
-    jia[a] += 1
-    yi[a] += 1
     match judge(a, b):
         case -1:
             yi["sheng"] += 1
             jia["fu"] += 1
+            yi[b] += 1
         case 0:
             yi["ping"] += 1
             jia["ping"] += 1
         case 1:
             yi["fu"] += 1
             jia["sheng"] += 1
+            jia[a] += 1
 
 print(jia["sheng"], jia["ping"], jia["fu"])
 print(yi["sheng"], yi["ping"], yi["fu"])
-print(will_win(yi), will_win(jia))
+print(win_max(jia), win_max(yi))
 
 # @pintia code=end
+""" @pintia test=start
+10
+C J
+J B
+C B
+B B
+B C
+J C
+J B
+J B
+B C
+J J
+@pintia test=end """
+""" @pintia test=start
+10
+C J
+J B
+C B
+B B
+B C
+C C
+C B
+J B
+B C
+J J
+@pintia test=end """

@@ -19,20 +19,23 @@ def get_week_hour(s1, s2):
         if s1[i] == s2[i]:
             if week == "N" and "A" <= s1[i] <= "G":
                 week = weeks[ord(s1[i]) - ord("A")]
+                continue
             if week != "N":
                 if "0" <= s1[i] <= "9":
                     hour = int(s1[i])
+                    break
                 elif "A" <= s1[i] <= "O":
                     hour = 10 + (ord(s1[i]) - ord("A"))
+                    break
 
     return [week, hour]
 
 def get_minute(s3, s4):
     minute = 0
     l = min(len(s3), len(s4))
-    for i in range(l):
-        if s3[i] == s4[i]:
-            return minute
+    for minute in range(l):
+        if s3[minute] == s4[minute] and s3[minute].isalpha():
+            break
         minute += 1
     return minute
 
@@ -44,7 +47,7 @@ s4 = input()
 week, hour = get_week_hour(s1, s2)
 minute = get_minute(s3, s4)
 
-print(f"{week} {hour}:{minute}")
+print(f"{week} {hour:02}:{minute:02}")
 
 
 

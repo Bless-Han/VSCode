@@ -10,10 +10,20 @@
 '''
 
 # @pintia code=start
-# 变量min用来存储非0最小数的下标
-min = 1
-s = list(map(int, input().split()))
+# 打印非0的最小数，并且更新数组
+numbers = list(map(int, input().split()))
 
+result = ""
+for i in range(1, len(numbers)):
+    if numbers[i] > 0:
+        result += str(i)
+        numbers[i] -= 1
+        break
+
+for i in range(len(numbers)):
+    result += str(i) * numbers[i]
+# 
+print(result)
 
 
 

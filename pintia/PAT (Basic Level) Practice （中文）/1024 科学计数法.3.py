@@ -10,8 +10,33 @@
 '''
 
 # @pintia code=start
-print(float(input()))
+left, right = input().split("E")
+left = left.replace(".", "")
 
+result = ""
+if left[0] == "-":
+    left = left[1:]
+    result += "-"
+elif left[0] == "+":
+    left = left[1:]
 
+if right[0] == "-":
+    right_number = int(right.replace("-", ""))
+    right_number -= 1
+    result += "0." + "0" * right_number + left
+elif right[0] == "+":
+    right_number = int(right.replace("+", ""))
+    if len(left) - 1 >= right_number:
+        result += left[:right_number + 1] + "." + left[right_number + 1: ]
+    else:
+        result += left + "0" * (right_number - (len(left) - 1))
+
+print(result)
 
 # @pintia code=end
+""" @pintia test=start
+-1.2345E-2
+@pintia test=end """
+""" @pintia test=start
+-1.2345E-6
+@pintia test=end """

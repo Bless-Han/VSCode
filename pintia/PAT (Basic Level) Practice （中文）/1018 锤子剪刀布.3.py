@@ -11,6 +11,13 @@
 
 # @pintia code=start
 # 返回赢次数最多的那一个手势
+def win_min(x):
+    ret = "B"
+    for c in "CJ":
+        if x[c] < x[ret]:
+            ret = c
+
+    return ret
 def win_max(x):
     ret = "B"
     for c in "CJ":
@@ -29,7 +36,7 @@ def judge(a, b):
 
 # B C J 为各个手势赢的次数
 jia = {"sheng": 0, "ping": 0, "fu": 0, "B": 0, "C": 0, "J": 0}
-yi = {"sheng": 0, "ping": 0, "fu": 0, "B": 0, "C": 0, "J": 0}
+yi = {"B": 0, "C": 0, "J": 0}
 n = int(input())
 for i in range(n):
     a, b = input().split()
@@ -37,18 +44,18 @@ for i in range(n):
         case 1:
             jia["sheng"] += 1
             jia[a] += 1
-            yi["fu"] += 1
+            # yi["fu"] += 1
         case 0:
-            yi["ping"] += 1
             jia["ping"] += 1
+            # yi["ping"] += 1
         case 2:
-            yi["sheng"] += 1
-            yi[b] += 1
+            # yi["sheng"] += 1
+            # yi[b] += 1
             jia["fu"] += 1
 
 print(jia["sheng"], jia["ping"], jia["fu"])
-print(yi["sheng"], yi["ping"], yi["fu"])
-print(win_max(jia), win_max(yi))
+print(jia["fu"], jia["ping"], jia["sheng"])
+print(win_max(jia), win_min(jia))
 
 # @pintia code=end
 """ @pintia test=start

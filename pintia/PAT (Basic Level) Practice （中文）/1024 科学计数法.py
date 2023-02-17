@@ -10,30 +10,43 @@
 '''
 # @pintia code=start
 left, right = input().split("E")
-left = left.replace(".", "")
 
 result = ""
 if left[0] == "-":
     result += "-"
 left = left[1:]
 
+# 得到右边的数字
 if right[0] == "-":
-    right_number = int(right.replace("-", ""))
-    right_number -= 1
-    result += "0." + "0" * right_number + left
+    right_number = int(right.replace("-", "")) * -1
 elif right[0] == "+":
     right_number = int(right.replace("+", ""))
-    if len(left) - 1 >= right_number:
-        result += left[:right_number + 1] + "." + left[right_number + 1: ]
-    else:
+
+# 将结果组合到result
+if right_number > 0:
+    left = left.replace(".", "")
+    # len(left) - 1 为小数点右边数字的长度
+    if right_number >= len(left) - 1:
         result += left + "0" * (right_number - (len(left) - 1))
+    else:
+        # 计算小数点插入的位置
+        point_location = right_number + 1
+        l = list(left)
+        l.insert(point_location, ".")
+        result += "".join(l)
+elif right_number < 0:
+    left = left.replace(".", "")
+    # 计算出前面插入0的个数
+    right_number *= -1
+    # right_number - 1: 减去"left"小数点左边那一位
+    zero_count = right_number - 1
+    result += "0." + "0" * zero_count + left
+else:
+    result += left
 
-# 去前面的0
-for i in range(len(result)):
-    if result[i] != "0":
-        break
-
-
-print(result[i:])
+print(result)
 
 # @pintia code=end
+""" @pintia test=start
++1.23400E+04
+@pintia test=end """

@@ -10,28 +10,30 @@
 '''
 # @pintia code=start
 n = int(input())
-old = {"name": "", "birthday": 0}
-young = {"name": "", "birthday": 0}
+old = {"name": "", "birthday": ""}
+young = {"name": "", "birthday": ""}
 count = 0
 for i in range(n):
     name, birthday_str = input().split()
-    birthday_int = int("".join(birthday_str.split("/")))
-    if 18140906 <= birthday_int <= 20140906:
+    if "1814/09/06" <= birthday_str <= "2014/09/06":
         count += 1
         if old["name"] == "":
             old["name"] = name
-            old["birthday"] = birthday_int
+            old["birthday"] = birthday_str
             young["name"] = name
-            young["birthday"] = birthday_int
+            young["birthday"] = birthday_str
         else:
-            if old["birthday"] > birthday_int:
+            if old["birthday"] > birthday_str:
                 old["name"] = name
-                old["birthday"] = birthday_int
-            if young["birthday"] < birthday_int:
+                old["birthday"] = birthday_str
+            if young["birthday"] < birthday_str:
                 young["name"] = name
-                young["birthday"] = birthday_int
+                young["birthday"] = birthday_str
 
-print(count, old["name"], young["name"])
+if count > 0:
+    print(count, old["name"], young["name"])
+elif count == 0:
+    print("0")
 
 
 # @pintia code=end

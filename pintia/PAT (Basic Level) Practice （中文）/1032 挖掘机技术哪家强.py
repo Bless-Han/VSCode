@@ -9,21 +9,28 @@
    
 '''
 # @pintia code=start
+# TODO before 102 ms
 import sys
-schools = []
+schools = {}
 result_number = 0
 result_score = 0
-
-for i in range(100000 + 2):
-    schools.append(0)
 
 n = int(input())
 for i in range(n):
     number, score = map(int, sys.stdin.readline().split())
-    schools[number] += score
-    if schools[number] > result_score:
+    if i == 0:
+        schools[number] = score
         result_number = number
-        result_score = schools[number]
+        result_score = score
+    else:
+        if number in schools:
+            schools[number] += score
+        else:
+            schools[number] = score
+        
+        if schools[number] > result_score:
+            result_number = number
+            result_score = schools[number]
             
 print(result_number, result_score)
 

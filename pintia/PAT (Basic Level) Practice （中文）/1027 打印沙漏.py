@@ -11,21 +11,18 @@
 # @pintia code=start
 n, c = input().split()
 n = int(n)
-num = 1
-while (2*num-1)**2-2*num+1 <= n:
-    num += 1
-num -= 1
-used = (2*num-1)**2-2*num+1
-
-for i in range(2*num-1, 0, -2):
-    s = (2*num-1-i)//2
-    print(' ' * s + c * i)
-
-for i in range(3, 2*num+1, 2):
-    s = (2*num-i)//2
-    print(' ' * s + c * i)
-
-print(n - used)
+row = 1
+while (2 * row * row - 1) <= n:
+    row += 1
+row -= 1
+count = n - (2 * row * row - 1)
+for i in range(2 * row - 1, 0, -2):
+    print(" " * ((2 * row - 1 - i) // 2), end="")
+    print(c * i)
+for i in range(3, 2 * row, 2):
+    print(" " * ((2 * row - 1 - i) // 2), end="")
+    print(c * i)
+print(count)
 
 
 

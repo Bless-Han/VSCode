@@ -10,20 +10,39 @@
 '''
 # @pintia code=start
 def change(s):
-    heigh_index = ["tam", "hel", "maa", "huh", "tou", "kes",
+    height_index = ["", "tam", "hel", "maa", "huh", "tou", "kes",
              "hei", "elo", "syy", "lok", "mer", "jou"]
     low_index = ["tret", "jan", "feb", "mar", "apr", "may", "jun", "jly",
            "aug", "sep", "oct", "nov", "dec"]
     try:
         number = int(s)
-        heigh_number = number // 13
-        low_number = number % 13
+        height_str = height_index[number // 13]
+        low_str = low_index[number % 13]
+        height_str = height_str + " " if height_str != "" else ""
+
+        return height_str + low_str
     except ValueError:
-        ...
+        s = s.split()
+        height_number, low_number = 0, 0
+        if len(s) == 1:
+            try:
+                height_number = height_index.index(s[0])
+            except ValueError:
+                low_number = low_index.index(s[0])
+        else:
+            height_str, low_str = s
+            height_number = height_index.index(height_str)
+            low_number = low_index.index(low_str)
+
+        return height_number * 13 + low_number
 
 
 n = int(input())
 for _ in range(n):
-    print(change(input))
+    print(change(input()))
 
 # @pintia code=end
+""" @pintia test=start
+1
+jou feb
+@pintia test=end """

@@ -9,26 +9,6 @@
    
 '''
 # @pintia code=start
-left, right = input().split("E")
-zhengshu, xiaoshu = left.split(".")
-
-result = "" if zhengshu[0] == "+" else "-"
-zhengshu = zhengshu[1:]
-hebing = zhengshu + xiaoshu
-
-right_sign = "-" if right[0] == "-" else "+"
-right_int = int(right[1:])
-if right_sign == "-":
-    result += "0." + "0" * (right_int - 1) + hebing
-else:
-    if right_int >= len(xiaoshu):
-        result += hebing + "0" * (right_int - len(xiaoshu))
-    else:
-        point_location = right_int + 1
-        result += hebing[ :point_location] + "." + hebing[point_location: ]
-
-
-print(result)
 
 # @pintia code=end
 """ @pintia test=start

@@ -23,8 +23,13 @@ def zdgy(a, b):
 def huajian(k):
     ret = ""
     k1, k2 = map(int, k.split("/"))
+    if k2 == 0:
+        return "Inf"
     
     # get sign
+    if k2 < 0:
+        k2 *= -1
+        k1 *= -1
     if k1 < 0:
         sign = "-"
         k1 *= -1
@@ -56,6 +61,7 @@ def huajian(k):
 
 
 def plus(a, b):
+    global a1, a2, b1, b2
     c1 = a1 * b2 + b1 * a2
     c2 = a2 * b2
     c = str(c1) + "/" + str(c2)
@@ -63,6 +69,7 @@ def plus(a, b):
 
 
 def minus(a, b):
+    global a1, a2, b1, b2
     c1 = a1 * b2 - b1 * a2
     c2 = a2 * b2
     c = str(c1) + "/" + str(c2)
@@ -70,6 +77,7 @@ def minus(a, b):
 
 
 def times(a, b):
+    global a1, a2, b1, b2
     c1 = a1 * b1
     c2 = a2 * b2
     c = str(c1) + "/" + str(c2)
@@ -77,13 +85,12 @@ def times(a, b):
 
 
 def division(a, b):
+    global a1, a2, b1, b2
     ret = ""
-    b2 = ""
-    if b2 == "0":
-        ret = "Inf"
-    else:
-        ...
-    return ret
+    c1 = a1 * b2
+    c2 = a2 * b1
+    c = str(c1) + "/" + str(c2)
+    return huajian(a) + " / " + huajian(b) + " = " + huajian(c)
     
 
 a, b = input().split()

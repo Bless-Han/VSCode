@@ -13,6 +13,30 @@
 def zdgy(a, b):
     a = abs(a)
     b = abs(b)
+    while a % b != 0:
+        c = a % b
+        a = b
+        b = c
+    return b
+
+
+def minus(a, b):
+    ...
+
+
+def plus(a, b):
+    ...
+
+
+def times(a, b):
+    ...
+
+
+def division(a, b):
+    ...
+    
+
+a, b = input().split()
 
 
 

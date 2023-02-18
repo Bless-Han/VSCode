@@ -20,15 +20,12 @@ def judge(buy_count, want_count):
             gouyong = False
             que += want_count[key]
         elif want_count[key] - buy_count[key] > 0:
+            gouyong = False
             que += want_count[key] - buy_count[key]
                 
     if gouyong == True:
-        for key in buy_count:
-            if key not in want_count:
-                duo += buy_count[key]
-            elif buy_count[key] - want_count[key] > 0:
-                duo += 
-
+        global buy, want
+        duo = len(buy) - len(want)
 
     return [gouyong, duo, que]
 
@@ -54,3 +51,7 @@ panduan = judge(buy_count, want_count)
 print("Yes", panduan[1]) if panduan[0] else print("No", panduan[2])
 
 # @pintia code=end
+""" @pintia test=start
+YrR8R
+YrR8RrYY
+@pintia test=end """

@@ -17,24 +17,19 @@ def duihuan(money):
     else:
         sign = ""
 
-    ret1 = ""
-    ret2 = ""
-    ret3 = money
+    ret1, ret2, ret3 = 0, 0, money
     
-    # from money to ret3 and ret2
+    # seperate ret3
     if ret3 > 0:
         ret2 = ret3 // 29
         ret3 %= 29
     
-    if ret2 != "":
+    # seperate ret2
+    if ret2 != 0:
         ret1 = ret2 // 17
         ret2 %= 17
     
-    ret3 = str(ret3)
-    ret2 = ret2 + "." if ret2 != "" else ""
-    ret3 = ret3 + "." if ret3 != "" else ""
-    
-    return sign + ret1 + ret2 + ret3
+    return sign + str(ret1) + "." + str(ret2) + "." + str(ret3)
 
 
 p, a = input().split()
@@ -46,8 +41,9 @@ real_pay = (a1 * 17 + a2) * 29 + a3
 
 change = real_pay - should_pay
 
-ret = "-" if change < 0 else ""
-
-print(duihuan(change).strip("."))
+print(duihuan(change))
 
 # @pintia code=end
+""" @pintia test=start
+999999.16.27 999999.16.27
+@pintia test=end """

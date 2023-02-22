@@ -18,7 +18,13 @@ def change(s):
         number = int(s)
         height_str = height_index[number // 13]
         low_str = low_index[number % 13]
-        height_str = height_str + " " if height_str != "" else ""
+        # 调整高位字符
+        if height_str != "":
+            height_str += " "
+        # 调整低位字符
+        if low_str == "tret" and height_str != "":
+            height_str = height_str.strip()
+            low_str = ""
 
         return height_str + low_str
     except ValueError:
@@ -44,5 +50,5 @@ for _ in range(n):
 # @pintia code=end
 """ @pintia test=start
 1
-jou feb
+13
 @pintia test=end """

@@ -11,20 +11,17 @@
 # @pintia code=start
 n = int(input())
 
+score_dict = {}
 for i in range(n):
     s = input().split()
     score = int(s[1])
-    group = s[0].split("-")[0]
-    if i == 0:
-        all = {group: score}
-    else:
-        if group in all:
-            all[group] += score
-        else:
-            all[group] = score
+    team = s[0].split("-")[0]
+    if team not in score_dict:
+        score_dict[team] = 0
+    score_dict[team] += score
 
-max_value = max()
-print(max_group, max_score)
+max_value = max(score_dict.items(), key=lambda x: x[1])
+print(max_value[0], max_value[1])
 
 
 

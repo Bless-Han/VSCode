@@ -1,17 +1,7 @@
-class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
-        def backtrack(ans, s, left, right):
-            if len(s) == 2 * n:
-                ans.append(s)
-                return
-            if left < n:
-                backtrack(ans, s + "(", left + 1, right)
-            if right < left:
-                backtrack(ans, s + ")", left, right + 1)
-            
-        ans = []
-        backtrack(ans, "", 0, 0)
-        return ans
-    
+my_list = [1, 2, 3, 4, 5]
+squares = map(lambda x: x**2, my_list)
+squares_tuple = tuple(squares)
+squares_set = set(squares)
 
-s = Solution()
+print(squares_tuple)  # 输出 (1, 4, 9, 16, 25)
+print(squares_set)  # 输出 {1, 4, 9, 16, 25}

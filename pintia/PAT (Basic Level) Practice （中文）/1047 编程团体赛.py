@@ -14,9 +14,27 @@ n = int(input())
 for i in range(n):
     s = input().split()
     score = int(s[1])
-    group = s.split("-")[0]
+    group = s[0].split("-")[0]
     if i == 0:
-        result = 
+        all = {group: score}
+    else:
+        if group in all:
+            all[group] += score
+        else:
+            all[group] = score
+
+max_group = ""
+max_score = ""
+for key in all:
+    if max_group == "":
+        max_group = key
+        max_score = all[key]
+    else:
+        if all[key] > max_score:
+            max_group = key
+            max_score = all[key]
+            
+print(max_group, max_score)
 
 
 

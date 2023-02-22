@@ -23,17 +23,7 @@ for i in range(n):
         else:
             all[group] = score
 
-max_group = ""
-max_score = ""
-for key in all:
-    if max_group == "":
-        max_group = key
-        max_score = all[key]
-    else:
-        if all[key] > max_score:
-            max_group = key
-            max_score = all[key]
-            
+max_value = max()
 print(max_group, max_score)
 
 

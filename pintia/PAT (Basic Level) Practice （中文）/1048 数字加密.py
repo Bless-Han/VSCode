@@ -10,29 +10,36 @@
 '''
 # @pintia code=start
 def change(a, b):
-    left = ""
+    a = a[::-1]
+    b = b[::-1]
+
+    ret_list = []
     if len(b) > len(a):
-        left += b[len(a): ]
-    a_l = len(a)
-    print(left)
+        ret_list = list(b)
+        l = len(a)
+    else:
+        l = len(b)
+        ret_list = list(b)
     
     quyu_str = "0123456789JQK"
-    right = ""
-    for i in range(a_l):
-        if (i + 1) % 2 == 0:
-            # 取余13后的数字
-            right += quyu_str[(int(a[i]) + int(b[i])) % 13]
+    for i in range(l):
+        if (i + 1) % 2 == 1:
+            # 取余13
+            ret_list[i] = quyu_str[(int(a[i]) + int(b[i])) % 13]
         else:
             # b - a
             temp_number = int(b[i]) - int(a[i])
-            right += str(temp_number + 10) if temp_number < 0 else right + str(temp_number)
+            ret_list[i] = str(temp_number + 10) if temp_number < 0 else str(temp_number)
     
-    return (left + right)[::-1]
+    return "".join(ret_list)[::-1]
     
 a, b = input().split()
-a = a[::-1]
-b = b[::-1]
 
 print(change(a, b))
 
 # @pintia code=end
+""" @pintia test=start
+1234567 61
+
+
+@pintia test=end """

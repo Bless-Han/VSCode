@@ -14,13 +14,16 @@ aaaaaaa = input()
 numbers = list(map(float, sys.stdin.readline().split()))
 result = 0
 
+temp = 0
 for i in range(len(numbers)):
-    tmp = 0
-    for j in range(i, len(numbers)):
-        tmp += numbers[j]
-        result += tmp
+    temp 
+    
 
 print(f"{result:.02f}")
 
 
 # @pintia code=end
+""" @pintia test=start
+3
+1 2 3
+@pintia test=end """

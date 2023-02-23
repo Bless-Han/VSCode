@@ -9,6 +9,26 @@
    
 '''
 # @pintia code=start
+left, right = input().split("E")
+left_sign = '' if left[0] == '+' else '-'
+left = left[1: ]
+point_left, point_right = left.split('.')
+combine = point_left + point_right
+
+right_number = int(right)
+
+result = left_sign
+
+if right_number >= 0:
+    if right_number >= len(point_right):
+        result += combine + "0" * (right_number - len(point_right))
+    else:
+        result += point_left + point_right[ : right_number] + '.' + point_right[right_number: ]
+else:
+    result += '0.' + '0' * (-right_number - 1) + combine
+    
+print(result)
+
 
 # @pintia code=end
 """ @pintia test=start

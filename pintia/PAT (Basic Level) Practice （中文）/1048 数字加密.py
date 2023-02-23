@@ -10,16 +10,24 @@
 '''
 # @pintia code=start
 def change(a, b):
-    ret = ""
+    left = ""
     if len(b) > len(a):
-        ret += b[len(a): ]
-    b_l = len(b)
-    for i in range(b_l):
-        if (b_l - i) % 2 == 0:
+        left += b[len(a): ]
+    a_l = len(a)
+    print(left)
+    
+    quyu_str = "0123456789JQK"
+    right = ""
+    for i in range(a_l):
+        if (i + 1) % 2 == 0:
             # 取余13后的数字
-            # TODO 
+            right += quyu_str[(int(a[i]) + int(b[i])) % 13]
         else:
-            ...
+            # b - a
+            temp_number = int(b[i]) - int(a[i])
+            right += str(temp_number + 10) if temp_number < 0 else right + str(temp_number)
+    
+    return (left + right)[::-1]
     
 a, b = input().split()
 a = a[::-1]

@@ -14,9 +14,21 @@ aaaaaaa = input()
 numbers = list(map(float, sys.stdin.readline().split()))
 result = 0
 
-temp = 0
+# 临时计算
+temp_a = 0
+# 求一个数的总
+sum_a_number = 0
 for i in range(len(numbers)):
-    temp 
+    temp_a += numbers[i]
+    sum_a_number += temp_a
+
+for i in range(len(numbers)):
+    if i == 0:
+        result += sum_a_number
+        continue
+    # TODO
+
+
     
 
 print(f"{result:.02f}")

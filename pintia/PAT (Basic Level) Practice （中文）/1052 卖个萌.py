@@ -9,16 +9,34 @@
    
 '''
 # @pintia code=start
-hands = input().replace('[', '').replace(']', '').strip()
-# eyes = input().replace('[', '').replace(']', '').strip()
-# mouthes = input().replace('[', '').replace(']', '').strip()
-# k = int(input())
+import sys
 
-# for i in range(k):
-#     try:
-#         a, b, c, d, e = map(int, input().split())
-#         print(f'{hands[a - 1]}({eyes[b - 1]}{mouthes[c - 1]}{eyes[d - 1]}){hands[e - 1]}')
-#     except (IndexError, ValueError):
-#         print('Are you kidding me? @\/@')
+hands = str(sys.stdin.buffer.readline()).replace('[', '').replace(' ', '').split(']')
+# eyes = sys.stdin.buffer.readline().replace('[', '').replace(' ', '').split(']')
+# mouthes = sys.stdin.buffer.readline().replace('[', '').replace(' ', '').split(']')
+print('-' * 20)
+print(hands)
+print('-' * 20)
+try:
+    hands.remove('')
+except ValueError:
+    pass
+try:
+    eyes.remove('')
+except ValueError:
+    pass
+try:
+    mouthes.remove('')
+except ValueError:
+    pass
+
+k = int(input())
+
+for i in range(k):
+    try:
+        a, b, c, d, e = map(int, input().split())
+        print(f'{hands[a - 1]}({eyes[b - 1]}{mouthes[c - 1]}{eyes[d - 1]}){hands[e - 1]}')
+    except (IndexError, ValueError):
+        print('Are you kidding me? @\/@')
 
 # @pintia code=end

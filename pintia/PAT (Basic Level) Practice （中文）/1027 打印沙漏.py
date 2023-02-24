@@ -11,23 +11,27 @@
 # @pintia code=start
 n, c = input().split()
 n = int(n)
-row = 1
-while (2 * row * row - 1) <= n:
-    row += 1
-row -= 1
-count = n - (2 * row * row - 1)
-for i in range(2 * row - 1, 0, -2):
-    print(" " * ((2 * row - 1 - i) // 2), end="")
-    print(c * i)
-for i in range(3, 2 * row, 2):
-    print(" " * ((2 * row - 1 - i) // 2), end="")
-    print(c * i)
-print(count)
+
+rows = 0
+while 2 * rows * rows - 1 <= n:
+    rows += 1
+rows -= 1
+left = n - (2 * rows * rows - 1)
+
+current_row = rows
+while current_row > 1:
+    print(" " * (rows - current_row) + c * (current_row * 2 - 1))
+    current_row -= 1
+while current_row <= rows:
+    print(" " * (rows - current_row) + c * (current_row * 2 - 1))
+    current_row += 1
+
+print(left)
 
 
 
 
 # @pintia code=end
 """ @pintia test=start
-6 $
+1 $
 @pintia test=end """

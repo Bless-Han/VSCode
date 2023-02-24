@@ -13,35 +13,31 @@ from math import cos
 from math import sin
 
 
-def change(r, p):
-    return r * cos(p), r * sin(p)
-
-
 r1, p1, r2, p2 = map(float, input().split())
 
-a, b = change(r1, p1)
-c, d = change(r2, p2)
+x1, y1 = r1 * cos(p1), r1 * sin(p1)
+x2, y2 = r2 * cos(p2), r2 * sin(p2)
 
-r = round(a * c - b * d + 0.0001, 2)
-i = round(a * d + b * c + 0.0001, 2)
+a = round(x1 * x2 - y1 * y2 + 0.0001, 2)
+b = round(x1 * y2 + y1 * x2 + 0.0001, 2)
 
 result = ""
-if r == 0:
+if a == 0:
     result += "0.00"
 else:
-    result += str(r)
-
-if i == 0:
+    result += f"{a:.2f}"
+    
+if b == 0:
     result += "+0.00"
-elif i > 0:
-    result += "+" + str(i)
+elif b < 0:
+    result += f"{b:.2f}"
 else:
-    result += str(i)
+    result += f"+{b:.2f}"
 
 print(result + "i")
 
 
 # @pintia code=end
 """ @pintia test=start
-0.3 0.5 0.2 0.0004
+0.3 0.5 0.2 0.4
 @pintia test=end """

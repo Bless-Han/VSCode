@@ -9,34 +9,39 @@
    
 '''
 # @pintia code=start
-import math
+from math import cos
+from math import sin
 
 
 def change(r, p):
-    return r * math.cos(p), r * math.sin(p)
+    return r * cos(p), r * sin(p)
 
 
 r1, p1, r2, p2 = map(float, input().split())
+
 a, b = change(r1, p1)
 c, d = change(r2, p2)
 
-e = round(a * c - b * d + 0.0001, 2)
-f = round(a * d + b * c + 0.0001, 2)
+r = round(a * c - b * d + 0.0001, 2)
+i = round(a * d + b * c + 0.0001, 2)
 
 result = ""
-result = "0.00" if e == 0 else str(f'{e:.2f}')
-if f == 0:
-    result += "+0.00"
-elif f < 0:
-    result += str(f'{f:.2f}')
+if r == 0:
+    result += "0.00"
 else:
-    result += str(f'+{f:.2f}')
+    result += str(r)
+
+if i == 0:
+    result += "+0.00"
+elif i > 0:
+    result += "+" + str(i)
+else:
+    result += str(i)
 
 print(result + "i")
 
 
-
 # @pintia code=end
 """ @pintia test=start
-0.3 0.5 0.2 1.4
+0.3 0.5 0.2 0.0004
 @pintia test=end """

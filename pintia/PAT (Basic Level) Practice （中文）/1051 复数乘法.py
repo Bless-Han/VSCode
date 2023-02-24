@@ -20,18 +20,19 @@ r1, p1, r2, p2 = map(float, input().split())
 a, b = change(r1, p1)
 c, d = change(r2, p2)
 
-e = a * c - b * d
-f = a * d + b * c
+e = round(a * c - b * d + 0.0001, 2)
+f = round(a * d + b * c + 0.0001, 2)
 
-e_str = "0.00" if e + 0.005 >= 0 and e < 0 else str(f"{e:.2f}")
-if f + 0.005 >= 0 and f < 0:
-    f_str = "+0.00"
+result = ""
+result = "0.00" if e == 0 else str(f'{e:.2f}')
+if f == 0:
+    result += "+0.00"
 elif f < 0:
-    f_str = str(f"{f:.2f}")
+    result += str(f'{f:.2f}')
 else:
-    f_str = str(f"+{f:.2f}")
+    result += str(f'+{f:.2f}')
 
-print(e_str + f_str + "i")
+print(result + "i")
 
 
 

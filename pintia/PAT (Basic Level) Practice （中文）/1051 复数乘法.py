@@ -17,14 +17,25 @@ def change(r, p):
 
 
 r1, p1, r2, p2 = map(float, input().split())
-a, b = change(r1, p2)
+a, b = change(r1, p1)
 c, d = change(r2, p2)
-print(a, b, c, d)
 
-e = round(a * c - b * d + 0.00001, 2)
-f = round(a * d + b * c + 0.00001, 2)
+e = a * c - b * d
+f = a * d + b * c
 
-print(f"{e}{f}i")
+e_str = "0.00" if e + 0.005 >= 0 and e < 0 else str(f"{e:.2f}")
+if f + 0.005 >= 0 and f < 0:
+    f_str = "+0.00"
+elif f < 0:
+    f_str = str(f"{f:.2f}")
+else:
+    f_str = str(f"+{f:.2f}")
+
+print(e_str + f_str + "i")
+
 
 
 # @pintia code=end
+""" @pintia test=start
+0.3 0.5 0.2 1.4
+@pintia test=end """

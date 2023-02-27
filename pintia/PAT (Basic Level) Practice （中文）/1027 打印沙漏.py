@@ -13,10 +13,11 @@ n, c = input().split()
 n = int(n)
 
 rows = 0
-while 2 * rows * rows - 1 <= n:
+while rows * rows * 2 - 1 <= n:
     rows += 1
 rows -= 1
-left = n - (2 * rows * rows - 1)
+
+rest = n - (rows * rows * 2 - 1)
 
 current_row = rows
 while current_row > 1:
@@ -25,9 +26,8 @@ while current_row > 1:
 while current_row <= rows:
     print(" " * (rows - current_row) + c * (current_row * 2 - 1))
     current_row += 1
-
-print(left)
-
+    
+print(rest)
 
 
 

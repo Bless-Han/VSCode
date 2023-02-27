@@ -14,27 +14,25 @@ from math import sin
 
 
 r1, p1, r2, p2 = map(float, input().split())
+a1, b1 = r1 * cos(p1), r1 * sin(p1)
+a2, b2 = r2 * cos(p2), r2 * sin(p2)
 
-x1, y1 = r1 * cos(p1), r1 * sin(p1)
-x2, y2 = r2 * cos(p2), r2 * sin(p2)
-
-a = round(x1 * x2 - y1 * y2 + 0.0001, 2)
-b = round(x1 * y2 + y1 * x2 + 0.0001, 2)
+a3 = round(a1 * a2 - b1 * b2 + 0.0001, 2)
+b3 = round(a1 * b2 + b1 * a2 + 0.0001, 2)
 
 result = ""
-if a == 0:
+if a3 == 0:
     result += "0.00"
 else:
-    result += f"{a:.2f}"
-    
-if b == 0:
-    result += "+0.00"
-elif b < 0:
-    result += f"{b:.2f}"
+    result += f"{a3:.2f}"
+if b3 == 0:
+    result += "+0.00i"
+elif b3 > 0:
+    result += f"+{b3:.2f}i"
 else:
-    result += f"+{b:.2f}"
+    result += f"{b3:.2f}i"
 
-print(result + "i")
+print(result)
 
 
 # @pintia code=end

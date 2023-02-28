@@ -1,5 +1,6 @@
 import sys
-a, b = map(int, input().split())
+# a, b = map(int, input().split())
+a, b = 10, 100
 
 for n in range(b, a - 1, -1):
 	for m in range(n, a - 1, -1):

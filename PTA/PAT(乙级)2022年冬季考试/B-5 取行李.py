@@ -12,16 +12,17 @@ bags = []
 for i in range(1, numbers+1):
 	bags.append(i)
 
-passengers_index = 0
+p_index = 0
 for bag in bags:
-	while True:
+	while len(passengers) > 0:
 		count += 1
-		if bag == passengers[passengers_index]:
-			print("-----------", count, bag, passengers[passengers_index])
+		whole_count += len(passengers)
+		if bag == passengers[p_index]:
 			passengers.remove(bag)
-			bags.remove(bag)
+			if len(passengers) != 0:
+				p_index %= len(passengers)
 			break
-		passengers_index += 1
-		passengers_index %= len(passengers)
+		p_index += 1
+		p_index %= len(passengers)
 
-print(count, count / numbers)
+print(count, whole_count / numbers)

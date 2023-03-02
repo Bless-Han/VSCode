@@ -45,3 +45,6 @@ for _ in range(n):
 
 
 # @pintia code=end
+""" @pintia test=start
+Put your custom test sample here
+@pintia test=end """

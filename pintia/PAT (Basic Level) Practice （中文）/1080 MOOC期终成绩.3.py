@@ -16,3 +16,6 @@ def main():
 
 
 # @pintia code=end
+""" @pintia test=start
+
+@pintia test=end """

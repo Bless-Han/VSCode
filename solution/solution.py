@@ -1,3 +1,8 @@
-print("hello world")
+s = input()
+print("*")
+print(s)
+
+
+
 
 

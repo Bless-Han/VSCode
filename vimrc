@@ -81,7 +81,10 @@ Plugin 'jpalardy/vim-slime'
 " vim-tmux-navigator：在 Vim 和 Tmux 之间切换。
 Plugin 'christoomey/vim-tmux-navigator'
 " fzf.vim：模糊搜索插件，可以在 Vim 中搜索文件、搜索历史记录、搜索 Git 提交记录等。
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+" vim-easymotion：快速跳转插件，可以在 Vim 中快速跳转到指定行、指定单词等。
+Plugin 'easymotion/vim-easymotion'
 " nerdcommenter：快速注释代码，支持多种编程语言。
 Plugin 'scrooloose/nerdcommenter'
 " undotree：查看 Vim 的撤销树。

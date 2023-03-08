@@ -1,42 +1,30 @@
-class MinStack:
+def main():
+    n = int(input())
+    for _ in range(n):
+        s = input()
+        print("YES") if jusge(s) == True else print("NO")
 
-    def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.stack = []
+def judge(s):
+    p_index = s.find("P")
+    t_index = s.find("T")
+    if p_index == -1 or t_index == -1:
+        return False
+    left = s[ :p_index]
+    middle = s[p_index: t_index]
+    right = s[t_index: ]
 
-    def push(self, x: int) -> None:
-        self.stack.append(x)
+    if len(left) * len(middle) != len(right):
+        return False
 
-    def pop(self) -> None:
-        if len(self.stack) > 0:
-            self.stack.pop()
+    if full_a(left) == False:
+        return False
+    if full_a(middle) == False:
+        return False
+    if full_a(right) == False:
+        return False
+    return True
 
-    def top(self) -> int:
-        if len(self.stack) > 0:
-            return self.stack[-1]
-        else:
-            return None
+if __name__ == "__main__":
+    main()
 
-    def min(self) -> int:
-        if len(self.stack) > 0:
-            return min(self.stack)
-        else:
-            return None
 
-minStack = MinStack()
-minStack.push(-2);
-minStack.push(0);
-minStack.push(-3);
-assert minStack.min() == -3
-minStack.pop()
-assert minStack.top() == 0
-assert minStack.min() == -2
-
-# Your MinStack object will be instantiated and called as such:
-# obj = MinStack()
-# obj.push(x)
-# obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.min()

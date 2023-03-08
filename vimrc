@@ -70,8 +70,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 " vim-surround：快速添加、删除、修改括号、引号等符号。
 Plugin 'tpope/vim-surround'
-" vim-commentary：快速注释代码，支持多种编程语言。
-Plugin 'tpope/vim-commentary'
 " auto-save：自动保存插件，可以在 Vim 中自动保存文件。
 Plugin '907th/vim-auto-save'
 " ALE (Asynchronous Lint Engine)：异步语法检查插件，可以在编辑器中实时检查代码的语法错误。
@@ -82,6 +80,14 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'jpalardy/vim-slime'
 " vim-tmux-navigator：在 Vim 和 Tmux 之间切换。
 Plugin 'christoomey/vim-tmux-navigator'
+" fzf.vim：模糊搜索插件，可以在 Vim 中搜索文件、搜索历史记录、搜索 Git 提交记录等。
+Plugin 'junegunn/fzf.vim'
+" nerdcommenter：快速注释代码，支持多种编程语言。
+Plugin 'scrooloose/nerdcommenter'
+" undotree：查看 Vim 的撤销树。
+Plugin 'mbbill/undotree'
+
+
 
 call vundle#end()
 " 自动保存 

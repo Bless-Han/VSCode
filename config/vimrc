@@ -90,7 +90,9 @@ Plugin 'scrooloose/nerdcommenter'
 " undotree：查看 Vim 的撤销树。
 Plugin 'mbbill/undotree'
 " neuleetcode：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
-Plugin 'mbledkowski/neuleetcode.vim'
+"Plugin 'mbledkowski/neuleetcode.vim'
+" leetcode.vim：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
+Plugin 'skygragon/leetcode-cli'
 
 
 call vundle#end()
@@ -103,11 +105,11 @@ let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 
 " 'mbledkowski/neuleetcode.vim' 插件配置
-let g:leetcode_china = 1
-let g:leetcode_solution_filetype = 'python3'
-let g:leetcode_browser = 'chrome'
-nnoremap <leader>ll :LeetCodeList<cr>
-nnoremap <leader>lt :LeetCodeTest<cr>
-nnoremap <leader>ls :LeetCodeSubmit<cr>
-nnoremap <leader>li :LeetCodeSignIn<cr>
+"let g:leetcode_china = 1
+"let g:leetcode_solution_filetype = 'python3'
+"let g:leetcode_browser = 'chrome'
+"nnoremap <leader>ll :LeetCodeList<cr>
+"nnoremap <leader>lt :LeetCodeTest<cr>
+"nnoremap <leader>ls :LeetCodeSubmit<cr>
+"nnoremap <leader>li :LeetCodeSignIn<cr>
 

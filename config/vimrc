@@ -92,6 +92,8 @@ Plugin 'mbbill/undotree'
 "Plugin 'mbledkowski/neuleetcode.vim'
 " ianding1/leetcode.vim：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
 "Plugin 'ianding1/leetcode.vim'
+" vim-leetcode：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
+Plugin 'skygragon/leetcode-cli'
 
 
 call vundle#end()

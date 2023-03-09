@@ -1,10 +1,10 @@
-a = [
-        [1, 2, 3],
-        [3, 9, 9],
-        [5, 5, 5],
-        ]
+import pytest
 
-for a, b in a:
-    print(a, b)
 
-print("OK")
+def value(s):
+    return int(s)
+
+
+def test_value():
+    with pytest.raises(ValueError):
+        value(20)

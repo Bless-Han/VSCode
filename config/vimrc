@@ -4,6 +4,10 @@ set nu
 set shiftwidth=4
 set expandtab
 set relativenumber
+" close copilot by default
+let g:copilot_enabled = 0
+" close ALE by default
+let g:ale_enabled = 0
 
 " leader key -------------------
 " space as leader key
@@ -93,7 +97,7 @@ Plugin 'mbbill/undotree'
 " ianding1/leetcode.vim：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
 "Plugin 'ianding1/leetcode.vim'
 " vim-leetcode：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
-Plugin 'skygragon/leetcode-cli'
+" Plugin 'skygragon/leetcode-cli'
 
 
 call vundle#end()

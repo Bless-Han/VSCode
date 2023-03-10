@@ -1,10 +1,17 @@
-import pytest
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 
-def value(s):
-    return int(s)
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        curr = head
+        while curr:
+            next = curr.next
+            curr = next
 
 
-def test_value():
-    with pytest.raises(ValueError):
-        value(20)
+print("OK")

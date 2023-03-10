@@ -10,18 +10,28 @@ class Solution:
     import copy
     import random
     def copyRandomList(self, head: 'Node') -> 'Node':
+        if not head:
+            return None
+
+        # 把链接添加到list里
         nodes = []
         curr = head
         while curr:
-            nodes.append(copy.deepcopy(curr))
+            nodes.append(curr)
             curr = curr.next
-        prev = nodes[0]
-        for node in nodes[1:]:
-            prev.next = node
-            prev.random = random.choice(nodes)
-            prev = node
 
-        return nodes[0]
+        # 求random_index
+        random_index = []
+        for node in nodes:
+            random_index = nodes.index(node.random)
+
+        # copy nodes to new_nodes 并计算next and random
+        new_nodes = copy.deepcopy(nodes)
+        node = [0]
+        for node in new_nodes[1:]:
+
+
+        return new_nodes[0]
 
 
 

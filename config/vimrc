@@ -9,6 +9,10 @@ let g:copilot_enabled = 0
 let g:ale_enabled = 0
 " disable hlsearch
 set nohlsearch
+" ser undofile
+set undofile
+" set undodir
+set undodir=~/.config/nvim/undodir
 
 " leader key -------------------
 " space as leader key
@@ -91,10 +95,14 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'easymotion/vim-easymotion'
 " nerdcommenter：快速注释代码，支持多种编程语言。
 Plugin 'scrooloose/nerdcommenter'
-" undotree：查看 Vim 的撤销树。
+" vimsession：保存 Vim 的会话。
+"          Plugin 'xolox/vim-session'
+" vim-mics：一些小功能的集合。
+Plugin 'xolox/vim-misc'
+" vim-lastplace：记住上次编辑的位置。
+Plugin 'farmergreg/vim-lastplace'
+" undotreemenu：显示 Vim 的撤销树。
 Plugin 'mbbill/undotree'
-" vim-sneak：快速跳转插件，可以在 Vim 中快速跳转到指定单词。
-" Plugin 'justinmk/vim-sneak'
 
 
 call vundle#end()
@@ -105,3 +113,10 @@ let g:auto_save = 1
 let g:slime_python_ipython = 1
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
+
+" easy-motion
+map <Leader> <Plug>(easymotion-prefix)
+
+
+
+

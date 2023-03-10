@@ -1,1 +1,3 @@
-print("hello world")
+def value(s):
+    return int(s)
+

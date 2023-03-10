@@ -23,16 +23,24 @@ class Solution:
         # 求random_index
         random_index = []
         for node in nodes:
-            random_index = nodes.index(node.random)
+            if node.random:
+                random_index = nodes.index(node.random)
+            else:
+                random_index = -1
 
-        # copy nodes to new_nodes 并计算next and random
+        # copy nodes to new_nodes
         new_nodes = copy.deepcopy(nodes)
-        node = [0]
-        for node in new_nodes[1:]:
-
+        prev = new_nodes[0]
+        for i in range(1, len(new_nodes)):
+            prev.next = new_nodes[i]
+            if random_index[i] == -1
+                prev.random = None
+            else:
+                prev.random = new_nodes[random_index[i]]
+            prev = prev.next
 
         return new_nodes[0]
 
 
 
-print("OK")
+    print("OK")

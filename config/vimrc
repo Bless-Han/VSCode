@@ -3,11 +3,12 @@ set nu
 " set for python set tabstop=4
 set shiftwidth=4
 set expandtab
-set relativenumber
 " close copilot by default
 let g:copilot_enabled = 0
 " close ALE by default
 let g:ale_enabled = 0
+" disable hlsearch
+set nohlsearch
 
 " leader key -------------------
 " space as leader key
@@ -21,7 +22,7 @@ nnoremap <leader>re :e ~/.config/nvim/init.vim<cr>
 " leader + i + i to open input file
 nnoremap <leader>ii :e %:r.input<cr>
 " leader + s to ":w
-nnoremap <leader>s :w<cr>
+" nnoremap <leader>s :w<cr>
 " leader + c to :%y+ to copy all lines
 nnoremap <leader>y :%y+<cr>
 " leader + ce: Copilot enable
@@ -92,12 +93,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
 " undotree：查看 Vim 的撤销树。
 Plugin 'mbbill/undotree'
-" neuleetcode：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
-"Plugin 'mbledkowski/neuleetcode.vim'
-" ianding1/leetcode.vim：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
-"Plugin 'ianding1/leetcode.vim'
-" vim-leetcode：LeetCode 插件，可以在 Vim 中刷 LeetCode 题目。
-" Plugin 'skygragon/leetcode-cli'
+" vim-sneak：快速跳转插件，可以在 Vim 中快速跳转到指定单词。
+" Plugin 'justinmk/vim-sneak'
 
 
 call vundle#end()
@@ -108,13 +105,3 @@ let g:auto_save = 1
 let g:slime_python_ipython = 1
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
-
-" 'mbledkowski/neuleetcode.vim' 插件配置
-"let g:leetcode_china = 1
-"let g:leetcode_solution_filetype = 'python3'
-"let g:leetcode_browser = 'chrome'
-"nnoremap <leader>ll :LeetCodeList<cr>
-"nnoremap <leader>lt :LeetCodeTest<cr>
-"nnoremap <leader>ls :LeetCodeSubmit<cr>
-"nnoremap <leader>li :LeetCodeSignIn<cr>
-

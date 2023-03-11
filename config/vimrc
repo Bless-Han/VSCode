@@ -96,7 +96,7 @@ Plugin 'easymotion/vim-easymotion'
 " nerdcommenter：快速注释代码，支持多种编程语言。
 Plugin 'scrooloose/nerdcommenter'
 " vimsession：保存 Vim 的会话。
-"          Plugin 'xolox/vim-session'
+"Plugin 'xolox/vim-session'
 " vim-mics：一些小功能的集合。
 Plugin 'xolox/vim-misc'
 " vim-lastplace：记住上次编辑的位置。

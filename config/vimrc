@@ -120,3 +120,12 @@ map <Leader> <Plug>(easymotion-prefix)
 
 
 
+" 调用内置词典
+function! LookupWord()
+    let word = expand("<cword>")
+    let cmd = "!open dict:///" . word
+    silent execute cmd
+endfunction
+
+nnoremap <leader>l :call LookupWord()<CR>
+

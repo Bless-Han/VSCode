@@ -4,7 +4,7 @@ set nu
 set shiftwidth=4
 set expandtab
 " close copilot when in .cpp file
-autocmd BufEnter *.cpp :Copilot disable
+autocmd BufEnter *.py :Copilot disable
 " close ALE by default
 let g:ale_enabled = 0
 " disable hlsearch

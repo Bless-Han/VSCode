@@ -1,12 +1,15 @@
-import re
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        pass
 
-email = "sldjf@havaresl.edu"
+s = Solution()
+s.reverseList(None)
 
-if re.search(r".+@.+\.edu", email):
-    print("Valid")
-else:
-    print("Invalid")
-
-a = 90
-20 + a
+a = "abcda"
+a[::-1]

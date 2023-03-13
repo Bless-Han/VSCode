@@ -1,36 +1,24 @@
-#include <iostream>
-#include <stack>
-using namespace std;
-
-class CQueue {
-    //两个栈，一个出栈，一个入栈
-    private: Stack<Integer> stack1;
-    private: Stack<Integer> stack2;
-    
-    public CQueue() {
-        stack1 = new Stack<>();
-        stack2 = new Stack<>();
-    }
-    
-    public void appendTail(int value) {
-        stack1.push(value);
-    }
-    
-    public int deleteHead() {
-        if(!stack2.isEmpty()){
-            return stack2.pop();
-        }else{
-            while(!stack1.isEmpty()){
-                stack2.push(stack1.pop());
-            }
-            return stack2.isEmpty() ? -1 : stack2.pop();
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == nullptr) {
+            return nullptr;
         }
+        TreeNode* left = invertTree(root->left);
+        TreeNode* right = invertTree(root->right);
+        root->left = right;
+        root->right = left;
+        return root;
     }
-}
-
-int main(){
-    CQueue* obj = new CQueue();
-    obj->appendTail(3);
-    int param_2 = obj->deleteHead();
-    return 0;
-}
+};

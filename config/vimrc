@@ -3,8 +3,8 @@ set nu
 " set for python set tabstop=4
 set shiftwidth=4
 set expandtab
-" close copilot by default
-let g:copilot_enabled = 0
+" close copilot when in .cpp file
+autocmd BufEnter *.cpp :Copilot disable
 " close ALE by default
 let g:ale_enabled = 0
 " disable hlsearch

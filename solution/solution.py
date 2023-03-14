@@ -1,15 +1,2 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        pass
-
-s = Solution()
-s.reverseList(None)
-
-a = "abcda"
-a[::-1]
+square = [x*x for x in range(1, 10) if x % 2 == 0]
+square

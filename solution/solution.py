@@ -1,2 +1,9 @@
-square = [x*x for x in range(1, 10) if x % 2 == 0]
-square
+import re
+
+email = "My email is 3@qq.edu"
+
+if re.search(".+@.+\.edu$", email):
+    print("Yes")
+else:
+    print("No")
+

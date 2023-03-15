@@ -1,10 +1,11 @@
 import re
 
-name = "Malan,David"
+name = "Malan,       David"
 
-maches = re.search(r"^(.+), ?(.+)$", name)
-if maches:
-    last = maches.group(1)
-    first = maches.group(2)
-    name = f"{first} {last}"
+if maches := re.search(r"^(.+)?, *(.+)$", name):
+    name = maches.group(2) + " " + maches.group(1)
 print(name)
+
+
+if (n := int(input())) >= 0:
+    print(n)

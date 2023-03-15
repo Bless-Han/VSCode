@@ -135,4 +135,4 @@ function! LookupWord()
 endfunction
 
 " easymotion
-" nnoremap <leader>l :call LookupWord()<CR>
+nnoremap <leader>l :call LookupWord()<CR>

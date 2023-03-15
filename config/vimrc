@@ -107,6 +107,9 @@ Plugin 'mbbill/undotree'
 "Plugin 'Shougo/neocomplete.vim'
 " YouCompleteMe：自动补全插件。
 Plugin 'Valloric/YouCompleteMe'
+" Copilote：自动补全插件。
+Plugin 'tweekmonster/copilot.vim'
+
 
 
 call vundle#end()

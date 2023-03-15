@@ -1,11 +1,7 @@
-import re
+if (n := int(input("Enter a number: "))) >= 0:
+    print(f"{n} >= 0")
+else:
+    print(f"{n} < 0")
 
-name = "Malan,       David"
-
-if maches := re.search(r"^(.+)?, *(.+)$", name):
-    name = maches.group(2) + " " + maches.group(1)
-print(name)
-
-
-if (n := int(input())) >= 0:
-    print(n)
+number = 20
+num

@@ -103,6 +103,10 @@ Plugin 'xolox/vim-misc'
 Plugin 'farmergreg/vim-lastplace'
 " undotreemenu：显示 Vim 的撤销树。
 Plugin 'mbbill/undotree'
+" Neocomplete：自动补全插件。
+"Plugin 'Shougo/neocomplete.vim'
+" YouCompleteMe：自动补全插件。
+Plugin 'Valloric/YouCompleteMe'
 
 
 call vundle#end()

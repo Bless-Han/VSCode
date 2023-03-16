@@ -16,5 +16,7 @@ class Solution:
 60 * 0.83
 
 
-a = 9
-print(f"{a:02}")
+a = "abc c, c, c, slkdfj c,flksjdf"
+fndll = re.findall(r"d,", a)
+print(len(fndll))
+

@@ -14,3 +14,7 @@ class Solution:
         return True
 
 60 * 0.83
+
+
+a = 9
+print(f"{a:02}")

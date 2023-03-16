@@ -1,22 +1,9 @@
-import re
 class Solution:
-    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        magCount = {}
-        for c in magazine:
-            magCount[c] = 1 if c not in magCount else magCount[c] + 1
-        for c in ransomNote:
-            if c not in magCount:
-                return False
-            else:
-                magCount[c] -= 1
-            if magCount[c] < 0:
-                return False
-        return True
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        for i in range(len(nums)):
+            while nums[i] != i:
+                if nums[i] == nums[nums[i]]:
+                    return nums[i]
+                nums[nums[i]], nums[i] = nums[i], nums[nums[i]]
 
-60 * 0.83
-
-
-a = "abc c, c, c, slkdfj c,flksjdf"
-fndll = re.findall(r"d,", a)
-print(len(fndll))
-
+        return -1

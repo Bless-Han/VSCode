@@ -1,3 +1,4 @@
+import re
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         magCount = {}
@@ -11,6 +12,5 @@ class Solution:
             if magCount[c] < 0:
                 return False
         return True
-
 
 60 * 0.83

@@ -1,9 +1,6 @@
-class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
-        for i in range(len(nums)):
-            while nums[i] != i:
-                if nums[i] == nums[nums[i]]:
-                    return nums[i]
-                nums[nums[i]], nums[i] = nums[i], nums[nums[i]]
+num_str = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+n = input()
 
-        return -1
+sum = 
+for c in n:
+

@@ -46,3 +46,11 @@ for _ in range(k):
             print("Minion")
         else:
             print("Chocolate")
+
+
+print(7 / 18)
+
+print(5 / 12)
+
+print(7 / 12)
+print(13 / 20)

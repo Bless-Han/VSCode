@@ -1,11 +1,7 @@
-class Student:
-    def __init__(self, name="book", house="yes"):
-        self.name = name
-        self.house = house
+from math import cos
+from math import sin
 
-    def __str__(self):
-        return f"{self.name} from {self.house}"
+r1, p1, r2, p2 = map(float, input().split())
+a1, b1 = r1 * cos(p1), r1 * sin(p1)
+a2, b2 = r2 * cos(p2), r2 * sin(p2)
 
-student = Student("harry", "Grffindor")
-print(student.name, student.house)
-print(student)

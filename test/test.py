@@ -1,2 +1,6 @@
-a = [1, 2, 3]
-a.index(9)
+def my_function():
+    return ("Hello", "world")
+
+
+say = my_function()
+print(say[0])

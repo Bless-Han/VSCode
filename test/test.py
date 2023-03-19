@@ -7,6 +7,8 @@ grids = [
         ]
 class Solution:
     def checkValidGrid(self, grid: list[list[int]]) -> bool:
+        if grid[0][0] != 0:
+            return False
         class Grid:
             def put_xy(self, x, y):
                 self.x = x
@@ -14,9 +16,16 @@ class Solution:
             def judge(self, grid2):
                 a = grid2.x - self.x
                 b = grid2.y - self.y
-                return abs(abs(grid2.x - self.x) - abs(grid2.y - self.y)) == 1
-                return False
+                if a > 0 and b > 0:
+                    return (a == 2 and b == 1) or (a == 1 and b == 2)
+                elif a < 0 and b < 0:
+                    return (a == -2 and b == -1) or (a == -1 and b == -2)
+                elif a < 0 and b > 0:
+                    return (a == -2 and b == 1) or (a == -1 and b == 2)
+                else:
+                    return (a == 2 and b == -1) or (a == 1 and b == -2)
 
+                return False
 
         tour = []
         for i in range(len(grid)):

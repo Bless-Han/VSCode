@@ -1,24 +1,8 @@
-class Student:
-    def __init__(self, name, house):
-        self.name = name
-        self.house = house
+from math import cos, sin
 
-    def __str__(self):
-        return f"{self.name} {self.house}"
+r1, p1, r2, p2 = map(float, input().split())
 
-    @property
-    def house(self):
-        return self._house
-
-    @house.setter
-    def house(self, house):
-        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin", "SY"]:
-            raise ValueError("Invalid house")
-        self._house = house
-
-def main():
-    s = Student("Neo", "SY")
-    s.house = "Gryffindor"
-    print(s)
-
-main()
+a = complex(r1*cos(p1), r1*sin(p1))
+b = complex(r2*cos(p2), r2*sin(p2))
+c = a * b
+print(f"{c.real:.2f}")

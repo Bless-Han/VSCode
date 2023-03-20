@@ -11,12 +11,10 @@ def change_radix(n, d):
         n //= d
     ret = 0
     zhishu = 0
-    print(n, radix_str, ret)
     while radix_str:
         ret += int(radix_str[-1]) * (d**zhishu)
         radix_str = radix_str[:-1]
         zhishu += 1
-    print(n, radix_str, ret)
     return ret
 
 
@@ -32,3 +30,7 @@ while True:
     else:
         print("No")
 
+
+number = 73
+bin_str = bin(number)
+bin_str

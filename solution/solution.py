@@ -1,9 +1,10 @@
-from math import cos, sin
+class Hat:
 
-r1, p1, r2, p2 = map(float, input().split())
+    houses = ["SY", "CC", "JL"]
+    
+    @classmethod
+    def get_houses(cls):
+        return cls.houses
 
-a = complex(r1*cos(p1), r1*sin(p1))
-b = complex(r2*cos(p2), r2*sin(p2))
-c = a * b
+print(Hat.get_houses())
 
-print(f"{c.real+0.0001:.2f}{c.imag+0.0001:+.2f}i")

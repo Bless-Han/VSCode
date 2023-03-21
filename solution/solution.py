@@ -1,4 +1,1 @@
-if (n := int(input())) == 0:
-    print(n)
-else:
-    print(n)
+print([x*x for x in range(2, 10) if x % 2 == 0])

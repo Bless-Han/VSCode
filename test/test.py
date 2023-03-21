@@ -1,5 +1,3 @@
-from datetime import date
-
-toda = date.today()
-
-print(toda)
+a = "abcdcce"
+a.replace("c", "")
+print(a)

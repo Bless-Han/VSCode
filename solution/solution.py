@@ -1,24 +1,19 @@
-n = int(input())
+def judge(numbers):
+    i = 0
+    for _ in range(len(numbers)):
+        judge = True
+        for j in range(i+1, len(numbers)):
+            if numbers[j] == numbers[i]:
+                judge = False
+                break
+        if judge:
+            return numbers[i]
+        else:
+            numbers = [numbers[k] for k in range(len(numbers)) if numbers[k] != numbers[i] and k != i]
+            continue
+        i += 1
 
-modified = "1lO0"
-to_char = "@Lo%"
-for _ in range(n):
-    name, password = input().split()
-    password_list = list(password)
-    change = False
-    replace = []
+    return "None"
 
-    for i in range(len(password_list)):
-        print(password_list[i], change)
-        if password_list[i] in modified:
-            password_list[i] = to_char[modified.index(password_list[i])]
-            change = True
-    if change:
-        replace.append(f"{name} {''.join(password_list)}")
-
-if replace:
-    for row in replace:
-        print(row)
-else:
-    print(f"There is {n} account and no account is modified")
-
+numbers = list(map(int, input().split()))[1:]
+print(judge(numbers))

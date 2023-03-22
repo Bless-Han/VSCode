@@ -1,1 +1,2 @@
-print([x*x for x in range(2, 10) if x % 2 == 0])
+a = [1, 2, 3, 2]
+print([x for x in a if x != 2])

@@ -1,5 +1,4 @@
-number = input()
+def f(*args, **kwargs):
+    print(kwargs)
 
-
-for _ in range(number):
-    print("meow")
+f(a="hello", b="world")

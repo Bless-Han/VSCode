@@ -1,3 +1,3 @@
-a = [1, 2, 3, 2]
-b = [x for x in a if x != 2]
-print(b)
+nums = [12,345,2,6,7896]
+
+nums.insert(2, 20)

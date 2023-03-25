@@ -1,4 +1,4 @@
-def f(*args, **kwargs):
-    print(kwargs)
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-f(a="hello", b="world")
+b = filter(lambda x: x % 2 == 0, a)
+print(list(b))

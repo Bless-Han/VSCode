@@ -1,1 +1,5 @@
-[i*i for i in range(10) if i % 2 == 0]
+class Student:
+    name = "Neo"
+    def hello(self):
+        print(f"hello, {Student.name}")
+

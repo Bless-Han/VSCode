@@ -1,4 +1,10 @@
-a = [1, 3, 2, 3]
-while 3 in a:
-    a.remove(3)
-a
+a = input().split()
+b = input().split()
+c = []
+for n in a:
+    if n in b:
+        c.append(n)
+if len(c) == 0:
+    print("NULL")
+else:
+    print(*c)

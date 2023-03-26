@@ -1,3 +1,1 @@
-nums = [12,345,2,6,7896]
-
-nums.insert(2, 20)
+[i*i for i in range(10) if i % 2 == 0]

@@ -1,6 +1,7 @@
-def hello(n):
-    for _ in range(n):
-        yield "🕵️" * _
+#Fix the code below 👇
 
-for y in hello(30):
-    print(y)
+print("Day 1 - String Manipulation")
+print('String Concatenation is done with the "+" sign.')
+print('e.g. print("Hello " + "world")')
+print(("New lines can be created with a backslash and n.")
+

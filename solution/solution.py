@@ -1,2 +1,6 @@
-n1 = list(map(int, input().split()))[1:]
-n2 = list(map(int, input().split()))[1:]
+def hello(n):
+    for _ in range(n):
+        yield "🕵️" * _
+
+for y in hello(30):
+    print(y)

@@ -1,7 +1,20 @@
-#Fix the code below 👇
+import os
+import time
 
-print("Day 1 - String Manipulation")
-print('String Concatenation is done with the "+" sign.')
-print('e.g. print("Hello " + "world")')
-print(("New lines can be created with a backslash and n.")
+def show_reminder():
+    title = "Reminder"
+    message = "Time to take a break!"
+    command = f'display notification "{message}" with title "{title}" sound name "Glass"'
+    os.system(f"osascript -e '{command}'")
+
+# 设置提醒时间间隔（秒）
+interval = 6
+
+while True:
+    show_reminder()
+    time.sleep(interval)
+
+
+
+print("Ok")
 

@@ -1,4 +1,4 @@
-import tkinter
-import tkinter as tk
+from sys import stdin
 
-print(tk.TkVersion)
+s = stdin.readline().strip()
+print(s)

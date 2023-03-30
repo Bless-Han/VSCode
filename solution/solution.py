@@ -4,19 +4,41 @@ class Node:
         self.left = left
         self.right = right
 
+def get_tree(n):
+    t = []
+    for _ in range(number):
+        t.append(Node())
+    for node in t:
+        v, l, r = input().split()
+        node.value = v
+        if l == "-":
+            node.left = None
+        else:
+            node.left = t[int(l)]
+        if r == "-":
+            node.right = None
+        else:
+            node.right = t[int(r)]
+    return t
+
+
 def print_t(t):
     for node in t:
-        print(node.value, node.left, node.right)
+        print(node.value, "", end="")
+        if node.left:
+            print(node.left.value, "", end="")
+        else:
+            print("None", "", end="")
+        if node.right:
+            print(node.right.value)
+        else:
+            print("None")
 
 number = int(input())
-t1 = [Node() * number]
-for _ in range(number):
-    value, left, right = input().split()
-    t1.append(Node(value, left, right))
+t1 = get_tree(number)
 number = int(input())
-t2 = []
-for _ in range(number):
-    value, left, right = input().split()
-    t2.append(Node(value, left, right))
+t2 = get_tree(number)
+
+print_t(t1)
 
 print("Yes") if t1 == t2 else print("No")

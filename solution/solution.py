@@ -7,6 +7,8 @@ class Multi:
 
 
     def __str__(self):
+        if not self.dic:
+            return "0 0"
         ret = ""
         for k in sorted(self.dic, reverse=True):
             ret += f"{self.dic[k]} {k} "
@@ -21,7 +23,22 @@ class Multi:
                 dic[k] += other.dic[k]
             else:
                 dic[k] = other.dic[k]
-        ret.dic = dic
+        ret.dic = {k: v for k, v in dic.items() if v}
+        return ret
+
+
+    def __mul__(self, other):
+        ret = Multi()
+        dic = {}
+        for zhishu1, xishu1 in self.dic.items():
+            for zhishu2, xishu2 in other.dic.items():
+                add_zhishu = zhishu1 + zhishu2
+                mul_xishu = xishu1 * xishu2
+                if add_zhishu in dic:
+                    dic[add_zhishu] += mul_xishu
+                else:
+                    dic[add_zhishu] = mul_xishu
+        ret.dic = {k: v for k, v in dic.items() if v}
         return ret
 
 
@@ -29,9 +46,7 @@ mu1 = list(map(int, input().split()))[1:]
 mu2 = list(map(int, input().split()))[1:]
 multi1 = Multi(mu1)
 multi2 = Multi(mu2)
-print("multi1", multi1)
-print("multi2", multi2)
 
+print(multi1 * multi2)
 print(multi1 + multi2)
 
-print("Ok")

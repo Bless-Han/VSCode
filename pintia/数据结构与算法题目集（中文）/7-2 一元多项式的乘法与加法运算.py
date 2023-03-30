@@ -9,57 +9,44 @@
    
 '''
 # @pintia code=start
-import copy
-class Multi:
-    def __init__(self, lst: list[int] = []):
-        self.dic = {}
-        for i in range(0, len(lst), 2):
-            self.dic[lst[i+1]] = lst[i]
+from copy import deepcopy
 
-
+class Dict(dict):
     def __str__(self):
-        if not self.dic:
+        if not self:
             return "0 0"
-        ret = ""
-        for k in sorted(self.dic, reverse=True):
-            ret += f"{self.dic[k]} {k} "
-        return ret.strip()
-
+        else:
+            return " ".join(f"{xishu} {zhishu}" for zhishu, xishu in sorted(self.items(), reverse=True))
 
     def __add__(self, other):
-        ret = Multi()
-        dic = copy.deepcopy(self.dic)
-        for k in other.dic:
-            if k in dic:
-                dic[k] += other.dic[k]
+        ret = deepcopy(self)
+        for zhishu, xishu in other.items():
+            if zhishu in ret:
+                ret[zhishu] += xishu
             else:
-                dic[k] = other.dic[k]
-        ret.dic = {k: v for k, v in dic.items() if v}
-        return ret
-
+                ret[zhishu] = xishu
+        return Dict({key: value for key, value in ret.items() if value})
 
     def __mul__(self, other):
-        ret = Multi()
-        dic = {}
-        for zhishu1, xishu1 in self.dic.items():
-            for zhishu2, xishu2 in other.dic.items():
+        ret = {}
+        for zhishu1, xishu1 in self.items():
+            for zhishu2, xishu2 in other.items():
                 add_zhishu = zhishu1 + zhishu2
                 mul_xishu = xishu1 * xishu2
-                if add_zhishu in dic:
-                    dic[add_zhishu] += mul_xishu
+                if add_zhishu in ret:
+                    ret[add_zhishu] += mul_xishu
                 else:
-                    dic[add_zhishu] = mul_xishu
-        ret.dic = {k: v for k, v in dic.items() if v}
-        return ret
+                    ret[add_zhishu] = mul_xishu
+        return Dict({key: value for key, value in ret.items() if value})
 
 
-mu1 = list(map(int, input().split()))[1:]
-mu2 = list(map(int, input().split()))[1:]
-multi1 = Multi(mu1)
-multi2 = Multi(mu2)
+lst1 = list(map(int, input().split()))[1:]
+dic1 = Dict({lst1[i+1]: lst1[i] for i in range(0, len(lst1), 2)})
+lst2 = list(map(int, input().split()))[1:]
+dic2 = Dict({lst2[i+1]: lst2[i] for i in range(0, len(lst2), 2)})
+print(dic1 * dic2)
+print(dic1 + dic2)
 
-print(multi1 * multi2)
-print(multi1 + multi2)
 
 
 # @pintia code=end

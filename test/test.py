@@ -1,9 +1,4 @@
-# Python tkinter hello world program
-  
-from tkinter import *
-  
-root = Tk()
-a = Label(root, text ="Hello World")
-a.pack()
-  
-root.mainloop()
+a = dict()
+b = {"age": 28}
+print(a)
+print(b)

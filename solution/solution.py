@@ -39,6 +39,9 @@ t1 = get_tree(number)
 number = int(input())
 t2 = get_tree(number)
 
+a = 20
+a
+
 print_t(t1)
 
 print("Yes") if t1 == t2 else print("No")

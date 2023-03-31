@@ -103,14 +103,10 @@ Plugin 'xolox/vim-misc'
 Plugin 'farmergreg/vim-lastplace'
 " undotreemenu：显示 Vim 的撤销树。
 Plugin 'mbbill/undotree'
-" Neocomplete：自动补全插件。
-"Plugin 'Shougo/neocomplete.vim'
+
+
 " YouCompleteMe：自动补全插件。
 "Plugin 'Valloric/YouCompleteMe'
-" Copilote：自动补全插件。
-" Plugin 'tweekmonster/copilot.vim'
-
-
 
 call vundle#end()
 " 自动保存 
@@ -123,8 +119,6 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 
 " easy-motion
 map <Leader> <Plug>(easymotion-prefix)
-
-
 
 
 " 调用内置词典

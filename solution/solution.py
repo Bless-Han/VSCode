@@ -15,7 +15,6 @@ def isomorphic(root1, root2):
     return (isomorphic(root1.left, root2.left) and isomorphic(root1.right, root2.right))\
             or (isomorphic(root1.left, root2.right) and isomorphic(root1.right, root2.left))
 
-
 def build_tree():
     n = int(input())
     notes = []
@@ -39,5 +38,4 @@ if __name__ == '__main__':
         print('Yes')
     else:
         print('No')
-
 

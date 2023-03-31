@@ -103,6 +103,12 @@ Plugin 'xolox/vim-misc'
 Plugin 'farmergreg/vim-lastplace'
 " undotreemenu：显示 Vim 的撤销树。
 Plugin 'mbbill/undotree'
+" OneDark：一款黑色主题。
+Plugin 'joshdick/onedark.vim'
+" Dracula：一款黑色主题。
+Plugin 'dracula/vim'
+" vim-pythonsense：Python 语法检查插件。
+Plugin 'sheerun/vim-polyglot'
 
 
 " YouCompleteMe：自动补全插件。

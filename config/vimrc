@@ -136,3 +136,6 @@ endfunction
 
 " easymotion
 nnoremap <leader>l :call LookupWord()<CR>
+
+" polyglot_disable syntax_error
+

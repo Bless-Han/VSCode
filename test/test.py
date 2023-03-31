@@ -1,39 +1,32 @@
-from tkinter import *
-from tkinter import ttk
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.parent = None
 
-def calculate(*args):
-    try:
-        value = float(feet.get())
-        meters.set(int(0.3048 * value * 10000.0 + 0.5)/10000.0)
-    except ValueError:
-        pass
+def isomorphic(root1, root2):
+    if root1 is None and root2 is None:
+        return True
+    if root1 is None or root2 is None:
+        return False
+    if root1.data != root2.data:
+        return False
+    return (isomorphic(root1.left, root2.left) and isomorphic(root1.right, root2.right))\
+            or (isomorphic(root1.left, root2.right) and isomorphic(root1.right, root2.left))
 
-root = Tk()
-root.title("Base Converter")
+def build_tree():
+    n = int(input())
 
-mainframe = ttk.Frame(root, padding="12 3 12 3")
-mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
+def get_root(nodes):
+    for node in nodes:
+        if node.parent == None:
+            return node
 
-before = StringVar()
-before_entry = ttk.Entry(mainframe, width=10, textvariable=before)
-before_entry.grid(column=1, row=2, sticky=W)
-
-after = StringVar()
-after_entry = ttk.Entry(mainframe, width=10, textvariable=after)
-after_entry.grid(column=2, row=2, sticky=(W, E))
-
-ttk.Label(mainframe, text="From:", width=10).grid(column=1, row=1, sticky=(W, N))
-ttk.Label(mainframe, text="To:", width=10).grid(column=2, row=1, sticky=W)
-
-name = "Neo"
-ttk.Label(mainframe, text=name, width=10).grid(column=1, row=3, sticky=W)
-
-for child in mainframe.winfo_children(): 
-    child.grid_configure(padx=5, pady=5)
-
-before_entry.focus()
-root.bind("<Return>", calculate)
-
-root.mainloop()
+if __name__ == '__main__':
+    root1 = build_tree()
+    root2 = build_tree()
+    if isomorphic(root1, root2):
+        print('Yes')
+    else:
+        print('No')

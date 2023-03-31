@@ -7,7 +7,6 @@ def calculate(*args):
         meters.set(int(0.3048 * value * 10000.0 + 0.5)/10000.0)
     except ValueError:
         pass
-
 root = Tk()
 root.title("Base Converter")
 
@@ -27,8 +26,10 @@ after_entry.grid(column=2, row=2, sticky=(W, E))
 ttk.Label(mainframe, text="From:", width=10).grid(column=1, row=1, sticky=(W, N))
 ttk.Label(mainframe, text="To:", width=10).grid(column=2, row=1, sticky=W)
 
-name = "Neo"
-ttk.Label(mainframe, text=name, width=10).grid(column=1, row=3, sticky=W)
+ttk.Label(mainframe, text="Binary", width=10).grid(column=1, row=3, sticky=W)
+ttk.Label(mainframe, text="Octal", width=10).grid(column=1, row=4, sticky=W)
+ttk.Label(mainframe, text="Decimal", width=10).grid(column=1, row=5, sticky=W)
+ttk.Label(mainframe, text="Hex", width=10).grid(column=1, row=6, sticky=W)
 
 for child in mainframe.winfo_children(): 
     child.grid_configure(padx=5, pady=5)

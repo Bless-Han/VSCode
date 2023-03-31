@@ -6,32 +6,26 @@ class Node:
         self.parent = None
 
 def isomorphic(root1, root2):
-    if roo1 == None and root2 == None:
+    if root1 == None and root2 == None:
         return True
-    if roo1 == None or root2 == None:
+    if root1 == None or root2 == None:
         return False
     if root1.data != root2.data:
         return False
-    return isomorphic
+    return (isomorphic(root1.left, root2.left) and isomorphic(root1.right, root2.right))\
+            or (isomorphic(root1.left, root2.right) and isomorphic(root1.right, root2.left))
 
 
 def build_tree():
     n = int(input())
-    if n == 0:
-        return None
-    nodes = []
-    for i in range(n):
-        nodes.append(Node(0))
+    notes = []
+    for _ in range(n):
+        notes.append(Node(0))
     for i in range(n):
         data, left, right = input().split()
-        nodes[i].data = data
+        notes[i] = data
         if left != '-':
-            nodes[i].left = nodes[int(left)]
-            nodes[int(left)].parent = nodes[i]
-        if right != '-':
-            nodes[i].right = nodes[int(right)]
-            nodes[int(right)].parent = nodes[i]
-    return get_root(nodes)
+
 
 def get_root(nodes):
     for node in nodes:

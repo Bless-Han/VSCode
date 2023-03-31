@@ -41,9 +41,9 @@ nnoremap <C-;> :!time python "%" < "%:r.input"<cr>
 " inoremap ctrl + ; to run python
 inoremap <C-;> <Esc>:!time python "%" < "%:r.input"<cr>
 " inoremap <C-p> Up
-inoremap <C-p> <Up>
+"inoremap <C-p> <Up>
 " inoremap <C-n> Down
-inoremap <C-n> <Down>
+"inoremap <C-n> <Down>
 " inoremap <C-b> Left
 inoremap <C-b> <Left>
 " inoremap <C-f> Right

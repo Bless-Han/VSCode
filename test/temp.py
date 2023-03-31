@@ -59,9 +59,6 @@ A 1 4
 输出样例2:
 No
 '''
-# Q: 可以帮助我解决这道算法问题吗？
-# A: 可以，我会尽力帮助你解决这道算法问题。
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -69,10 +66,6 @@ class Node:
         self.right = None
         self.parent = None
 
-# Q: 请问这个函数的名字来自哪里?
-# A: 这个函数的名字来自于“同构”这个词的英文isomorphic。
-# Q: 谢谢你的解答
-# A: 不客气。
 def isomorphic(root1, root2):
     if root1 is None and root2 is None:
         return True
@@ -88,27 +81,21 @@ def build_tree():
         return None
     nodes = []
     for i in range(n):
-        nodes.append(Node(i))
+        nodes.append(Node(0))
     for i in range(n):
         data, left, right = input().split()
         nodes[i].data = data
         if left != '-':
             nodes[i].left = nodes[int(left)]
+            nodes[int(left)].parent = nodes[i]
         if right != '-':
             nodes[i].right = nodes[int(right)]
+            nodes[int(right)].parent = nodes[i]
     return get_root(nodes)
 
-# 返回nodes中的根节点
 def get_root(nodes):
     for node in nodes:
-        if node.left is None and node.right is None:
-            continue
-        if node.left is not None:
-            node.left.parent = node
-        if node.right is not None:
-            node.right.parent = node
-    for node in nodes:
-        if node.parent is None:
+        if node.parent == None:
             return node
 
 if __name__ == '__main__':

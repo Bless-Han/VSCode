@@ -139,3 +139,5 @@ endfunction
 " easymotion
 nnoremap <leader>l :call LookupWord()<CR>
 
+" set colorscheme to gruvbox
+colorscheme gruvbox

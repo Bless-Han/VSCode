@@ -17,6 +17,19 @@ def isomorphic(root1, root2):
 
 def build_tree():
     n = int(input())
+    nodes = []
+    for _ in range(n):
+        nodes.append(Node(0))
+    for i in range(n):
+        data, left, right = input().split()
+        nodes[i].data = data
+        if left != '-':
+            nodes[i].left = nodes[int(left)]
+            nodes[int(left)].parent = nodes[i]
+        if right != '-':
+            nodes[i].right = nodes[int(right)]
+            nodes[int(right)].parent = nodes[i]
+    return get_root(nodes)
 
 def get_root(nodes):
     for node in nodes:

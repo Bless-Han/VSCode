@@ -1,23 +1,20 @@
+from copy import deepcopy
 class Dict(dict):
-    def __init__(self):
-        s = list(map(int, input().split()))[1:]
-        for i in range(0, len(s), 2):
-            if s[i] in self:
-                self[s[i+1]] += s[i]
-            else:
-                self[s[i+1]] = s[i]
+    def __init__(self, flag=0):
+        if flag == 1:
+            numbers = list(map(int, input().split()))[1:]
+            for i in range(0, len(numbers), 2):
+                dict[i+1] = i
 
     def __str__(self):
-        return "Hello world"
+        ret = []
+        self.clear()
+        if not self:
+            return "0 0"
+        for k, v in sorted(self.items(), reverse=True):
+            ret.append()
+        return " ".join(str(n) for n in ret)
 
-    def __add__(self, other):
-        ...
-
-    def __mul__(self, other):
-        ...
-
-a = Dict()
-b = Dict()
-print(a + b)
-print(a * b)
-
+a = []
+a.append("a")
+a.append("b")

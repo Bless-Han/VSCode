@@ -109,6 +109,8 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'dracula/vim'
 " vim-pythonsense：Python 语法检查插件。
 Plugin 'sheerun/vim-polyglot'
+" gruvbox：一款黑色主题。
+Plugin 'morhetz/gruvbox'
 
 
 " YouCompleteMe：自动补全插件。

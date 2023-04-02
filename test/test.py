@@ -1,7 +1,14 @@
-import decimal
-a = input()
-e_l, exp = a.split("E")
-p_l, p_r = e_l.split(".")
-n = -(len(p_r)) + int(exp)
-n = -n if n < 0 else 0
-print(f"{decimal.Decimal(a):.{n}f}")
+class Solution:
+    def findMatrix(self, nums: list[int]) -> list[list[int]]:
+        ret = []
+        while nums:
+            curr = []
+            for n in nums:
+                if n not in curr:
+                    curr.append(n)
+            ret.append(curr)
+            # remove curr from nums
+        return ret
+
+nums = [1,3,4,1,2,3,1]
+print(Solution().findMatrix(nums))

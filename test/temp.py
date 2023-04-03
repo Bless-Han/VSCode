@@ -38,32 +38,34 @@ def insert(root, data):
         root.right = insert(root.right, data)
     return root
 
-def isSameBST(preOrder, inOrder):
-    if len(preOrder) == 0:
+def isIdentical(root1, root2):
+    if root1 is None and root2 is None:
         return True
-    if len(preOrder) == 1:
-        return preOrder[0] == inOrder[0]
-    root = preOrder[0]
-    rootIndex = inOrder.index(root)
-    leftInOrder = inOrder[:rootIndex]
-    rightInOrder = inOrder[rootIndex+1:]
-    leftPreOrder = preOrder[1:rootIndex+1]
-    rightPreOrder = preOrder[rootIndex+1:]
-    return isSameBST(leftPreOrder, leftInOrder) and isSameBST(rightPreOrder, rightInOrder)
+    if root1 is None or root2 is None:
+        return False
+    return root1.data == root2.data and isIdentical(root1.left, root2.left) and isIdentical(root1.right, root2.right)
 
 def main():
     while True:
-        n, m = map(int, input().split())
-        if n == 0:
+        try:
+            n, m = map(int, input().split())
+            if n == 0:
+                break
+            preOrder = list(map(int, input().split()))
+            root = None
+            for data in preOrder:
+                root = insert(root, data)
+            for i in range(m):
+                temp = list(map(int, input().split()))
+                root2 = None
+                for data in temp:
+                    root2 = insert(root2, data)
+                if isIdentical(root, root2):
+                    print('Yes')
+                else:
+                    print('No')
+        except Exception:
             break
-        preOrder = list(map(int, input().split()))
-        inOrder = sorted(preOrder)
-        for i in range(m):
-            temp = list(map(int, input().split()))
-            if isSameBST(temp, inOrder):
-                print('Yes')
-            else:
-                print('No')
 
 if __name__ == '__main__':
     main()

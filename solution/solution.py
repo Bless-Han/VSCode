@@ -3,38 +3,46 @@ class Node:
         self.data = data
         self.left = None
         self.right = None
-        self.parent = None
 
-def isomorphic(root1, root2):
+def insert(root, data):
+    if not root:
+        return Node(data)
+    if data < root.data:
+        root.left = insert(root.left, data)
+    else:
+        root.right = insert(root.right, data)
+
+def isIdentical(root1, root2):
     if root1 == None and root2 == None:
         return True
     if root1 == None or root2 == None:
         return False
-    if root1.data != root2.data:
-        return False
-    return (isomorphic(root1.left, root2.left) and isomorphic(root1.right, root2.right))\
-            or (isomorphic(root1.left, root2.right) and isomorphic(root1.right, root2.left))
+    return root1.data == root2.data and\
+        isIdentical(root1.left, root2.left) and\
+        isIdentical(root1.right, root2.right)
 
-def build_tree():
-    n = int(input())
-    notes = []
-    for _ in range(n):
-        notes.append(Node(0))
-    for i in range(n):
-        data, left, right = input().split()
-        notes[i] = data
-        if left != '-':
+def main():
+    while True:
+        try:
+            n, l = map(int, input().split())
+            print("Ok")
+        except Exception:
+            break
+        else:
+            preOrder = map(int, input().split())
+            root = None
+            for data in preOrder:
+                insert(root, data)
+            for _ in range(l):
+                preOrder = map(int, input().split())
+                root2 = None
+                for data in preOrder:
+                    insert(root2, data)
+                if isIdentical(root, root2):
+                    print("Yes")
+                else:
+                    print("No")
 
+if __name__ == "__main__":
+    main()
 
-def get_root(nodes):
-    for node in nodes:
-        if node.parent == None:
-            return node
-
-if __name__ == '__main__':
-    root1 = build_tree()
-    root2 = build_tree()
-    if isomorphic(root1, root2):
-        print('Yes')
-    else:
-        print('No')

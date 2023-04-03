@@ -31,10 +31,11 @@ ttk.Label(mainframe, text="Octal", width=10).grid(column=1, row=4, sticky=W)
 ttk.Label(mainframe, text="Decimal", width=10).grid(column=1, row=5, sticky=W)
 ttk.Label(mainframe, text="Hex", width=10).grid(column=1, row=6, sticky=W)
 
-for child in mainframe.winfo_children(): 
+for child in mainframe.winfo_children():
     child.grid_configure(padx=5, pady=5)
 
 before_entry.focus()
 root.bind("<Return>", calculate)
 
 root.mainloop()
+

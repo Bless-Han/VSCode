@@ -9,13 +9,20 @@
    
 '''
 # @pintia code=start
-numbers = input().split()
-search = int(numbers[0])
-numbers = numbers[1:-1]
-try:
-    print(numbers[-search])
-except IndexError:
-    print("NULL")
+def main():
+    k = int(input())
+    nums = []
+    while True:
+        n = int(input())
+        if n < 0:
+            break
+        nums.append(n)
+    if k > len(nums):
+        print("NULL")
+    else:
+        print(nums[-k])
+        
+
 
 
 # @pintia code=end

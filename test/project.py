@@ -26,10 +26,13 @@ after_entry.grid(column=2, row=2, sticky=(W, E))
 ttk.Label(mainframe, text="From:", width=10).grid(column=1, row=1, sticky=(W, N))
 ttk.Label(mainframe, text="To:", width=10).grid(column=2, row=1, sticky=W)
 
-ttk.Label(mainframe, text="Binary", width=10).grid(column=1, row=3, sticky=W)
-ttk.Label(mainframe, text="Octal", width=10).grid(column=1, row=4, sticky=W)
-ttk.Label(mainframe, text="Decimal", width=10).grid(column=1, row=5, sticky=W)
-ttk.Label(mainframe, text="Hex", width=10).grid(column=1, row=6, sticky=W)
+listbox = Listbox(mainframe, width=10, height=4, bg="systemTransparent")
+listbox.grid(column=1, row=3, sticky=W)
+listbox.insert(1, "Binary")
+listbox.insert(2, "Octal")
+listbox.insert(3, "Decimal")
+listbox.insert(4, "Hex")
+listbox.selection_set(4)
 
 for child in mainframe.winfo_children():
     child.grid_configure(padx=5, pady=5)

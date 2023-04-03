@@ -1,3 +1,14 @@
+'''
+   @pintia psid=15 pid=712 compiler=PYTHON3
+   
+   ProblemSet: 数据结构与算法题目集（中文）
+   
+   Title: 7-4 是否同一棵二叉搜索树
+   
+   https://pintia.cn/problem-sets/15/exam/problems/712
+   
+'''
+# @pintia code=start
 class Node:
     def __init__(self, data):
         self.data = data
@@ -43,4 +54,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-
+# @pintia code=end

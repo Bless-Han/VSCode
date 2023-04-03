@@ -20,7 +20,7 @@ def main():
 
     after_label = ttk.Label(mainframe, text="", width=10)
     after_label.grid(column=2, row=2, sticky=W)
-    after_label.config(text="neoneo")
+    after_label.config(text="1")
 
     listbox_left = Listbox(mainframe, width=12, height=4, bg="systemTransparent")
     listbox_left.grid(column=1, row=3, sticky=W)
@@ -55,7 +55,7 @@ def calculate(*args):
 def on_entry_change(event):
     print(event.widget.get())
     # TODO: 监测事件，并修改其他控件内容
-    after_label.config(text="neoneo")
+
 
 def on_select_left(event):
     # TODO: 监测事件，并修改其他控件内容

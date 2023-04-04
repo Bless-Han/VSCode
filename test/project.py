@@ -40,17 +40,17 @@ def main():
         child.grid_configure(padx=5, pady=5)
         
     listening_event()
-
     before_entry.focus()
+    root.bind("<Return>", convert)
     root.mainloop()
     
 def listening_event():
-    before_entry.bind("<Key>", on_entry_change)
+    # before_entry.bind("<Key>", on_entry_change)
     listbox_left.bind("<<ListboxSelect>>", on_select_left)
     listbox_right.bind("<<ListboxSelect>>", on_select_right)
 
 
-def calculate(*args):
+def convert(*args):
     try:
         value = int(before_entry.get())
     except ValueError:
@@ -59,19 +59,21 @@ def calculate(*args):
         after_label.config(text=value)
 
 def on_entry_change(event):
-    # test
+    convert()
     print(event.widget.get())
     # TODO: 监测事件，并修改其他控件内容
-    after_label.config(text=before_entry.get())
-    # calculate()
+    # after_label.config(text=before_entry.get())
 
 def on_select_left(event):
     # TODO: 监测事件，并修改其他控件内容
-    after_label.config(text="left_test")
+    print(event.widget.curselection())
+    # after_label.config(text="left_test")
+    ...
 
 def on_select_right(event):
     # TODO: 监测事件，并修改其他控件内容
-    after_label.config(text="right_test")
+    # after_label.config(text="right_test")
+    ...
 
 if __name__ == "__main__":
     main()

@@ -1,16 +1,22 @@
-import tkinter as tk
+from tkinter import *
 
-class SampleApp(tk.Tk):
-    def __init__(self, *args, **kwargs):
-        tk.Tk.__init__(self, *args, **kwargs)
-        self.lb = tk.Listbox(self)
-        for x in range(20):
-            self.lb.insert("end", x)
-        self.lb.bind("<<ListboxSelect>>", self.OnSelect)
-        self.lb.pack(side="top", fill="both", expand=True)
+root = Tk()
 
-    def OnSelect(self, event):
-        print(event.widget.get(event.widget.curselection()))
+def testVal(inStr, acttyp):
+    if acttyp == '1': #insert
+        if not inStr.isdigit():
+            return False
+    return True
 
-app = SampleApp()
-app.mainloop()
+entry = Entry(root, validate="key")
+# Q: What's this code mean and how does it work?
+# A: It's a callback function that is called when the user types a character into the entry.
+# Q: What is the first argument?
+# A: It's the value of the entry.
+# Q: What is the second argument?
+# A: It's the action type. 1 means insert, 0 means delete, -1 means focus in, -2 means focus out.
+
+entry['validatecommand'] = (entry.register(testVal), '%P', '%d')
+entry.pack()
+
+root.mainloop()

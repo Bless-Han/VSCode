@@ -111,6 +111,8 @@ Plugin 'dracula/vim'
 Plugin 'sheerun/vim-polyglot'
 " gruvbox：一款黑色主题。
 Plugin 'morhetz/gruvbox'
+" rainbow：彩虹括号。
+Plugin 'luochen1990/rainbow'
 
 
 " YouCompleteMe：自动补全插件。
@@ -141,3 +143,6 @@ nnoremap <leader>l :call LookupWord()<CR>
 
 " set colorscheme to gruvbox
 colorscheme gruvbox
+
+" rainbow
+let g:rainbow_active = 1

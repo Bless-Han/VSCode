@@ -1,22 +1,32 @@
-import tkinter as tk
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
 
-def on_select(event):
-    # 获取当前选中的项
-    selected_item = my_listbox.get(my_listbox.curselection())
-    # 在控制台中打印选中的项
-    print(selected_item)
+def is_same(r1, r2):
+    if r1 == None and r2 == None:
+        return True
+    if r1 == None or r2 == None:
+        return False
+    return r1.data == r2.dara and is_same(r1.left, r2.left) and is_same(r1.right, r2.right)
 
-root = tk.Tk()
+def build_tree(r, data):
+    if not r:
+        return Node(data)
 
-# 创建一个Listbox并添加选项
-my_listbox = tk.Listbox(root)
-my_listbox.insert(0, "Option 1")
-my_listbox.insert(1, "Option 2")
-my_listbox.insert(2, "Option 3")
-my_listbox.pack()
 
-# 绑定<<ListboxSelect>>事件处理程序
-my_listbox.bind("<<ListboxSelect>>", on_select)
-
-root.mainloop()
-
+try:
+    while True:
+        n, l = map(int, input().split())
+        r1 = None
+        numbers = map(int, input().split())
+        for number in numbers:
+            r1 = build_tree(r1, number)
+        for _ in range(l):
+            numbers = map(int, input().split())
+            for number in nubmers:
+                r2 = build_tree(r2, number)
+        print("Yes") if is_same(r1, r2) else print("No")
+except Exception:
+    ...

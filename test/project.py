@@ -4,10 +4,14 @@ from tkinter import ttk
 root = Tk()
 mainframe = ttk.Frame(root, padding="12 3 12 3")
 before = StringVar()
-before_entry = ttk.Entry(mainframe, width=10, textvariable=before)
-after_label = ttk.Label(mainframe, text="", width=10)
-listbox_left = Listbox(mainframe, width=12, height=4, bg="systemTransparent")
-listbox_right = Listbox(mainframe, width=12, height=4, bg="systemTransparent")
+before_entry = ttk.Entry(mainframe, width=20, textvariable=before)
+after_label = ttk.Label(mainframe, text="", width=20)
+listbox_left = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+listbox_right = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+
+numbers = {}
+left_curselection = (0, )
+right_curselection = (0, )
 
 def main():
     root.title("Base Converter")
@@ -16,8 +20,8 @@ def main():
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
 
-    ttk.Label(mainframe, text="From:", width=10).grid(column=1, row=1, sticky=(W, N))
-    ttk.Label(mainframe, text="To:", width=10).grid(column=2, row=1, sticky=W)
+    ttk.Label(mainframe, text="From:", width=20).grid(column=1, row=1, sticky=(W, N))
+    ttk.Label(mainframe, text="To:", width=20).grid(column=2, row=1, sticky=W)
 
     before_entry.grid(column=1, row=2, sticky=W)
 
@@ -45,35 +49,32 @@ def main():
     root.mainloop()
     
 def listening_event():
-    # before_entry.bind("<Key>", on_entry_change)
     listbox_left.bind("<<ListboxSelect>>", on_select_left)
     listbox_right.bind("<<ListboxSelect>>", on_select_right)
 
 
 def convert(*args):
+    numbers = {"Bin": 0, "Oct": 0, "Dec": 0, "Hex": 0}
     try:
         value = int(before_entry.get())
     except ValueError:
         after_label.config(text="Invalid value.")
     else:
-        after_label.config(text=value)
-
-def on_entry_change(event):
-    convert()
-    print(event.widget.get())
-    # TODO: 监测事件，并修改其他控件内容
-    # after_label.config(text=before_entry.get())
+        after_label.config(text=left_curselection[0])
+        print("left:", left_curselection[0])
+        print("right:", right_curselection[0])
 
 def on_select_left(event):
-    # TODO: 监测事件，并修改其他控件内容
-    print(event.widget.curselection())
-    # after_label.config(text="left_test")
-    ...
+    global left_curselection
+    if event.widget.curselection():
+        left_curselection = event.widget.curselection()
+    convert()
 
 def on_select_right(event):
-    # TODO: 监测事件，并修改其他控件内容
-    # after_label.config(text="right_test")
-    ...
+    global right_curselection
+    if event.widget.curselection():
+        right_curselection = event.widget.curselection()
+    convert()
 
 if __name__ == "__main__":
     main()

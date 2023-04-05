@@ -1,32 +1,39 @@
 class Node:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
+    def __init__(self, d):
+        self.d = d
+        self.l = None
+        self.r = None
 
-def is_same(r1, r2):
-    if r1 == None and r2 == None:
+def isIdentical(r1, r2):
+    if not r1 and not r2:
         return True
-    if r1 == None or r2 == None:
+    if not r1 or not r2:
         return False
-    return r1.data == r2.dara and is_same(r1.left, r2.left) and is_same(r1.right, r2.right)
+    return r1.d == r2.d and isIdentical(r1.l, r2.l) and isIdentical(r1.r, r2.r)
 
-def build_tree(r, data):
+def insert(r, d):
     if not r:
-        return Node(data)
+        return Node(d)
+    if d < r.d:
+        r.l = insert(r.l, d)
+    else:
+        r.r = insert(r.r, d)
+    return r
 
-
-try:
-    while True:
+while True:
+    try:
         n, l = map(int, input().split())
+    except Exception:
+        break
+    else:
+        nums = map(int, input().split())
         r1 = None
-        numbers = map(int, input().split())
-        for number in numbers:
-            r1 = build_tree(r1, number)
+        for num in nums:
+            r1 = insert(r1, num)
         for _ in range(l):
-            numbers = map(int, input().split())
-            for number in nubmers:
-                r2 = build_tree(r2, number)
-        print("Yes") if is_same(r1, r2) else print("No")
-except Exception:
-    ...
+            nums = map(int, input().split())
+            r2 = None
+            for num in nums:
+                r2 = insert(r2, num)
+            print("Yes") if isIdentical(r1, r2) else print("No")
+

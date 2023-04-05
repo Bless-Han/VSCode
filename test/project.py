@@ -54,15 +54,23 @@ def listening_event():
 
 
 def convert(*args):
-    numbers = {"Bin": 0, "Oct": 0, "Dec": 0, "Hex": 0}
+    s = ["Bin", "Oct", "Dec", "Hex"]
     try:
         value = int(before_entry.get())
     except ValueError:
         after_label.config(text="Invalid value.")
     else:
-        after_label.config(text=left_curselection[0])
-        print("left:", left_curselection[0])
-        print("right:", right_curselection[0])
+        numbers = count(value, s[left_curselection[0]])
+        listbox_right.delete(0)
+        listbox_right.insert(0, f"Binary ({numbers['Bin']})")
+        listbox_right.delete(1)
+        listbox_right.insert(1, f"Octal ({numbers['Oct']})")
+        listbox_right.delete(2)
+        listbox_right.insert(2, f"Decimal ({numbers['Dec']})")
+        listbox_right.delete(3)
+        listbox_right.insert(3, f"Hex ({numbers['Hex']})")
+        after_label.config(text=numbers[s[right_curselection[0]]])
+        # TODO
 
 def on_select_left(event):
     global left_curselection

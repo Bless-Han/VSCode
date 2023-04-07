@@ -23,6 +23,7 @@ def main():
     ttk.Label(mainframe, text="From:", width=20).grid(column=1, row=1, sticky=(W, N))
     ttk.Label(mainframe, text="To:", width=20).grid(column=2, row=1, sticky=W)
 
+    before_entry.bind("<KeyRelease>", entry_on_change)
     before_entry.grid(column=1, row=2, sticky=W)
 
     after_label.grid(column=2, row=2, sticky=W)
@@ -49,14 +50,13 @@ def main():
     root.bind("<Return>", convert)
     root.mainloop()
     
+def entry_on_change(event):
+    convert()
+
 def convert(*args):
     s = ["Bin", "Oct", "Dec", "Hex"]
-    try:
-        entry_str = before_entry.get()
-        value = int(entry_str)
-    except ValueError:
-        after_label.config(text="Invalid value.")
-    else:
+    value = before_entry.get()
+    if check(value, s[left_curselection[0]]):
         numbers = count(value, s[left_curselection[0]])
         listbox_right.delete(0)
         listbox_right.insert(0, f"Binary ({numbers['Bin']})")
@@ -66,15 +66,24 @@ def convert(*args):
         listbox_right.insert(2, f"Decimal ({numbers['Dec']})")
         listbox_right.delete(3)
         listbox_right.insert(3, f"Hex ({numbers['Hex']})")
-        after_label.config(text=numbers[s[right_curselection[0]]])
+        after_label.config(text="")
+    else:
+        after_label.config(text="Invalid value.")
+        
+def check(value, base):
+    match base:
+        case "Bin": return all(c in "01" for c in value)
+        case "Oct": return all(c in "01234567" for c in value)
+        case "Dec": return all(c in "0123456789" for c in value)
+        case "Hex": return all(c in "0123456789ABCDEF" for c in value.upper())
         
 def count(value, base):
     decimal = 0
     match base:
-        case "Bin": decimal = int(str(value), 2)
-        case "Oct": decimal = int(str(value), 8)
-        case "Dec": decimal = int(str(value), 10)
-        case "Hex": decimal = int(str(value), 16)
+        case "Bin": decimal = int(value, 2)
+        case "Oct": decimal = int(value, 8)
+        case "Dec": decimal = int(value, 10)
+        case "Hex": decimal = int(value, 16)
         
     return {
         "Bin": bin(decimal)[2:],
@@ -85,6 +94,7 @@ def count(value, base):
 
 def on_select_left(event):
     global left_curselection
+    
     if event.widget.curselection():
         left_curselection = event.widget.curselection()
     convert()

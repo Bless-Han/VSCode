@@ -33,30 +33,27 @@ def main():
     listbox_left.insert(2, "Decimal")
     listbox_left.insert(3, "Hex")
     listbox_left.selection_set(0)
+    listbox_left.bind("<<ListboxSelect>>", on_select_left)
 
     listbox_right.grid(column=2, row=3, sticky=W)
     listbox_right.insert(0, "Binary")
     listbox_right.insert(1, "Octal")
     listbox_right.insert(2, "Decimal")
     listbox_right.insert(3, "Hex")
+    listbox_right.bind("<<ListboxSelect>>", on_select_right)
 
     for child in mainframe.winfo_children():
         child.grid_configure(padx=5, pady=5)
         
-    listening_event()
     before_entry.focus()
     root.bind("<Return>", convert)
     root.mainloop()
     
-def listening_event():
-    listbox_left.bind("<<ListboxSelect>>", on_select_left)
-    listbox_right.bind("<<ListboxSelect>>", on_select_right)
-
-
 def convert(*args):
     s = ["Bin", "Oct", "Dec", "Hex"]
     try:
-        value = int(before_entry.get())
+        entry_str = before_entry.get()
+        value = int(entry_str)
     except ValueError:
         after_label.config(text="Invalid value.")
     else:
@@ -70,7 +67,21 @@ def convert(*args):
         listbox_right.delete(3)
         listbox_right.insert(3, f"Hex ({numbers['Hex']})")
         after_label.config(text=numbers[s[right_curselection[0]]])
-        # TODO
+        
+def count(value, base):
+    decimal = 0
+    match base:
+        case "Bin": decimal = int(str(value), 2)
+        case "Oct": decimal = int(str(value), 8)
+        case "Dec": decimal = int(str(value), 10)
+        case "Hex": decimal = int(str(value), 16)
+        
+    return {
+        "Bin": bin(decimal)[2:],
+        "Oct": oct(decimal)[2:],
+        "Dec": decimal,
+        "Hex": hex(decimal)[2:].upper()
+    }
 
 def on_select_left(event):
     global left_curselection

@@ -21,6 +21,8 @@ def main():
     entry.grid(column=1, row=2, sticky=W)
     entry.bind("<KeyRelease>", entry_on_change)
     listbox.grid(column=1, row=3, sticky=W)
+    # TODO: 4 entry in 1 frame.
+    # TODO: auto copy
     listbox.selection_set(0)
     listbox.bind("<<ListboxSelect>>", on_select)
     init_listbox()

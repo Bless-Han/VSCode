@@ -1,7 +1,7 @@
 from copy import deepcopy
 
 class Dict(dict):
-    def __init__(self, flag = 0):
+    def __init__(self, flag = False):
         if flag:
             nums = list(map(int, input().split()))[1:]
             for i in range(0, len(nums), 2):
@@ -11,7 +11,7 @@ class Dict(dict):
         ret = Dict()
         for k1, v1 in self.items():
             for k2, v2 in o.items():
-                if k1 + k1 not in ret:
+                if k1 + k2 not in ret:
                     ret[k1+k2] = v1 * v2
                 else:
                     ret[k1+k2] += v1 * v2
@@ -46,8 +46,8 @@ class Dict(dict):
         for k in sorted(remove, reverse=True):
             self.pop(k)
 
-d1 = Dict(1)
-d2 = Dict(1)
+d1 = Dict(True)
+d2 = Dict(True)
 print(d1 * d2)
 print(d1 + d2)
 

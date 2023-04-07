@@ -6,8 +6,8 @@ mainframe = ttk.Frame(root, padding="12 3 12 3")
 before = StringVar()
 before_entry = ttk.Entry(mainframe, width=20, textvariable=before)
 after_label = ttk.Label(mainframe, text="", width=20)
-listbox_left = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
-listbox_right = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+left_listbox = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+right_text = Text(root, height=4,width=20)
 
 numbers = {}
 left_curselection = (0, )
@@ -28,20 +28,15 @@ def main():
 
     after_label.grid(column=2, row=2, sticky=W)
 
-    listbox_left.grid(column=1, row=3, sticky=W)
-    listbox_left.insert(0, "Binary")
-    listbox_left.insert(1, "Octal")
-    listbox_left.insert(2, "Decimal")
-    listbox_left.insert(3, "Hex")
-    listbox_left.selection_set(0)
-    listbox_left.bind("<<ListboxSelect>>", on_select_left)
+    left_listbox.grid(column=1, row=3, sticky=W)
+    left_listbox.insert(0, "Binary")
+    left_listbox.insert(1, "Octal")
+    left_listbox.insert(2, "Decimal")
+    left_listbox.insert(3, "Hex")
+    left_listbox.selection_set(0)
+    left_listbox.bind("<<ListboxSelect>>", on_select_left)
 
-    listbox_right.grid(column=2, row=3, sticky=W)
-    listbox_right.insert(0, "Binary")
-    listbox_right.insert(1, "Octal")
-    listbox_right.insert(2, "Decimal")
-    listbox_right.insert(3, "Hex")
-    listbox_right.bind("<<ListboxSelect>>", on_select_right)
+    right_text.grid(column=2, row=3, sticky=W)
 
     for child in mainframe.winfo_children():
         child.grid_configure(padx=5, pady=5)
@@ -58,14 +53,7 @@ def convert(*args):
     value = before_entry.get()
     if check(value, s[left_curselection[0]]):
         numbers = count(value, s[left_curselection[0]])
-        listbox_right.delete(0)
-        listbox_right.insert(0, f"Binary ({numbers['Bin']})")
-        listbox_right.delete(1)
-        listbox_right.insert(1, f"Octal ({numbers['Oct']})")
-        listbox_right.delete(2)
-        listbox_right.insert(2, f"Decimal ({numbers['Dec']})")
-        listbox_right.delete(3)
-        listbox_right.insert(3, f"Hex ({numbers['Hex']})")
+        right_label.config(text=f"{numbers['Bin']}\n{numbers['Oct']}\n{numbers['Dec']}\n{numbers['Hex']}")
         after_label.config(text="")
     else:
         after_label.config(text="Invalid value.")
@@ -94,15 +82,8 @@ def count(value, base):
 
 def on_select_left(event):
     global left_curselection
-    
     if event.widget.curselection():
         left_curselection = event.widget.curselection()
-    convert()
-
-def on_select_right(event):
-    global right_curselection
-    if event.widget.curselection():
-        right_curselection = event.widget.curselection()
     convert()
 
 if __name__ == "__main__":

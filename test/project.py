@@ -36,7 +36,7 @@ def main():
     listbox_left.bind("<<ListboxSelect>>", on_select_left)
     listbox_right.grid(column=2, row=3, sticky=E)
     listbox_right.bind("<<ListboxSelect>>", on_select_right)
-    init_listbox()
+    init_listbox_right()
 
     for child in mainframe.winfo_children():
         child.grid_configure(padx=5, pady=5)
@@ -47,7 +47,7 @@ def main():
 def entry_on_change(event):
     convert()
     
-def init_listbox():
+def init_listbox_right():
     listbox_right.delete(0)
     listbox_right.insert(0, "Binary")
     listbox_right.delete(1)
@@ -57,13 +57,13 @@ def init_listbox():
     listbox_right.delete(3)
     listbox_right.insert(3, "Hex")
 
-def convert(*args):
+def convert():
     global numbers
     global curselection_left
     global valid_flag
     value = entry.get()
     if value == "":
-        init_listbox()
+        init_listbox_right()
         numbers = {}
         label_left.config(text="Enter a number.", foreground="green")
         valid_flag = False
@@ -83,7 +83,7 @@ def convert(*args):
         valid_flag = True
         return True
     else:
-        init_listbox()
+        init_listbox_right()
         numbers = {}
         label_left.config(text="Invalid number.", foreground="red")
         label_right.config(text="")
@@ -110,7 +110,7 @@ def count(value, base):
     return {
         "Bin": bin(decimal)[2:],
         "Oct": oct(decimal)[2:],
-        "Dec": decimal,
+        "Dec": str(decimal),
         "Hex": hex(decimal)[2:].upper()
     }
 

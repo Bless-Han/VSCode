@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import pyperclip
 
 root = Tk()
 mainframe = ttk.Frame(root, padding="12 3 12 3")
@@ -14,6 +15,8 @@ listbox_right = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
 
 numbers = {}
 curselection_left = (0, )
+curselection_right = (0, )
+s = ["Bin", "Oct", "Dec", "Hex"]
 
 def main():
     root.title("Base Converter")
@@ -24,6 +27,10 @@ def main():
     entry.grid(column=1, row=2, sticky=W)
     entry.bind("<KeyRelease>", entry_on_change)
     listbox_left.grid(column=1, row=3, sticky=W)
+    listbox_left.insert(0, "Binary")
+    listbox_left.insert(1, "Octal")
+    listbox_left.insert(2, "Decimal")
+    listbox_left.insert(3, "Hex")
     listbox_left.selection_set(0)
     listbox_left.bind("<<ListboxSelect>>", on_select_left)
     listbox_right.grid(column=2, row=3, sticky=E)
@@ -40,39 +47,42 @@ def entry_on_change(event):
     convert()
     
 def init_listbox():
-    listbox_left.delete(0)
-    listbox_left.insert(0, "Binary")
-    listbox_left.delete(1)
-    listbox_left.insert(1, "Octal")
-    listbox_left.delete(2)
-    listbox_left.insert(2, "Decimal")
-    listbox_left.delete(3)
-    listbox_left.insert(3, "Hex")
+    listbox_right.delete(0)
+    listbox_right.insert(0, "Binary")
+    listbox_right.delete(1)
+    listbox_right.insert(1, "Octal")
+    listbox_right.delete(2)
+    listbox_right.insert(2, "Decimal")
+    listbox_right.delete(3)
+    listbox_right.insert(3, "Hex")
 
 def convert(*args):
-    s = ["Bin", "Oct", "Dec", "Hex"]
+    global numbers
+    global curselection_left
     value = entry.get()
+    print("left:", curselection_left)
     if value == "":
         init_listbox()
         label_left.config(text="Enter a number.", foreground="green")
-        return
-    else:
+        return False
+    elif check(value, s[curselection_left[0]]):
         label_left.config(text="OK", foreground="green")
         label_right.config(text="Click to copy.", foreground="green")
-    if check(value, s[curselection_left[0]]):
         numbers = count(value, s[curselection_left[0]])
-        listbox_left.delete(0)
-        listbox_left.insert(0, f"Binary {numbers['Bin']}")
-        listbox_left.delete(1)
-        listbox_left.insert(1, f"Octal {numbers['Oct']}")
-        listbox_left.delete(2)
-        listbox_left.insert(2, f"Decimal {numbers['Dec']}")
-        listbox_left.delete(3)
-        listbox_left.insert(3, f"Hex {numbers['Hex']}")
+        listbox_right.delete(0)
+        listbox_right.insert(0, f"Binary {numbers['Bin']}")
+        listbox_right.delete(1)
+        listbox_right.insert(1, f"Octal {numbers['Oct']}")
+        listbox_right.delete(2)
+        listbox_right.insert(2, f"Decimal {numbers['Dec']}")
+        listbox_right.delete(3)
+        listbox_right.insert(3, f"Hex {numbers['Hex']}")
         print(value)
+        return True
     else:
         init_listbox()
         label_left.config(text="Invalid number.", foreground="red")
+        return False
         
 # Check if the value valid.
 def check(value, base):
@@ -100,15 +110,21 @@ def count(value, base):
 
 def on_select_left(event):
     global curselection_left
-    if event.widget.curselection_left():
-        # TODO: Fix this. Change the value of entry.
-        curselection_left = event.widget.curselection_left()
-    convert()
-    
+    curselection_left = event.widget.curselection()
+    if curselection_left:
+        # If s[curselection_left[0]] in numbers, then change the entry.
+        if s[curselection_left[0]] in numbers:
+            entry.delete(0, END)
+            entry.insert(0, numbers[s[curselection_left[0]]])
+        convert()
+
 def on_select_right(event):
-    if event.widget.curselection_left():
-        curselection_right = event.widget.curselection_left()
-        
+    global curselection_right
+    global numbers
+    curselection_right = event.widget.curselection()
+    if curselection_right:
+        pyperclip.copy(numbers[s[curselection_right[0]]])
+        label_right.config(text="Copied!", foreground="green")
 
 if __name__ == "__main__":
     main()

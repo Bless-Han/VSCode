@@ -3,13 +3,17 @@ from tkinter import ttk
 
 root = Tk()
 mainframe = ttk.Frame(root, padding="12 3 12 3")
-label = ttk.Label(mainframe, text="Enter a number.", width=20, foreground="green")
+label_left = ttk.Label(mainframe, text="Enter a number.", width=20, foreground="green")
+label_left.grid(column=1, row=1, sticky=(W, N))
+label_right = ttk.Label(mainframe, text="1111  Click to copy.", width=20, foreground="green")
+label_right.grid(column=2, row=2, sticky=(W, N))
 before = StringVar()
 entry = ttk.Entry(mainframe, width=20, textvariable=before)
-listbox = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+listbox_left = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+listbox_right = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
 
 numbers = {}
-curselection = (0, )
+curselection_left = (0, )
 
 def main():
     root.title("Base Converter")
@@ -17,14 +21,13 @@ def main():
     mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
-    label.grid(column=1, row=1, sticky=(W, N))
     entry.grid(column=1, row=2, sticky=W)
     entry.bind("<KeyRelease>", entry_on_change)
-    listbox.grid(column=1, row=3, sticky=W)
-    # TODO: 4 entry in 1 frame.
-    # TODO: auto copy
-    listbox.selection_set(0)
-    listbox.bind("<<ListboxSelect>>", on_select)
+    listbox_left.grid(column=1, row=3, sticky=W)
+    listbox_left.selection_set(0)
+    listbox_left.bind("<<ListboxSelect>>", on_select_left)
+    listbox_right.grid(column=2, row=3, sticky=E)
+    listbox_right.bind("<<ListboxSelect>>", on_select_right)
     init_listbox()
 
     for child in mainframe.winfo_children():
@@ -37,38 +40,39 @@ def entry_on_change(event):
     convert()
     
 def init_listbox():
-    listbox.delete(0)
-    listbox.insert(0, "Binary")
-    listbox.delete(1)
-    listbox.insert(1, "Octal")
-    listbox.delete(2)
-    listbox.insert(2, "Decimal")
-    listbox.delete(3)
-    listbox.insert(3, "Hex")
+    listbox_left.delete(0)
+    listbox_left.insert(0, "Binary")
+    listbox_left.delete(1)
+    listbox_left.insert(1, "Octal")
+    listbox_left.delete(2)
+    listbox_left.insert(2, "Decimal")
+    listbox_left.delete(3)
+    listbox_left.insert(3, "Hex")
 
 def convert(*args):
     s = ["Bin", "Oct", "Dec", "Hex"]
     value = entry.get()
     if value == "":
         init_listbox()
-        label.config(text="Enter a number.", foreground="green")
+        label_left.config(text="Enter a number.", foreground="green")
         return
     else:
-        label.config(text="OK", foreground="green")
-    if check(value, s[curselection[0]]):
-        numbers = count(value, s[curselection[0]])
-        listbox.delete(0)
-        listbox.insert(0, f"Binary {numbers['Bin']}")
-        listbox.delete(1)
-        listbox.insert(1, f"Octal {numbers['Oct']}")
-        listbox.delete(2)
-        listbox.insert(2, f"Decimal {numbers['Dec']}")
-        listbox.delete(3)
-        listbox.insert(3, f"Hex {numbers['Hex']}")
+        label_left.config(text="OK", foreground="green")
+        label_right.config(text="Click to copy.", foreground="green")
+    if check(value, s[curselection_left[0]]):
+        numbers = count(value, s[curselection_left[0]])
+        listbox_left.delete(0)
+        listbox_left.insert(0, f"Binary {numbers['Bin']}")
+        listbox_left.delete(1)
+        listbox_left.insert(1, f"Octal {numbers['Oct']}")
+        listbox_left.delete(2)
+        listbox_left.insert(2, f"Decimal {numbers['Dec']}")
+        listbox_left.delete(3)
+        listbox_left.insert(3, f"Hex {numbers['Hex']}")
         print(value)
     else:
         init_listbox()
-        label.config(text="Invalid number.", foreground="red")
+        label_left.config(text="Invalid number.", foreground="red")
         
 # Check if the value valid.
 def check(value, base):
@@ -94,12 +98,17 @@ def count(value, base):
         "Hex": hex(decimal)[2:].upper()
     }
 
-def on_select(event):
-    global curselection
-    if event.widget.curselection():
+def on_select_left(event):
+    global curselection_left
+    if event.widget.curselection_left():
         # TODO: Fix this. Change the value of entry.
-        curselection = event.widget.curselection()
+        curselection_left = event.widget.curselection_left()
     convert()
+    
+def on_select_right(event):
+    if event.widget.curselection_left():
+        curselection_right = event.widget.curselection_left()
+        
 
 if __name__ == "__main__":
     main()

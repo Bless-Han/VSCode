@@ -6,17 +6,18 @@ root = Tk()
 mainframe = ttk.Frame(root, padding="12 3 12 3")
 label_left = ttk.Label(mainframe, text="Enter a number.", width=20, foreground="green")
 label_left.grid(column=1, row=1, sticky=(W, N))
-label_right = ttk.Label(mainframe, text="1111  Click to copy.", width=20, foreground="green")
+label_right = ttk.Label(mainframe, text="Click to copy.", width=20, foreground="red")
 label_right.grid(column=2, row=2, sticky=(W, N))
 before = StringVar()
 entry = ttk.Entry(mainframe, width=20, textvariable=before)
-listbox_left = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
-listbox_right = Listbox(mainframe, width=22, height=4, bg="systemTransparent")
+listbox_left = Listbox(mainframe, width=22, height=4)
+listbox_right = Listbox(mainframe, width=22, height=4)
 
 numbers = {}
 curselection_left = (0, )
 curselection_right = (0, )
 s = ["Bin", "Oct", "Dec", "Hex"]
+valid_flag = False
 
 def main():
     root.title("Base Converter")
@@ -59,15 +60,17 @@ def init_listbox():
 def convert(*args):
     global numbers
     global curselection_left
+    global valid_flag
     value = entry.get()
-    print("left:", curselection_left)
     if value == "":
         init_listbox()
+        numbers = {}
         label_left.config(text="Enter a number.", foreground="green")
+        valid_flag = False
         return False
     elif check(value, s[curselection_left[0]]):
         label_left.config(text="OK", foreground="green")
-        label_right.config(text="Click to copy.", foreground="green")
+        label_right.config(text="Click to copy.", foreground="red")
         numbers = count(value, s[curselection_left[0]])
         listbox_right.delete(0)
         listbox_right.insert(0, f"Binary {numbers['Bin']}")
@@ -77,11 +80,14 @@ def convert(*args):
         listbox_right.insert(2, f"Decimal {numbers['Dec']}")
         listbox_right.delete(3)
         listbox_right.insert(3, f"Hex {numbers['Hex']}")
-        print(value)
+        valid_flag = True
         return True
     else:
         init_listbox()
+        numbers = {}
         label_left.config(text="Invalid number.", foreground="red")
+        label_right.config(text="")
+        valid_flag = False
         return False
         
 # Check if the value valid.
@@ -110,19 +116,21 @@ def count(value, base):
 
 def on_select_left(event):
     global curselection_left
-    curselection_left = event.widget.curselection()
-    if curselection_left:
+    global valid_flag
+    if event.widget.curselection():
+        curselection_left = event.widget.curselection()
         # If s[curselection_left[0]] in numbers, then change the entry.
         if s[curselection_left[0]] in numbers:
             entry.delete(0, END)
             entry.insert(0, numbers[s[curselection_left[0]]])
-        convert()
+        else:
+            convert()
 
 def on_select_right(event):
     global curselection_right
     global numbers
-    curselection_right = event.widget.curselection()
-    if curselection_right:
+    if event.widget.curselection() and valid_flag:
+        curselection_right = event.widget.curselection()
         pyperclip.copy(numbers[s[curselection_right[0]]])
         label_right.config(text="Copied!", foreground="green")
 

@@ -5,20 +5,20 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-        if not head:
-            return False
-        slow = head
-        fast = head.next
-        while fast != None and slow != fast:
-            if fast.next:
-                fast = fast.next.next
-            else:
-                fast = fast.next
-            slow = slow.next
-        if fast == None:
-            return False
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        if not headA or not head B:
+            return None
+        curA = headA
+        while curA.next:
+            curA = curA.next
+        curB = headB
+        while curB.next:
+            curB = curB.next
+        if curA != curB:
+            return None
         else:
-            return True
+        curA = headA
+        curB = headB
+
 
 print()

@@ -1,10 +1,10 @@
 class Solution:
-    def removeDuplicates(self, nums: list[int]) -> int:
-        k = 0
+    def removeElement(self, nums: list[int], val: int) -> int:
+        write = 0
         for i in range(len(nums)):
-            if i == 0 or nums[i] != nums[i-1]:
-                nums[k] = nums[i]
-                k += 1
-        return k
+            if nums[i] != val:
+                nums[write] = nums[i]
+                write += 1
+        return write
 
 print()

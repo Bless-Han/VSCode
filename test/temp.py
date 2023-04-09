@@ -1,9 +1,9 @@
 class Solution:
-    def replaceElements(self, arr: List[int]) -> List[int]:
-        max = -1
-        for i in range(len(arr)-1, -1, -1):
-            temp = arr[i]
-            arr[i] = max
-            if temp > max:
-                max = temp
-        return arr
+    def thirdMax(self, nums: List[int]) -> int:
+        nums = list(set(nums))
+        if len(nums) < 3:
+            return max(nums)
+        else:
+            nums.remove(max(nums))
+            nums.remove(max(nums))
+            return max(nums)

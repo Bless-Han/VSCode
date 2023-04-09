@@ -1,10 +1,6 @@
 class Solution:
-    def removeElement(self, nums: list[int], val: int) -> int:
-        write = 0
-        for i in range(len(nums)):
-            if nums[i] != val:
-                nums[write] = nums[i]
-                write += 1
-        return write
+    def distance(self, nums: list[int]) -> list[int]:
+        same_dic = {}
+
 
 print()

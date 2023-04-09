@@ -1,32 +1,24 @@
-class MyLinkedList:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-    def __init__(self):
-        self = None
-
-    def get(self, index: int) -> int:
-        curr_index = 0
-        curr_node = self
-        return -1
-
-    def addAtHead(self, val: int) -> None:
-        
-
-    def addAtTail(self, val: int) -> None:
-        
-
-    def addAtIndex(self, index: int, val: int) -> None:
-        
-
-    def deleteAtIndex(self, index: int) -> None:
-        
-
-
-# Your MyLinkedList object will be instantiated and called as such:
-# obj = MyLinkedList()
-# param_1 = obj.get(index)
-# obj.addAtHead(val)
-# obj.addAtTail(val)
-# obj.addAtIndex(index,val)
-# obj.deleteAtIndex(index)
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        if not head:
+            return False
+        slow = head
+        fast = head.next
+        while fast != None and slow != fast:
+            if fast.next:
+                fast = fast.next.next
+            else:
+                fast = fast.next
+            slow = slow.next
+        if fast == None:
+            return False
+        else:
+            return True
 
 print()

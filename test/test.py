@@ -1,4 +1,9 @@
-import statistics
+from pytest import raises
 
-a = [50, 60]
-print(statistics.mean(a))
+def get_number(s):
+    return int(s)
+
+
+def test_get_number():
+    with raises(ValueError):
+        get_number("9")

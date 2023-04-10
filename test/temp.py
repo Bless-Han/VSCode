@@ -149,4 +149,4 @@ def bfs(graph, visited, u):
                 queue.append(v)
                 visited[v] = True
 if __name__ == '__main__':
-    ma
+    main()

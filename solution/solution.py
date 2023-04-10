@@ -1,4 +1,4 @@
-class Solution:
-    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        nums_set = set(nums)
-        return list(set(range(1, len(nums)+1)) - set(nums))
+s = input()
+left, right = s.split("E")
+count = len(left) - 1 + int(right)
+print(f"{float(s):.{count}f}")

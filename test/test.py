@@ -1,4 +1,2 @@
-a = {0: 99, 1: 88, 2: 123}
-
-b = list(a.items())
-print("a".format())
+a = [1, 3, 5, 99, 20]
+print("a = ", *a)

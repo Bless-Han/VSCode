@@ -1,22 +1,60 @@
-def check(s):
-    try:
-        left_A, right = s.split("P")
-        middle_A, right_A = right.split("T")
-    except Exception:
-        return False
-    else:
-        if not full_A(left_A) or not full_A(middle_A) or not full_A(right_A):
-            return False
-        if len(middle_A) == 0:
-            return False
-        return len(left_A) * len(middle_A) == len(right_A)
+course = []
+def main():
+    global course
+    n, e = map(int, input().split())
+    graph = [[] for _ in range(n)]
+    for _ in range(e):
+        u, v = map(int, input().split())
+        graph[u].append(v)
+        graph[v].append(u)
+    for i in range(n):
+        graph[i].sort()
+    visited = [False] * n
+    for i in range(n):
+        if not visited[i]:
+            course = []
+            dfs(graph, visited, i)
+            print("{", *course, "}")
+    visited = [False] * n
+    for i in range(n):
+        if not visited[i]:
+            course = []
+            bfs(graph, visited, i)
+            print("{", *course, "}")
+def dfs(graph, visited, u):
+    global course
+    visited[u] = True
+    course.append(u)
+    for v in graph[u]:
+        if not visited[v]:
+            dfs(graph, visited, v)
 
-def full_A(s):
-    for c in s:
-        if c != "A":
-            return False
-    return True
 
-n = int(input())
-for _ in range(n):
-    print("YES") if check(input()) else print("NO")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def bfs(graph, visited, u):
+    queue = [u]
+    visited[u] = True
+    while queue:
+        u = queue.pop(0)
+        course.append(u)
+
+if __name__ == '__main__':
+    main()

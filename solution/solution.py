@@ -1,12 +1,16 @@
 def bfs(graph, visited, u):
     queue = [u]
     visited[u] = True
+    level = 0
     while queue:
         u = queue.pop(0)
         for v in graph[u]:
-            if not visited[v]:
-                queue.append(v)
-                visited[v] = True
+            queue.append(v)
+            visited[v] = True
+            if v == graph[u][-1]:
+                level += 1
+        if level > 6:
+            break
 
 n, m = map(int, input().split())
 graph = [[] for _ in range(n + 1)]

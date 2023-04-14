@@ -35,19 +35,51 @@
 内存限制
 64 MB
 """
-def bfs(graph, start, end):
-    queue = [(start, [start])]
-    while queue:
-        (vertex, path) = queue.pop(0)
-        for next in graph[vertex] - set(path):
-            if next == end:
-                yield path + [next]
-            else:
-                queue.append((next, path + [next]))
-                
+def dijkstra(graph, start, end):
+    """Dijkstra's algorithm for shortest paths
+    graph is a dictionary of dictionaries, e.g.
+    { 'a': {'b':1, 'c':2},
+      'b': {'c':1},
+      'c': {'a':1} }
+    """
+    Q = set(graph.keys())
+    dist = dict.fromkeys(Q, float('inf'))
+    prev = dict.fromkeys(Q, None)
+    dist[start] = 0
+    while Q:
+        u = min(Q, key=dist.get)
+        Q.remove(u)
+        if dist[u] == float('inf') or u == end:
+            break
+        for v in graph[u]:
+            alt = dist[u] + graph[u][v]
+            if alt < dist[v]:
+                dist[v] = alt
+                prev[v] = u
+    return dist[end], prev
+
 
 def main():
-
+    n, m = map(int, input().split())
+    graph = {}
+    for i in range(1, n + 1):
+        graph[i] = {}
+    for _ in range(m):
+        a, b, c = map(int, input().split())
+        graph[a][b] = c
+        graph[b][a] = c
+    min_len = float('inf')
+    min_node = 0
+    for i in range(1, n + 1):
+        max_len = 0
+        for j in range(1, n + 1):
+            if i == j:
+                continue
+            max_len = max(max_len, dijkstra(graph, i, j)[0])
+        if max_len < min_len:
+            min_len = max_len
+            min_node = i
+    print(min_node, min_len)
 
 if __name__ == '__main__':
     main()

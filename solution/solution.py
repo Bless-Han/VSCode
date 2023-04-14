@@ -1,10 +1,19 @@
 
-n, m = map(int, input().split())
-graph = [[] for _ in range(n+1)]
-for _ in range(m):
+n, e = map(int, input().split())
+graph = [[] for _ in range(n)]
+for _ in range(e):
     u, v = map(int, input().split())
     graph[u].append(v)
     graph[v].append(u)
-for i in range(1, n+1):
-    visited = [False] * (n + 1)
-    bfs(graph, visited, i)
+for u in range(n):
+    graph[u].sort()
+visited = [False] * n
+for u in range(n):
+    course = []
+    dfs(graph, visited, u, course)
+    print("{", *course, "}")
+visited = [False] * n
+for u in range(n):
+    course = []
+    bfs(graph, visited, u, course)
+    print("{", *course, "}")

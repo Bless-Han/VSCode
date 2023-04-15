@@ -18,6 +18,6 @@ class Solution:
                 elif b == 0 and half = FONTHALF:
                     a += 1
                 elif b == 0 and half = ENDLAHF:
-
+                    
 
         return ret

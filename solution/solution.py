@@ -14,18 +14,16 @@ def main():
         x, y, z = map(int, input().split())
         d[x][y] = z
         d[y][x] = z
-    for e in d:
-        print(e)
     floyd(d, n)
-    for e in d:
-        print(e)
     ans = float('inf')
     for i in range(1, n + 1):
         max = 0
         for j in range(1, n + 1):
-            if i != j and d[i][j] < ans:
-                ans = d[i][j]
-                x = i
+            if max < d[i][j]:
+                max = d[i][j]
+        if ans > max:
+            ans = max
+            x = i
     if ans == float('inf'):
         print(0)
     else:

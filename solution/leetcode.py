@@ -1,21 +1,14 @@
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        FONTHALF = 1
+        ENDHALF = -1
         ret = []
-        step = 0
+        a = b = 0
         for i in range(len(mat) * 2 - 1):
-            if step < len(mat):
-                left = 0
-                right = step
-                flag = 1
+            if i < len(mat):
+                half = FONTHALF
             else:
-                left = 
-            if temp % 2 == 0:
-                left, right = right, left
-                flag = -flag
+                half = ENDHALF
+            if i % 2 == 0:
 
-            for _ in range(temp, -1, -1):
-                ret.append(mat[left][right])
-                left += flag
-                right -= flag
-            step += 1
         return ret

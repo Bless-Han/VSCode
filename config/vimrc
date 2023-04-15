@@ -13,6 +13,8 @@ set nohlsearch
 set undofile
 " set undodir
 set undodir=~/.config/nvim/undodir
+" map ` as ESC
+inoremap ` <esc>
 
 " leader key -------------------
 " space as leader key

@@ -1,20 +1,13 @@
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        FONTHALF = 1
-        ENDHALF = -1
-        a = b = 0
-        for i in range(len(mat) * 2 - 1):
-            ret.append(mat[a][b])
-            if i < len(mat):
-                half = FONTHALF
-            else:
-                half = ENDHALF
-            if a == 0 or b == 0:
-                if a == 0 and half = FONTHALF:
-                    b += 1
-                elif a == 0 and half = ENDHALF:
-                    a += 1
-                elif b == 0 and half = FONTHALF:
-                    a += 1
-                elif b == 0 and half = ENDLAHF:
-        return ret
+    def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
+        max = max(mat)
+        max_i = 0
+        max_j = 0
+        for i in range(len(mat)):
+            for j in range(len(mat[i])):
+                if mat[i][j] > max:
+                    print(max_i, max_j, mat[i][j])
+                    max = mat[i][j]
+                    max_i = i
+                    max_j = j
+        return [max_i, max_j]

@@ -58,7 +58,6 @@ inoremap <C-e> <End>
 "inoremap <C-enter> <C-o>o
 "" inoremap Ctrl + shift + enter to <C-o>O"
 "inoremap <C-S-enter> <C-o>O
-" inoremap <C-d> <C-o>dl"
 inoremap <C-d> <C-o>dl
 " nnoremap and vnoremap ctrl + / to comment
 nnoremap <C-/> :Commentary<cr>

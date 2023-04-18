@@ -2,9 +2,9 @@
 #include <algorithm>
 
 using namespace std;
+const int INF = 0x3f3f3f3f;
 int main()
 {
-    int a;
-    cin >> a;
-    cout << "hello world" << a << endl;
+    cout << INF << endl;
+    return 0;
 }

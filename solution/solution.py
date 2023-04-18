@@ -1,18 +1,34 @@
+def floyd(d, n):
+    for k in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if d[i][j] > d[i][k] + d[k][j]:
+                    d[i][j] = d[i][k] + d[k][j]
 
-def bfs(graph, visited, u):
-    queue = (u, 0)
-    visited[u] = True
-    while queue:
-        v, depth = queue.pop(0)
+def main():
+    n, m = map(int, input().split())
+    d = [[float('inf')] * (n + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        d[i][i] = 0
+    for _ in range(m):
+        x, y, z = map(int, input().split())
+        d[x][y] = z
+        d[y][x] = z
+    floyd(d, n)
+    ans = float('inf')
+    for i in range(1, n + 1):
+        max = 0
+        for j in range(1, n + 1):
+            if max < d[i][j]:
+                max = d[i][j]
+        if ans > max:
+            ans = max
+            x = i
+    if ans == float('inf'):
+        print(0)
+    else:
+        print(x, ans)
 
-n, m = map(int, input().split())
-graph = [[] for _ in range(n+1)]
-for _ in range(m):
-    u, v = map(int, input().split())
-    graph[u].append(v)
-    graph[v].append(u)
-for u in range(1, n+1):
-    visited = [False] * (n + 1)
-    bfs(graph, visited, u)
-    print(f"{u}: {sum(visited)*100/n:.2f}%")
+if __name__ == '__main__':
+    main()
 

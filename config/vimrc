@@ -109,7 +109,7 @@ Plugin 'joshdick/onedark.vim'
 " Dracula：一款黑色主题。
 Plugin 'dracula/vim'
 " vim-pythonsense：Python 语法检查插件。
-Plugin 'sheerun/vim-polyglot'
+"Plugin 'sheerun/vim-polyglot'
 " gruvbox：一款黑色主题。
 Plugin 'morhetz/gruvbox'
 " rainbow：彩虹括号。

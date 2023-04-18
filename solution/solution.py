@@ -1,34 +1,31 @@
-def floyd(d, n):
-    for k in range(1, n + 1):
-        for i in range(1, n + 1):
-            for j in range(1, n + 1):
-                if d[i][j] > d[i][k] + d[k][j]:
-                    d[i][j] = d[i][k] + d[k][j]
+class Road:
+    def __init__(self, length = float('inf'), cost = float('inf')):
+        self.length = length
+        self.cost = cost
 
-def main():
-    n, m = map(int, input().split())
-    d = [[float('inf')] * (n + 1) for _ in range(n + 1)]
-    for i in range(1, n + 1):
-        d[i][i] = 0
-    for _ in range(m):
-        x, y, z = map(int, input().split())
-        d[x][y] = z
-        d[y][x] = z
-    floyd(d, n)
-    ans = float('inf')
-    for i in range(1, n + 1):
-        max = 0
-        for j in range(1, n + 1):
-            if max < d[i][j]:
-                max = d[i][j]
-        if ans > max:
-            ans = max
-            x = i
-    if ans == float('inf'):
-        print(0)
-    else:
-        print(x, ans)
+def floyd(graph, n):
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if graph[i][j].length < graph[i][k].length + graph[k][j].length or\
+                    (graph[i][j].length == )
+                    # graph[i][j].length = graph[i][k].length + graph[k][j].length
 
-if __name__ == '__main__':
-    main()
+n, m, s, d = map(int, input().split())
+graph = [[Road() for _ in range(n)] for _ in range(n)]
+for i in range(n):
+    graph[i][i].length = 0
+    graph[i][i].cost = 0
+for _ in range(m):
+    a, b, length, cost = map(int, input().split())
+    graph[a][b].length = length
+    graph[a][b].cost = cost
+    graph[b][a].length = length
+    graph[b][a].cost = cost
+floyd(graph, n)
+for i in range(n):
+    for j in range(n):
+        print(graph[i][j].length, graph[i][j].cost, " ", end="")
+    print()
 
+print(graph[s][d].length, graph[s][d].cost)

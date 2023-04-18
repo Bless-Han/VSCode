@@ -1,68 +1,67 @@
 """
-7-8 哈利·波特的考试
+7-9 旅游规划
 分数 25
 作者 陈越
 单位 浙江大学
-哈利·波特要考试了，他需要你的帮助。这门课学的是用魔咒将一种动物变成另一种动物的本事。例如将猫变成老鼠的魔咒是haha，将老鼠变成鱼的魔咒是hehe等等。反方向变化的魔咒就是简单地将原来的魔咒倒过来念，例如ahah可以将老鼠变成猫。另外，如果想把猫变成鱼，可以通过念一个直接魔咒lalala，也可以将猫变老鼠、老鼠变鱼的魔咒连起来念：hahahehe。
-
-现在哈利·波特的手里有一本教材，里面列出了所有的变形魔咒和能变的动物。老师允许他自己带一只动物去考场，要考察他把这只动物变成任意一只指定动物的本事。于是他来问你：带什么动物去可以让最难变的那种动物（即该动物变为哈利·波特自己带去的动物所需要的魔咒最长）需要的魔咒最短？例如：如果只有猫、鼠、鱼，则显然哈利·波特应该带鼠去，因为鼠变成另外两种动物都只需要念4个字符；而如果带猫去，则至少需要念6个字符才能把猫变成鱼；同理，带鱼去也不是最好的选择。
+有了一张自驾旅游路线图，你会知道城市间的高速公路长度、以及该公路要收取的过路费。现在需要你写一个程序，帮助前来咨询的游客找一条出发地和目的地之间的最短路径。如果有若干条路径都是最短的，那么需要输出最便宜的一条路径。
 
 输入格式:
-输入说明：输入第1行给出两个正整数N (≤100)和M，其中N是考试涉及的动物总数，M是用于直接变形的魔咒条数。为简单起见，我们将动物按1~N编号。随后M行，每行给出了3个正整数，分别是两种动物的编号、以及它们之间变形需要的魔咒的长度(≤100)，数字之间用空格分隔。
+输入说明：输入数据的第1行给出4个正整数N、M、S、D，其中N（2≤N≤500）是城市的个数，顺便假设城市的编号为0~(N−1)；M是高速公路的条数；S是出发地的城市编号；D是目的地的城市编号。随后的M行中，每行给出一条高速公路的信息，分别是：城市1、城市2、高速公路长度、收费额，中间用空格分开，数字均为整数且不超过500。输入保证解的存在。
 
 输出格式:
-输出哈利·波特应该带去考场的动物的编号、以及最长的变形魔咒的长度，中间以空格分隔。如果只带1只动物是不可能完成所有变形要求的，则输出0。如果有若干只动物都可以备选，则输出编号最小的那只。
+在一行里输出路径的长度和收费总额，数字间以空格分隔，输出结尾不能有多余空格。
 
 输入样例:
-6 11
-3 4 70
-1 2 1
-5 4 50
-2 6 50
-5 6 60
-1 3 70
-4 6 60
-3 6 80
-5 1 100
-2 4 60
-5 2 80
+4 5 0 3
+0 1 1 20
+1 3 2 30
+0 3 4 10
+0 2 2 20
+2 3 1 20
 输出样例:
-4 70
+3 40
 代码长度限制
 16 KB
+Java (javac)
+时间限制
+800 ms
+内存限制
+64 MB
+其他编译器
 时间限制
 400 ms
 内存限制
 64 MB
 """
-
-def floyd(d, n):
-    for k in range(1, n + 1):
-        for i in range(1, n + 1):
-            for j in range(1, n + 1):
-                if d[i][j] > d[i][k] + d[k][j]:
-                    d[i][j] = d[i][k] + d[k][j]
-
 def main():
-    n, m = map(int, input().split())
-    d = [[float('inf')] * (n + 1) for _ in range(n + 1)]
-    for i in range(1, n + 1):
-        d[i][i] = 0
+    n, m, s, d = map(int, input().split())
+    graph = [[float('inf') for _ in range(n)] for _ in range(n)]
     for _ in range(m):
-        x, y, z = map(int, input().split())
-        d[x][y] = z
-        d[y][x] = z
-    floyd(d, n)
-    ans = float('inf')
-    for i in range(1, n + 1):
-        for j in range(1, n + 1):
-            if d[i][j] < ans:
-                ans = d[i][j]
-                x = i
-    if ans == float('inf'):
-        print(0)
-    else:
-        print(x, ans)
+        a, b, c, d = map(int, input().split())
+        graph[a][b] = graph[b][a] = [c, d]
+    dist = [float('inf') for _ in range(n)]
+    dist[s] = 0
+    cost = [float('inf') for _ in range(n)]
+    cost[s] = 0
+    visited = [False for _ in range(n)]
+    while True:
+        v = -1
+        for i in range(n):
+            if not visited[i] and (v == -1 or dist[i] < dist[v]):
+                v = i
+        if v == -1:
+            break
+        visited[v] = True
+        for w in range(n):
+            if not visited[w] and graph[v][w] != float('inf'):
+                if dist[v] + graph[v][w][0] < dist[w]:
+                    dist[w] = dist[v] + graph[v][w][0]
+                    cost[w] = cost[v] + graph[v][w][1]
+                elif dist[v] + graph[v][w][0] == dist[w] and cost[v] + graph[v][w][1] < cost[w]:
+                    cost[w] = cost[v] + graph[v][w][1]
+    print(dist[d], cost[d])
 
 if __name__ == '__main__':
     main()
+
+# Path: test/temp.py

@@ -39,3 +39,11 @@ class Solution:
                     else:
                         y -= 1
         return ans
+
+RIGHT = 0
+DOWN = 1
+right = 0
+a = RIGHT
+match a:
+    case right: print("is 0")
+    case 1: print("is 1")

@@ -5,7 +5,7 @@ class Solution:
         LEFT = 2
         UP = 3
         x = y = 0
-        state = Right
+        state = RIGHT
         x_len = len(matrix)
         y_len = len(matrix[0])
         visited = [[False] * y_len for _ in range(x_len)]
@@ -33,4 +33,9 @@ class Solution:
                     else:
                         x -= 1
                 case UP:
+                    if visited[x][y-1]:
+                        x += 1
+                        state = RIGHT
+                    else:
+                        y -= 1
         return ans

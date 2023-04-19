@@ -1,16 +1,6 @@
 class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
-        if numRows == 0:
-            return []
-        if numRows == 1:
-            return [[1]]
-        if numRows == 2:
-            return [[1], [1, 1]]
-        result = [[1], [1, 1]]
-        for i in range(2, numRows):
-            temp = [1]
-            for j in range(1, i):
-                temp.append(result[i-1][j-1] + result[i-1][j])
-            temp.append(1)
-            result.append(temp)
-        return result
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        for i in range(len(numbers)):
+            for j in range(i+1, len(numbers)):
+                if numbers[i] + numbers[j] == target:
+                    return [i+1, j+1]

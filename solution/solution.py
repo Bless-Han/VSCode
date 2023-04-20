@@ -1,5 +1,2 @@
-a = set()
-a.add(1)
-a.add(3)
-a.remove(3)
-print(a)
+a = {0: 20}
+print(min(a.values()))

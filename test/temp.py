@@ -1,12 +1,14 @@
 class Solution:
-    def isIsomorphic(self, s: str, t: str) -> bool:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        if len(nums) == 0 or len(nums) == 1:
+            return False
         d = {}
-        for i in range(len(s)):
-            if s[i] not in d:
-                if t[i] in d.values():
-                    return False
-                d[s[i]] = t[i]
+        for i in range(len(nums)):
+            if nums[i] in d:
+                if i - d[nums[i]] <= k:
+                    return True
+                else:
+                    d[nums[i]] = i
             else:
-                if d[s[i]] != t[i]:
-                    return False
-        return True
+                d[nums[i]] = i
+        return False

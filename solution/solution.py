@@ -1,8 +1,9 @@
-board = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+import random
+a = set()
+a.add(1)
+a.add(2)
+a.remove(2)
+print(a)
 
-for col in zip(*board):
-    print(col)
+
+

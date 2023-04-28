@@ -1,4 +1,3 @@
-n = input()
-if n.isdigit() == False:
-    raise ValueError("Enter a number")
-
+visited = [[False] * 5 for _ in range(4)]
+for v in visited:
+    print(v)

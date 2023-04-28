@@ -1,29 +1,24 @@
 class Solution:
-    def __init__(self):
-        self.directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
-        self.grid = None
-        self.m = None
-        self.n = None
-        self.visited = None
-        self.res = None
-
-    def dfs(self, i, j):
-        self.visited[i][j] = True
-        for d in self.directions:
-            new_i = i + d[0]
-            new_j = j + d[1]
-            if 0 <= new_i < self.m and 0 <= new_j < self.n and not self.visited[new_i][new_j] and self.grid[new_i][new_j] == '1':
-                self.dfs(new_i, new_j)
+    def bfs(self, grid, i, j, visited):
+        m, n = len(grid), len(grid[0])
+        queue = collections.deque([(i, j)])
+        visited.add((i, j))
+        while queue:
+            x, y = queue.popleft()
+            for dx, dy in [(1, 0), (-1, 0), (0, -1), (0, 1)]:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < m and 0 <= ny < n and grid[nx][ny] == "1" and (nx, ny) not in visited:
+                    queue.append((nx, ny))
+                    visited.add((nx, ny))
 
     def numIslands(self, grid: List[List[str]]) -> int:
-        self.grid = grid
-        self.m = len(grid)
-        self.n = len(grid[0])
-        self.visited = [[False for _ in range(self.n)] for _ in range(self.m)]
-        self.res = 0
-        for i in range(self.m):
-            for j in range(self.n):
-                if not self.visited[i][j] and self.grid[i][j] == '1':
-                    self.res += 1
-                    self.dfs(i, j)
-        return self.res
+        if not grid: return 0
+        m, n = len(grid), len(grid[0])
+        visited = set()
+        res = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == "1" and (i, j) not in visited:
+                    res += 1
+                    self.bfs(grid, i, j, visited)
+        return res

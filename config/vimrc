@@ -103,7 +103,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'xolox/vim-misc'
 " vim-lastplace：记住上次编辑的位置。
 Plugin 'farmergreg/vim-lastplace'
-" undotreemenu：显示 Vim 的撤销树。
+"undotreemenu：显示 Vim 的撤销树。
 Plugin 'mbbill/undotree'
 " OneDark：一款黑色主题。
 Plugin 'joshdick/onedark.vim'
@@ -144,7 +144,7 @@ endfunction
 nnoremap <leader>l :call LookupWord()<CR>
 
 " set colorscheme to gruvbox
-colorscheme gruvbox
+"colorscheme gruvbox
 
 " rainbow
 let g:rainbow_active = 1

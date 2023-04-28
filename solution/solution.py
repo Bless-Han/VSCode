@@ -6,6 +6,3 @@ a.remove(2)
 print(a)
 s = "1234k"
 print(s.isdigit())
-
-
-

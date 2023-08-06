@@ -1,6 +1,12 @@
 {
     "files.associations": {
-        "tools.h": "c"
+        "tools.h": "c",
+        "unordered_map": "cpp",
+        "ostream": "cpp",
+        "vector": "cpp",
+        "ios": "cpp",
+        "iostream": "cpp",
+        "array": "cpp"
     },
     "editor.detectIndentation": false,
 }

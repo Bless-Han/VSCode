@@ -1,5 +1,6 @@
 sy on
 set nu
+scheme ron
 " set for python set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -16,6 +17,9 @@ set undofile
 set undodir=~/.config/nvim/undodir
 " map ` as ESC
 inoremap ` <esc>
+" 'ctrl+;' to run c++ with g++ -std=c++11 -O2 -Wall xxx.cpp -o xxx
+" and run xxx < xxx.input
+noremap <C-;> :!c++ -std=c++11 -O2 -Wall "%" -o "%:r"<cr>:!time ./%:r < "input.txt"<cr>
 
 " leader key -------------------
 " space as leader key
@@ -27,7 +31,7 @@ nnoremap <leader>rr :source ~/.config/nvim/init.vim<cr>
 " leader + re to open ~/.config/nvim/init.vim
 nnoremap <leader>re :e ~/.config/nvim/init.vim<cr>
 " leader + i + i to open input file
-nnoremap <leader>ii :e %:r.input<cr>
+nnoremap <leader>ii :e input.txt<cr>
 " leader + s to ":w
 " nnoremap <leader>s :w<cr>
 " leader + c to :%y+ to copy all lines
@@ -38,33 +42,33 @@ nnoremap <leader>ce :Copilot enable<cr>
 nnoremap <leader>cd :Copilot disable<cr>
 
 " ctrl key ----------------------
-
-" ctrl+; to run python
-nnoremap <C-;> :!time python "%" < "%:r.input"<cr>
-" inoremap ctrl + ; to run python
-inoremap <C-;> <Esc>:!time python "%" < "%:r.input"<cr>
-" inoremap <C-p> Up
-"inoremap <C-p> <Up>
-" inoremap <C-n> Down
-"inoremap <C-n> <Down>
-" inoremap <C-b> Left
-inoremap <C-b> <Left>
-" inoremap <C-f> Right
-inoremap <C-f> <Right>
-" inoremap <C-a> Home
 inoremap <C-a> <Home>
-" inoremap <C-e> End
-inoremap <C-e> <End>
-"" inoremap <C-enter> <C-o>o"
-"inoremap <C-enter> <C-o>o
-"" inoremap Ctrl + shift + enter to <C-o>O"
-"inoremap <C-S-enter> <C-o>O
-inoremap <C-d> <C-o>dl
-" nnoremap and vnoremap ctrl + / to comment
-nnoremap <C-/> :Commentary<cr>
-vnoremap <C-/> :Commentary<cr>
-" inoremap ctrl + / to comment
-inoremap <C-/> <Esc>:Commentary<cr>
+
+"" ctrl+; to run python
+""nnoremap <C-;> :!time python "%" < "%:r.input"<cr>
+"" inoremap ctrl + ; to run python
+"inoremap <C-;> <Esc>:!time python "%" < "%:r.input"<cr>
+"" inoremap <C-p> Up
+""inoremap <C-p> <Up>
+"" inoremap <C-n> Down
+""inoremap <C-n> <Down>
+"" inoremap <C-b> Left
+"inoremap <C-b> <Left>
+"" inoremap <C-f> Right
+"inoremap <C-f> <Right>
+"" inoremap <C-a> Home
+"inoremap <C-a> <Home> " inoremap <C-e> End
+"inoremap <C-e> <End>
+""" inoremap <C-enter> <C-o>o"
+""inoremap <C-enter> <C-o>o
+""" inoremap Ctrl + shift + enter to <C-o>O"
+""inoremap <C-S-enter> <C-o>O
+"inoremap <C-d> <C-o>dl
+"" nnoremap and vnoremap ctrl + / to comment
+"nnoremap <C-/> :Commentary<cr>
+"vnoremap <C-/> :Commentary<cr>
+"" inoremap ctrl + / to comment
+"inoremap <C-/> <Esc>:Commentary<cr>
 
 " 安装 Vundle 插件管理器 ---------------------
 set rtp+=~/.config/nvim/bundle/Vundle.vim
@@ -116,6 +120,11 @@ Plugin 'morhetz/gruvbox'
 " rainbow：彩虹括号。
 Plugin 'luochen1990/rainbow'
 
+" vim-snippets：代码片段插件。
+"Plugin 'honza/vim-snippets'
+
+" ultisnips：代码片段插件。
+"Plugin 'SirVer/ultisnips'
 
 " YouCompleteMe：自动补全插件。
 "Plugin 'Valloric/YouCompleteMe'
@@ -148,3 +157,7 @@ nnoremap <leader>l :call LookupWord()<CR>
 
 " rainbow
 let g:rainbow_active = 1
+
+set completeopt=menu,menuone
+
+

@@ -4,9 +4,9 @@
 #include <set>
 #include <vector>
 #include <math.h>
+using namespace std;
 
-using namespa
-
-int main(){
-
+int main()
+{
+    
 }

@@ -8,9 +8,6 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	string s;
-	cin >> s;
-	cout << "Hello " << s << endl;
-
+	printf("Hello world\n");
 }
 

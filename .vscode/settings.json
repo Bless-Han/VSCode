@@ -6,7 +6,8 @@
         "vector": "cpp",
         "ios": "cpp",
         "iostream": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "set": "cpp"
     },
     "editor.detectIndentation": false,
 }

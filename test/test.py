@@ -1,2 +1,7 @@
-a = [1, 3, 5, 99, 20]
-print("a = ", *a)
+
+import sys
+sys.stdin = open('input.txt', 'r')
+sys.stdout = open('output.txt', 'w')
+
+s = input()
+print("Hello " + s)

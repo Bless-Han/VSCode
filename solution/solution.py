@@ -1,5 +1,10 @@
-from math import lcm
-
-print(lcm(24, 36))
-
-
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")
+print("Hello world!!")

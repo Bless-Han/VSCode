@@ -1,0 +1,20 @@
+{
+    "name" : "Random Words",
+    "version" : "1.0.0",
+    "description" : "This will generate a Random Word.",
+    "manifest_version" : 3,
+    "author" : "Neo",
+    "icons" : {
+        "128" : "iconlarge.png"
+    },
+    "content_scripts" : [
+        {
+            "matches" : ["http://localhost:*/read/*"],
+            "js" : ["hello.js"]
+        }
+    ],
+    "action" : {
+        "default_popup" : "index.html",
+        "default_title" : "Random Word 2"
+    }
+}

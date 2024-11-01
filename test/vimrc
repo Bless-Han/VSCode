@@ -1,0 +1,102 @@
+" color ron
+sy on
+color torte
+" For Python
+filetype plugin indent on
+" set indentexpr=GetPythonIndent(v:lnum)
+
+set number autoread autochdir cin sw=4 ts=4
+set autowriteall 
+" set mouse=""
+set guifont=Monaco:h15
+"incremental search"
+set incsearch ignorecase linebreak
+
+" nnoremap <D-k> :w<CR> :!c++ -std=c++11 % && ./a.out<CR>
+" nnoremap <C-b> :w<CR> :!python3 %<CR>
+autocmd FileType cpp setlocal makeprg=c++\ -std=c++17\ %\ &&\ ./a.out
+autocmd FileType python setlocal makeprg=python3\ %
+
+
+inoremap <C-Enter> <Esc>o
+inoremap <C-S-Enter> <Esc>O
+inoremap <C-H> <Esc>h
+inoremap <C-J> <Esc>j
+inoremap <C-K> <Esc>k
+noremap <C-K> k
+inoremap <C-L> <Esc>l
+noremap <C-L> l
+inoremap <C-B> <Left>
+inoremap <C-F> <Right>
+inoremap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-P> <Up>
+inoremap <C-N> <Down>
+" inoremap <C-J> <C-N>
+" inoremap <C-K> <C-P>
+
+" -----------------------------------------------
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'preservim/nerdcommenter'
+" Plugin 'Vimjas/vim-python-pep8-indent'
+" Plugin 'tpope/vim-commentary'
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+" Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+
+" Plugin 'vimwiki/vimwiki'
+" 自动设置输入法
+" Plugin 'ybian/smartim'
+
+call vundle#end()            " required
+
+" Comment code with Ctrl+/
+nnoremap <D-/> <Plug>NERDCommenterToggle
+vnoremap <D-/> <Plug>NERDCommenterToggle
+
+" filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" let g:vimwiki_list = [{'path': '~/Documents/Zettelkasten/Vimwiki/', 'path_html': '~/Documents/Zettelkasten/html/'}]
+" let g:vimwiki_folding='syntax'
+
+" 设置自动输入法
+" let g:smartim_default = 'com.apple.keylayout.ABC'
+

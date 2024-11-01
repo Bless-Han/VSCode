@@ -1,0 +1,25 @@
+{
+    "name": "Lute助手",
+    "version": "1.0.0",
+    "description": "自动填写单词表单",
+    "manifest_version": 3,
+    "author": "Neo",
+    "icons": {
+        "128": "iconlarge.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "default-src 'self'; connect-src https://* data: blob: filesystem:;"
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "matches": [
+                "http://localhost:*/read/*",
+                "https://www.iciba.com/word?w=*"
+            ],
+            "js": [
+                "lute_assistant.js"
+            ]
+        }
+    ]
+}

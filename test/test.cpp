@@ -1,19 +1,13 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-int add(int a, int b);
-
-int main() {
+int main(){
 	#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+	freopen("input", "r", stdin);
+	freopen("output", "w", stdout);
 	#endif
 
-	std::string s;
-	getline(cin, s);
-    cout << s << endl;
-    cout << add(1, 9) << endl;
-    cout << add(1, 9) << endl;
+	cout << "hell worold\n";
+	cout << "hell worold\n";
+	return 0;
 }
-int add(int a, int b) {return a + b;}

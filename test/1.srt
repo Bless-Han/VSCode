@@ -1,0 +1,1416 @@
+1
+00:00:00,120 --> 00:00:01,280
+so we're going to find that there's a
+
+2
+00:00:01,280 --> 00:00:02,520
+number of different ways that we can
+
+3
+00:00:02,520 --> 00:00:03,840
+read through the file but the most
+
+4
+00:00:03,840 --> 00:00:04,880
+common way that we're going to read
+
+5
+00:00:04,880 --> 00:00:06,319
+through the file is to treat it as a
+
+6
+00:00:06,319 --> 00:00:08,280
+sequence of lines and we're going to use
+
+7
+00:00:08,280 --> 00:00:11,360
+the determinant Loop the four Loop uh to
+
+8
+00:00:11,360 --> 00:00:13,960
+do this and so what happens here is we
+
+9
+00:00:13,960 --> 00:00:16,119
+get back this handle that opens the file
+
+10
+00:00:16,119 --> 00:00:17,840
+and gives us back the handle that handle
+
+11
+00:00:17,840 --> 00:00:20,880
+x file is the variable I named call I
+
+12
+00:00:20,880 --> 00:00:23,880
+just named it x file that's not the data
+
+13
+00:00:23,880 --> 00:00:27,560
+but it is a sequence it is that file
+
+14
+00:00:27,560 --> 00:00:30,640
+handle represents to python a sequence
+
+15
+00:00:30,640 --> 00:00:32,520
+that we can potentially walk through and
+
+16
+00:00:32,520 --> 00:00:34,680
+then get all the lines and it's the
+
+17
+00:00:34,680 --> 00:00:36,879
+simplest most beautiful elegant way to
+
+18
+00:00:36,879 --> 00:00:39,079
+read all the lines in a file we use the
+
+19
+00:00:39,079 --> 00:00:40,840
+for Loop and we have an iteration
+
+20
+00:00:40,840 --> 00:00:42,879
+variable this is going to take when we
+
+21
+00:00:42,879 --> 00:00:44,760
+talk about the file cheese is going to
+
+22
+00:00:44,760 --> 00:00:46,079
+be the first line then the second line
+
+23
+00:00:46,079 --> 00:00:47,399
+then the third line then the fourth line
+
+24
+00:00:47,399 --> 00:00:48,879
+so it's it's like going through a string
+
+25
+00:00:48,879 --> 00:00:50,199
+but you're going through a file now and
+
+26
+00:00:50,199 --> 00:00:51,920
+you're getting it line by line so that's
+
+27
+00:00:51,920 --> 00:00:54,079
+each line I just picked a variable named
+
+28
+00:00:54,079 --> 00:00:55,760
+cheese so you didn't get confused later
+
+29
+00:00:55,760 --> 00:00:58,680
+I'll call this line but it but python
+
+30
+00:00:58,680 --> 00:01:00,440
+doesn't know anything special by naming
+
+31
+00:01:00,440 --> 00:01:03,480
+that variable line okay and so this is
+
+32
+00:01:03,480 --> 00:01:05,600
+It's the four and the n and so so for I
+
+33
+00:01:05,600 --> 00:01:09,799
+read this as for each line in the file X
+
+34
+00:01:09,799 --> 00:01:13,360
+the file handle x file so run this Loop
+
+35
+00:01:13,360 --> 00:01:15,560
+one time for every line and then print
+
+36
+00:01:15,560 --> 00:01:18,280
+it out so it's actually really quite
+
+37
+00:01:18,280 --> 00:01:22,680
+simple okay um other languages like C or
+
+38
+00:01:22,680 --> 00:01:25,320
+C++ or other languages they have to
+
+39
+00:01:25,320 --> 00:01:27,040
+write while loops with end of file
+
+40
+00:01:27,040 --> 00:01:28,960
+conditions and all kinds of things that
+
+41
+00:01:28,960 --> 00:01:30,880
+make this very difficult but this is one
+
+42
+00:01:30,880 --> 00:01:33,640
+of the prettiest things that uh python
+
+43
+00:01:33,640 --> 00:01:38,280
+has it's a it's a very very pretty
+
+44
+00:01:38,320 --> 00:01:40,799
+thing okay so let's talk about what we
+
+45
+00:01:40,799 --> 00:01:42,799
+might do and we're going kind of back to
+
+46
+00:01:42,799 --> 00:01:44,399
+iterations now what if we wanted to
+
+47
+00:01:44,399 --> 00:01:45,960
+count the number of lines in a file well
+
+48
+00:01:45,960 --> 00:01:49,240
+this is a basic Loop counting pattern so
+
+49
+00:01:49,240 --> 00:01:51,360
+we open the file and then like in all
+
+50
+00:01:51,360 --> 00:01:53,520
+these Loops we do something to sort of
+
+51
+00:01:53,520 --> 00:01:55,280
+prime the loop to get it started set a
+
+52
+00:01:55,280 --> 00:01:57,000
+variable count to zero and I'm going to
+
+53
+00:01:57,000 --> 00:01:59,079
+use the variable line that's going to go
+
+54
+00:01:59,079 --> 00:02:00,799
+through each of line lines in the file
+
+55
+00:02:00,799 --> 00:02:04,320
+for line in fand down the file and it's
+
+56
+00:02:04,320 --> 00:02:05,960
+going to run this Loop once for each
+
+57
+00:02:05,960 --> 00:02:07,320
+line in the file and the variable line
+
+58
+00:02:07,320 --> 00:02:09,560
+is going to change but all I'm going to
+
+59
+00:02:09,560 --> 00:02:11,200
+do is add count equals count plus one
+
+60
+00:02:11,200 --> 00:02:13,200
+and so that's just like from counters
+
+61
+00:02:13,200 --> 00:02:15,560
+that's just how you detect so every time
+
+62
+00:02:15,560 --> 00:02:16,720
+we see a line we're just going to add
+
+63
+00:02:16,720 --> 00:02:17,800
+one to the counter we're not printing
+
+64
+00:02:17,800 --> 00:02:19,120
+the line we're not even looking at its
+
+65
+00:02:19,120 --> 00:02:20,920
+data at this point and then when the
+
+66
+00:02:20,920 --> 00:02:22,440
+line is done however many times it has
+
+67
+00:02:22,440 --> 00:02:24,560
+to go out it comes and we print out line
+
+68
+00:02:24,560 --> 00:02:26,720
+count equals count and so if we open
+
+69
+00:02:26,720 --> 00:02:29,440
+inbox. txt this is going to do all this
+
+70
+00:02:29,440 --> 00:02:31,360
+work and then print this line out and
+
+71
+00:02:31,360 --> 00:02:33,120
+say line count is
+
+72
+00:02:33,120 --> 00:02:36,800
+132,000 45 so this is a little feline
+
+73
+00:02:36,800 --> 00:02:39,400
+program that shows you how to count the
+
+74
+00:02:39,400 --> 00:02:43,080
+lines in a text file using python again
+
+75
+00:02:43,080 --> 00:02:45,560
+simple and elegant and not too much
+
+76
+00:02:45,560 --> 00:02:47,440
+synex for you to have to
+
+77
+00:02:47,440 --> 00:02:50,120
+learn now it's also possible to read the
+
+78
+00:02:50,120 --> 00:02:52,680
+file as a series of characters all in
+
+79
+00:02:52,680 --> 00:02:55,000
+one go read the whole file in now you
+
+80
+00:02:55,000 --> 00:02:56,560
+got to be careful depending on the size
+
+81
+00:02:56,560 --> 00:02:59,159
+of the file this is going to lead to a
+
+82
+00:02:59,159 --> 00:03:00,840
+string variable ible with a lot of data
+
+83
+00:03:00,840 --> 00:03:03,400
+in it now if it's you know 100,000
+
+84
+00:03:03,400 --> 00:03:04,720
+characters that's actually kind of a
+
+85
+00:03:04,720 --> 00:03:07,720
+small thing but if it was uh you know 10
+
+86
+00:03:07,720 --> 00:03:09,519
+million lines that would probably not be
+
+87
+00:03:09,519 --> 00:03:11,080
+good you'd want to read it one line at a
+
+88
+00:03:11,080 --> 00:03:13,599
+time and process each line and then do
+
+89
+00:03:13,599 --> 00:03:16,599
+something but Mbox short. txt is a small
+
+90
+00:03:16,599 --> 00:03:20,480
+little file so we open it and we get
+
+91
+00:03:20,480 --> 00:03:23,200
+back a file object file handle object
+
+92
+00:03:23,200 --> 00:03:25,000
+and we call the read method and that
+
+93
+00:03:25,000 --> 00:03:27,239
+says go through and read all the text
+
+94
+00:03:27,239 --> 00:03:30,040
+and give it back in one Big Blob one big
+
+95
+00:03:30,040 --> 00:03:32,640
+string and I'll put it in imp and so
+
+96
+00:03:32,640 --> 00:03:34,760
+that's where you have a line a new line
+
+97
+00:03:34,760 --> 00:03:37,159
+a line a new line a line a new line it's
+
+98
+00:03:37,159 --> 00:03:39,040
+not really lines it's just a sequence of
+
+99
+00:03:39,040 --> 00:03:41,120
+characters with new lines in there to
+
+100
+00:03:41,120 --> 00:03:43,200
+punctuate them and now you can split
+
+101
+00:03:43,200 --> 00:03:45,439
+that later we'll see how to split that
+
+102
+00:03:45,439 --> 00:03:48,120
+um into uh separate lines if you want
+
+103
+00:03:48,120 --> 00:03:51,040
+now I picked a file that was short and
+
+104
+00:03:51,040 --> 00:03:53,959
+so this in variable now has a string in
+
+105
+00:03:53,959 --> 00:03:56,480
+it and I can use the Len function pass a
+
+106
+00:03:56,480 --> 00:03:58,680
+string into the Len function it says oh
+
+107
+00:03:58,680 --> 00:04:01,519
+9462 six characters that's kind of a
+
+108
+00:04:01,519 --> 00:04:04,760
+small um a small little file and
+
+109
+00:04:04,760 --> 00:04:07,959
+perfectly okay to read it all in one go
+
+110
+00:04:07,959 --> 00:04:10,000
+and so now I say just print the first 20
+
+111
+00:04:10,000 --> 00:04:11,599
+characters that's you know beginning to
+
+112
+00:04:11,599 --> 00:04:13,319
+up to but not including 20 and so it
+
+113
+00:04:13,319 --> 00:04:16,320
+shows the the first TW 20 characters of
+
+114
+00:04:16,320 --> 00:04:18,279
+that little file is a from line because
+
+115
+00:04:18,279 --> 00:04:21,279
+this is a mailbox
+
+116
+00:04:21,759 --> 00:04:24,639
+file now let's say we're going to do a
+
+117
+00:04:24,639 --> 00:04:26,280
+searching and we did this Loop where
+
+118
+00:04:26,280 --> 00:04:28,160
+you're looking for something and so
+
+119
+00:04:28,160 --> 00:04:30,000
+we're going to search for lines that
+
+120
+00:04:30,000 --> 00:04:31,800
+have a prefix of
+
+121
+00:04:31,800 --> 00:04:33,800
+from okay that's what we're going to do
+
+122
+00:04:33,800 --> 00:04:35,080
+and we're going to print those lines out
+
+123
+00:04:35,080 --> 00:04:37,000
+so there's lots of lines in this
+
+124
+00:04:37,000 --> 00:04:40,759
+file you know line line line line from
+
+125
+00:04:40,759 --> 00:04:43,199
+line line line line from right on and on
+
+126
+00:04:43,199 --> 00:04:44,800
+and on and we don't we only want to show
+
+127
+00:04:44,800 --> 00:04:46,280
+these lines the ones that match right
+
+128
+00:04:46,280 --> 00:04:49,120
+that's what we want to do and
+
+129
+00:04:49,120 --> 00:04:51,680
+so we are going to write an open
+
+130
+00:04:51,680 --> 00:04:53,320
+statement and then we're going to Loop
+
+131
+00:04:53,320 --> 00:04:55,199
+through and we're going to ask the
+
+132
+00:04:55,199 --> 00:04:57,600
+question if the line starts with from
+
+133
+00:04:57,600 --> 00:04:59,560
+print it so sometimes it's going to
+
+134
+00:04:59,560 --> 00:05:01,120
+going to skip skip skip skip and then
+
+135
+00:05:01,120 --> 00:05:02,880
+it's going to run it then Skip Skip Skip
+
+136
+00:05:02,880 --> 00:05:05,320
+Skip Skip it's going to run it Skip Skip
+
+137
+00:05:05,320 --> 00:05:07,680
+Skip and then it's going to run it okay
+
+138
+00:05:07,680 --> 00:05:10,720
+so that's the basic idea and then then
+
+139
+00:05:10,720 --> 00:05:12,199
+it'll finish when it's all said and done
+
+140
+00:05:12,199 --> 00:05:14,479
+and so this is like an a criteria this
+
+141
+00:05:14,479 --> 00:05:17,000
+is like a search we're looking for lines
+
+142
+00:05:17,000 --> 00:05:19,360
+that match the string that have the
+
+143
+00:05:19,360 --> 00:05:22,039
+string from as their
+
+144
+00:05:22,039 --> 00:05:24,400
+prefix now when we look at the output of
+
+145
+00:05:24,400 --> 00:05:28,000
+this it's kind of weird we see kind of
+
+146
+00:05:28,000 --> 00:05:30,160
+these little blank lines that show blank
+
+147
+00:05:30,160 --> 00:05:33,199
+blank blank blank blank blank blank
+
+148
+00:05:33,199 --> 00:05:36,520
+what's going on here what's going on so
+
+149
+00:05:36,520 --> 00:05:38,000
+let's take a quick
+
+150
+00:05:38,000 --> 00:05:41,120
+look the problem is is new lines well I
+
+151
+00:05:41,120 --> 00:05:44,319
+mentioned that the file has new lines in
+
+152
+00:05:44,319 --> 00:05:47,360
+them and so when you do the for Loop it
+
+153
+00:05:47,360 --> 00:05:49,160
+doesn't throw the new lines away as you
+
+154
+00:05:49,160 --> 00:05:51,520
+might expect it would be kind of nice if
+
+155
+00:05:51,520 --> 00:05:53,280
+it did but it doesn't it actually shows
+
+156
+00:05:53,280 --> 00:05:55,880
+you when it when you read it reads that
+
+157
+00:05:55,880 --> 00:05:57,840
+first line up to and including the new
+
+158
+00:05:57,840 --> 00:05:59,600
+line and gives you that back as the the
+
+159
+00:05:59,600 --> 00:06:01,560
+variable so that is the First new line
+
+160
+00:06:01,560 --> 00:06:03,360
+so that means it's going to go down and
+
+161
+00:06:03,360 --> 00:06:05,280
+then the print statement actually adds
+
+162
+00:06:05,280 --> 00:06:07,199
+another new line so that's the the
+
+163
+00:06:07,199 --> 00:06:09,000
+second line of the file has a new line
+
+164
+00:06:09,000 --> 00:06:10,639
+at the end of it and the print statement
+
+165
+00:06:10,639 --> 00:06:12,199
+adds another new line so if we take a
+
+166
+00:06:12,199 --> 00:06:13,720
+look at the
+
+167
+00:06:13,720 --> 00:06:19,560
+code there is a new line oops come
+
+168
+00:06:19,560 --> 00:06:22,400
+back if we take a look at the code this
+
+169
+00:06:22,400 --> 00:06:25,199
+variable line has a new line in it oops
+
+170
+00:06:25,199 --> 00:06:26,880
+where am I at I'm in the wrong slide
+
+171
+00:06:26,880 --> 00:06:28,400
+there we
+
+172
+00:06:28,400 --> 00:06:30,240
+go
+
+173
+00:06:30,240 --> 00:06:32,919
+yeah this the one I want to do if we
+
+174
+00:06:32,919 --> 00:06:34,759
+look at the code there's a new line in
+
+175
+00:06:34,759 --> 00:06:36,560
+here and then the print adds another new
+
+176
+00:06:36,560 --> 00:06:38,560
+line so the print adds a separate new
+
+177
+00:06:38,560 --> 00:06:41,199
+line and that's how we get two new lines
+
+178
+00:06:41,199 --> 00:06:42,800
+the print statements new line and the
+
+179
+00:06:42,800 --> 00:06:44,520
+new line from the
+
+180
+00:06:44,520 --> 00:06:46,560
+file here's how we fix it and you're
+
+181
+00:06:46,560 --> 00:06:48,479
+going to write this code a lot because
+
+182
+00:06:48,479 --> 00:06:49,880
+when you're reading text files you end
+
+183
+00:06:49,880 --> 00:06:51,199
+up with a new line and often you don't
+
+184
+00:06:51,199 --> 00:06:53,080
+want the new line but
+
+185
+00:06:53,080 --> 00:06:55,080
+thankfully as we saw in the previous
+
+186
+00:06:55,080 --> 00:06:57,560
+chapter there is a nice little function
+
+187
+00:06:57,560 --> 00:07:00,039
+in uh python for string
+
+188
+00:07:00,039 --> 00:07:01,479
+called strip that allows you to throw
+
+189
+00:07:01,479 --> 00:07:03,720
+away whites
+
+190
+00:07:03,720 --> 00:07:06,160
+space and to
+
+191
+00:07:06,160 --> 00:07:09,759
+review remember Whit space is anything
+
+192
+00:07:09,759 --> 00:07:12,160
+that doesn't print and this new line is
+
+193
+00:07:12,160 --> 00:07:14,039
+not a non-printing character so our
+
+194
+00:07:14,039 --> 00:07:15,599
+strip gets rid of it so it's a way to
+
+195
+00:07:15,599 --> 00:07:18,280
+get rid of whites space and R strip does
+
+196
+00:07:18,280 --> 00:07:19,960
+it from the right end so it's the right
+
+197
+00:07:19,960 --> 00:07:22,639
+end of the F of the of the
+
+198
+00:07:22,639 --> 00:07:25,879
+string and so if we just are going to
+
+199
+00:07:25,879 --> 00:07:27,440
+Loop through all the lines in the file
+
+200
+00:07:27,440 --> 00:07:29,560
+we say line equals line rstrip and then
+
+201
+00:07:29,560 --> 00:07:31,639
+this variable no longer has the new line
+
+202
+00:07:31,639 --> 00:07:33,400
+at the end of it we have our little if
+
+203
+00:07:33,400 --> 00:07:35,639
+statement and if we print it then this
+
+204
+00:07:35,639 --> 00:07:37,879
+line the data has no thing and then the
+
+205
+00:07:37,879 --> 00:07:39,800
+print the data has a no new line in it
+
+206
+00:07:39,800 --> 00:07:41,400
+so the print only goes down one and so
+
+207
+00:07:41,400 --> 00:07:44,039
+now we have single spaced output and so
+
+208
+00:07:44,039 --> 00:07:45,199
+you're going to be doing that a lot it's
+
+209
+00:07:45,199 --> 00:07:47,720
+really common to read through a file and
+
+210
+00:07:47,720 --> 00:07:50,360
+then just strip the new line or any
+
+211
+00:07:50,360 --> 00:07:54,720
+trailing space off the end of that now
+
+212
+00:07:54,720 --> 00:07:56,280
+there's a couple of ways to do a loop
+
+213
+00:07:56,280 --> 00:07:59,000
+like this and let's let's just think of
+
+214
+00:07:59,000 --> 00:08:03,080
+this says um we're looking for a a line
+
+215
+00:08:03,080 --> 00:08:04,759
+a file with lots of different lines in
+
+216
+00:08:04,759 --> 00:08:06,639
+it and we want to ignore all the lines
+
+217
+00:08:06,639 --> 00:08:08,319
+except some say good lines and we want
+
+218
+00:08:08,319 --> 00:08:10,000
+to do something with those good lines or
+
+219
+00:08:10,000 --> 00:08:11,879
+the lines we're looking for needle in a
+
+220
+00:08:11,879 --> 00:08:13,440
+Hy stack this is like searching for a
+
+221
+00:08:13,440 --> 00:08:16,199
+needle in the Hy stack so if you look at
+
+222
+00:08:16,199 --> 00:08:17,479
+this code at high level we're going to
+
+223
+00:08:17,479 --> 00:08:19,800
+Loop through everything and then we're
+
+224
+00:08:19,800 --> 00:08:21,520
+sort of picking which lines are and
+
+225
+00:08:21,520 --> 00:08:24,280
+these are the good lines down here now
+
+226
+00:08:24,280 --> 00:08:25,800
+often we have a bunch more code that we
+
+227
+00:08:25,800 --> 00:08:27,280
+want to do and we're not just printing
+
+228
+00:08:27,280 --> 00:08:28,720
+them but we're going to do a lot of code
+
+229
+00:08:28,720 --> 00:08:30,479
+so some times you actually structure the
+
+230
+00:08:30,479 --> 00:08:33,519
+loop a little bit differently and so the
+
+231
+00:08:33,519 --> 00:08:35,000
+way to do it and this is going to do the
+
+232
+00:08:35,000 --> 00:08:36,799
+exact same thing it's just a little
+
+233
+00:08:36,799 --> 00:08:38,919
+different way of thinking about this
+
+234
+00:08:38,919 --> 00:08:41,039
+Loop so the top part is the same we're
+
+235
+00:08:41,039 --> 00:08:42,799
+stripping it and what we're doing here
+
+236
+00:08:42,799 --> 00:08:44,440
+is it it's everything's the same here
+
+237
+00:08:44,440 --> 00:08:46,320
+except we add this in not if the line
+
+238
+00:08:46,320 --> 00:08:48,920
+does not start with from that's the
+
+239
+00:08:48,920 --> 00:08:50,399
+translation of that if the line does not
+
+240
+00:08:50,399 --> 00:08:53,839
+start with from continue so basically we
+
+241
+00:08:53,839 --> 00:08:57,320
+have a skipping pattern so the lines
+
+242
+00:08:57,320 --> 00:08:59,800
+we're not interested in we skip so we
+
+243
+00:08:59,800 --> 00:09:03,079
+come down we you know Skip a lot of
+
+244
+00:09:03,079 --> 00:09:05,360
+lines and then we find a line that's
+
+245
+00:09:05,360 --> 00:09:07,600
+good and then we fall through so this is
+
+246
+00:09:07,600 --> 00:09:09,560
+the good code and then we have all the
+
+247
+00:09:09,560 --> 00:09:10,959
+other good code that we want to do to
+
+248
+00:09:10,959 --> 00:09:13,040
+that line we have that showing up down
+
+249
+00:09:13,040 --> 00:09:16,440
+here um and so there's just two patterns
+
+250
+00:09:16,440 --> 00:09:19,560
+that two ways to do the exact same thing
+
+251
+00:09:19,560 --> 00:09:21,720
+so another way to select the lines that
+
+252
+00:09:21,720 --> 00:09:23,240
+we're interested in is to use the in
+
+253
+00:09:23,240 --> 00:09:25,079
+operator so we talked before about the
+
+254
+00:09:25,079 --> 00:09:27,839
+in operator and how that works so we're
+
+255
+00:09:27,839 --> 00:09:29,279
+basically and I'm going to use the
+
+256
+00:09:29,279 --> 00:09:31,200
+continue skipping method so we're going
+
+257
+00:09:31,200 --> 00:09:32,680
+to read all the lines these first few
+
+258
+00:09:32,680 --> 00:09:37,279
+lines if u. ac. Za is not in the line
+
+259
+00:09:37,279 --> 00:09:39,480
+skip it and so this is going to print
+
+260
+00:09:39,480 --> 00:09:42,560
+out all the lines that have the string
+
+261
+00:09:42,560 --> 00:09:46,320
+UCT a Za in them in them and so you see
+
+262
+00:09:46,320 --> 00:09:47,880
+this is the output of the program dot
+
+263
+00:09:47,880 --> 00:09:50,399
+dot dot dot
+
+264
+00:09:50,959 --> 00:09:54,079
+dot sometimes you'll have programs that
+
+265
+00:09:54,079 --> 00:09:56,480
+want to read different files often I
+
+266
+00:09:56,480 --> 00:09:58,360
+give assignments where I say show me how
+
+267
+00:09:58,360 --> 00:09:59,920
+this program runs on the short file and
+
+268
+00:09:59,920 --> 00:10:01,399
+then show me again how it runs on the
+
+269
+00:10:01,399 --> 00:10:03,480
+long file just like this and so the way
+
+270
+00:10:03,480 --> 00:10:05,200
+we do that to input the file name
+
+271
+00:10:05,200 --> 00:10:06,640
+instead of making the file name be a
+
+272
+00:10:06,640 --> 00:10:08,800
+constant to the open call we make the
+
+273
+00:10:08,800 --> 00:10:12,200
+file name be a input so we just run an
+
+274
+00:10:12,200 --> 00:10:14,920
+input statement which gives us a prompt
+
+275
+00:10:14,920 --> 00:10:17,160
+and then we type inbox. txt and then
+
+276
+00:10:17,160 --> 00:10:18,800
+that shows up in this variable F name
+
+277
+00:10:18,800 --> 00:10:20,680
+it's a course of string all the time and
+
+278
+00:10:20,680 --> 00:10:22,279
+we pass that into open and then we open
+
+279
+00:10:22,279 --> 00:10:24,519
+it and then we do you know the count
+
+280
+00:10:24,519 --> 00:10:27,360
+operation so if we enter inbox. txt it
+
+281
+00:10:27,360 --> 00:10:30,040
+counts 179 7
+
+282
+00:10:30,040 --> 00:10:34,000
+1797 um subject lines in Mbox and if we
+
+283
+00:10:34,000 --> 00:10:35,959
+give it Mbox short it says there are 27
+
+284
+00:10:35,959 --> 00:10:38,240
+subject lines in Mbox and again this is
+
+285
+00:10:38,240 --> 00:10:39,920
+another one of those ifs and it's just
+
+286
+00:10:39,920 --> 00:10:41,880
+counting but only counting lines that
+
+287
+00:10:41,880 --> 00:10:45,639
+match a particular uh a particular
+
+288
+00:10:45,639 --> 00:10:47,200
+uh
+
+289
+00:10:47,200 --> 00:10:49,600
+pattern okay so now the user can also
+
+290
+00:10:49,600 --> 00:10:51,160
+type bad file names and we need to be
+
+291
+00:10:51,160 --> 00:10:53,920
+able to deal with that as well and so we
+
+292
+00:10:53,920 --> 00:10:57,040
+we're we're taking a small small change
+
+293
+00:10:57,040 --> 00:10:59,519
+to the code the danger the dangerous
+
+294
+00:10:59,519 --> 00:11:01,360
+code is this line right here this line
+
+295
+00:11:01,360 --> 00:11:03,200
+right here is going to trace back if
+
+296
+00:11:03,200 --> 00:11:05,839
+that file doesn't exist so what do we do
+
+297
+00:11:05,839 --> 00:11:07,519
+well we're going to just expand that the
+
+298
+00:11:07,519 --> 00:11:09,200
+rest of this program is exactly the same
+
+299
+00:11:09,200 --> 00:11:10,639
+the only thing's different is we we've
+
+300
+00:11:10,639 --> 00:11:13,639
+got this line we took out insurance on
+
+301
+00:11:13,639 --> 00:11:16,360
+it and we know that it might blow up and
+
+302
+00:11:16,360 --> 00:11:20,480
+so we we have it in a try and accept
+
+303
+00:11:20,720 --> 00:11:24,639
+block so here's how the code
+
+304
+00:11:24,880 --> 00:11:28,040
+runs so you know the input runs we type
+
+305
+00:11:28,040 --> 00:11:30,880
+in a good file name comes in here this
+
+306
+00:11:30,880 --> 00:11:32,959
+works and so it skips the accept and so
+
+307
+00:11:32,959 --> 00:11:34,320
+it runs the code and prints out the
+
+308
+00:11:34,320 --> 00:11:37,120
+count so that's the good pattern the bad
+
+309
+00:11:37,120 --> 00:11:38,079
+pattern
+
+310
+00:11:38,079 --> 00:11:41,519
+is here we type in a bad file name it
+
+311
+00:11:41,519 --> 00:11:44,160
+comes in the tri accept this file name
+
+312
+00:11:44,160 --> 00:11:46,440
+is naab Boo Boo and it's going to blow
+
+313
+00:11:46,440 --> 00:11:49,240
+up so this line blows up so it jumps
+
+314
+00:11:49,240 --> 00:11:51,440
+down into the accept code prints out
+
+315
+00:11:51,440 --> 00:11:53,920
+file cannot be open so prints this out
+
+316
+00:11:53,920 --> 00:11:55,920
+now this quit is really important
+
+317
+00:11:55,920 --> 00:11:57,279
+because if we don't put this quit in
+
+318
+00:11:57,279 --> 00:11:58,920
+here it's going to continue down here
+
+319
+00:11:58,920 --> 00:12:00,440
+and that's going to blow up here CU file
+
+320
+00:12:00,440 --> 00:12:02,720
+handle is not defined properly at this
+
+321
+00:12:02,720 --> 00:12:06,360
+point and so what we have is we have
+
+322
+00:12:06,360 --> 00:12:08,399
+this quit op quit is a special function
+
+323
+00:12:08,399 --> 00:12:11,279
+where it comes in and never returns so
+
+324
+00:12:11,279 --> 00:12:13,519
+this is a way to terminate the entire
+
+325
+00:12:13,519 --> 00:12:16,240
+Python program silently with no Trace
+
+326
+00:12:16,240 --> 00:12:18,240
+back right so we put in our own error
+
+327
+00:12:18,240 --> 00:12:20,040
+message so we look like we're
+
+328
+00:12:20,040 --> 00:12:21,880
+professional say could not open this
+
+329
+00:12:21,880 --> 00:12:24,959
+file and then we stop if you don't it's
+
+330
+00:12:24,959 --> 00:12:26,040
+going to come down here and it's going
+
+331
+00:12:26,040 --> 00:12:28,959
+to trace back Trace back right there
+
+332
+00:12:28,959 --> 00:12:31,480
+going to blow up so um the quit is
+
+333
+00:12:31,480 --> 00:12:34,880
+useful when you want to stop executing
+
+334
+00:12:34,880 --> 00:12:37,760
+because you've detected some kind of an
+
+335
+00:12:37,760 --> 00:12:40,440
+error so that's a quick Zoom through
+
+336
+00:12:40,440 --> 00:12:42,279
+opening and reading through files and uh
+
+337
+00:12:42,279 --> 00:12:44,480
+doing some patterns
+
+338
+00:12:44,480 --> 00:12:46,920
+um most of the rest of the programs in
+
+339
+00:12:46,920 --> 00:12:51,639
+this course are going to say open for R
+
+340
+00:12:51,639 --> 00:12:54,800
+strip do look for and then do something
+
+341
+00:12:54,800 --> 00:12:56,800
+interesting that's going to be our Loop
+
+342
+00:12:56,800 --> 00:12:59,360
+that we're going to do over and over and
+
+343
+00:12:59,360 --> 00:13:01,920
+over again and now we see how this
+
+344
+00:13:01,920 --> 00:13:04,959
+looping and if and iteration and
+
+345
+00:13:04,959 --> 00:13:07,920
+variables are are starting to come
+
+346
+00:13:07,920 --> 00:13:09,399
+together and you can actually sort of do
+
+347
+00:13:09,399 --> 00:13:13,000
+a program that does something useful but
+
+348
+00:13:13,000 --> 00:13:15,040
+before we get to too many more programs
+
+349
+00:13:15,040 --> 00:13:16,680
+we got to switch a little bit switch
+
+350
+00:13:16,680 --> 00:13:19,079
+gears and talk up next about data
+
+351
+00:13:19,079 --> 00:13:21,920
+structures and that is the shape of data
+
+352
+00:13:21,920 --> 00:13:24,240
+um and how we can use more intricate and
+
+353
+00:13:24,240 --> 00:13:27,760
+complex variables to help solve our
+
+354
+00:13:27,760 --> 00:13:30,760
+problems
+

@@ -1,7 +1,5 @@
+import math
 
-import sys
-sys.stdin = open('input.txt', 'r')
-sys.stdout = open('output.txt', 'w')
-
-s = input()
-print("Hello " + s)
+sq = math.sqrt(2)
+x = 3 + 15 * 16 + 10 * 16 * 16
+print(80000 / 5000)

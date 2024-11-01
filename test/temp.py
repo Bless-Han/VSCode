@@ -1,14 +1,8 @@
 
-nums = list(map(int, input().split()))
-for i in range(1, len(nums)):
-    if nums[i] > 0:
-        print(i, end="")
-        nums[i] -= 1
-        break
-    
-for i in range(len(nums)):
-    while nums[i]:
-        print(i, end="")
-        nums[i] -= 1
-        
-print()
+import sys
+sys.stdin = open('input.txt', 'r')
+sys.stdout = open('output.txt', 'w')
+
+x = int(input())
+print(x ** 1)
+

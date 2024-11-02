@@ -1,3 +1,4 @@
 import math
 
-print(int('7D0'))
+y = 41790 / 210 + 5
+print(y)

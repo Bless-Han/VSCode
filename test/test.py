@@ -1,4 +1,4 @@
 import math
 
-y = 41790 / 210 + 5
+y = (-3 / 0.75)
 print(y)

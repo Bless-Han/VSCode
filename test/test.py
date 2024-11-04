@@ -1,4 +1,4 @@
 import math
 
-y = (-3 / 0.75)
-print(y)
+print(95 * 1.15)
+print(95 + 0.15 * 95)

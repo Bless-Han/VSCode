@@ -1,4 +1,2 @@
-import math
-
-print(95 * 1.15)
-print(95 + 0.15 * 95)
+print(220 / 38)
+print(38 * 6)
